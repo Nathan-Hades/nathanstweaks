@@ -1,0 +1,464 @@
+BACKUP ~nathanstweaks/backup~ // location to store files for
+SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
+
+VERSION ~v0.1~
+//README ~nathanstweaks/readme-nathanstweaks-%LANGUAGE%.txt~ ~nathanstweaks/readme.html~
+
+LANGUAGE ~English~ ~english~ 
+  ~nathanstweaks/languages/english/setup.tra~
+LANGUAGE ~Deutsch~ ~german~
+  ~nathanstweaks/languages/german/setup.tra~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Scripts								   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1001 DESIGNATED 1001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @0
+
+COPY ~nathanstweaks/bs/aGen.BS~ ~scripts~
+COPY ~nathanstweaks/bs/bard0.BS~ ~scripts~
+COPY ~nathanstweaks/bs/thief3.BS~ ~scripts~
+
+/*COPY_EXISTING ~bddefai.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~IF[%TAB% %WNL%]*Global(.BDAI_INIT_ATTACK.,.LOCALS.,0)[%TAB% %WNL%]*!Global(.BDAI_ATTACK_MODE.,.LOCALS.,2)[%TAB% %WNL%]*OR(6)[%TAB% %WNL%]*Kit(Myself,FERALAN)[%TAB% %WNL%]*CheckStatGT(Myself,2,PROFICIENCYCROSSBOW)[%TAB% %WNL%]*CheckStatGT(Myself,2,PROFICIENCYLONGBOW)[%TAB% %WNL%]*CheckStatGT(Myself,2,PROFICIENCYSHORTBOW)[%TAB% %WNL%]*CheckStatGT(Myself,2,PROFICIENCYDART)[%TAB% %WNL%]*CheckStatGT(Myself,2,PROFICIENCYSLING)[%TAB% %WNL%]*THEN[%TAB% %WNL%]*RESPONSE #100[%TAB% %WNL%]*SetGlobal(.BDAI_INIT_ATTACK.,.LOCALS.,1)[%TAB% %WNL%]*SetGlobal(.BDAI_ATTACK_MODE.,.LOCALS.,2)[%TAB% %WNL%]*Continue()[%TAB% %WNL%]*END~~~~~ ~~~~~~~~~~
+		REPLACE_TEXTUALLY ~~~~~IF[%TAB% %WNL%]*Global(.BDAI_INIT_ITEMS.,.LOCALS.,0)[%TAB% %WNL%]*THEN[%TAB% %WNL%]*RESPONSE #100[%TAB% %WNL%]*SetGlobal(.BDAI_INIT_ITEMS.,.LOCALS.,1)[%TAB% %WNL%]*SetGlobal(.BDAI_DISABLE_ITEMS.,.LOCALS.,1)[%TAB% %WNL%]*Continue()[%TAB% %WNL%]*END~~~~~ ~~~~~IF
+	Global("BDAI_INIT_SKILL","LOCALS",0)
+	Global("BDAI_SKILL_MODE","LOCALS",0)
+	Class(Myself,BARD_ALL)
+THEN
+	RESPONSE #100
+		SetGlobal("BDAI_INIT_SKILL","LOCALS",1)
+		SetGlobal("BDAI_SKILL_MODE","LOCALS",2)
+		Continue()
+END
+
+IF
+	Global("BDAI_INIT_SKILL","LOCALS",0)
+	Global("BDAI_SKILL_MODE","LOCALS",0)
+	Kit(Myself,STALKER)
+THEN
+	RESPONSE #100
+		SetGlobal("BDAI_INIT_SKILL","LOCALS",1)
+		SetGlobal("BDAI_SKILL_MODE","LOCALS",3)
+		Continue()
+END~~~~~
+		REPLACE_TEXTUALLY ~~~~~SetGlobal(.BDAI_INIT_ITEMS.,.LOCALS.,0)~~~~~ ~~~~~	SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1)
+		SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1)
+		SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1)
+		SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1)~~~~~
+		REPLACE_TEXTUALLY ~~~~~IF[%TAB% %WNL%]*Global(.BDAI_SKILL_MODE.,.LOCALS.,1)[%TAB% %WNL%]*ActionListEmpty()[%TAB% %WNL%]*InParty(Myself)[%TAB% %WNL%]*!See([EVILCUTOFF])[%TAB% %WNL%]*!ModalState(DETECTTRAPS)[%TAB% %WNL%]*!ModalState(STEALTH)[%TAB% %WNL%]*OR(3)[%TAB% %WNL%]*Class(Myself,THIEF_ALL)[%TAB% %WNL%]*Class(Myself,MONK)[%TAB% %WNL%]*Class(Myself,SHAMAN)[%TAB% %WNL%]*THEN[%TAB% %WNL%]*RESPONSE #100[%TAB% %WNL%]*FindTraps()[%TAB% %WNL%]*END[%TAB% %WNL%]*~~~~~ ~~~~~IF
+	Global("BDAI_SKILL_MODE","LOCALS",1)
+	ActionListEmpty()
+	InParty(Myself)
+	!ModalState(DETECTTRAPS)
+	!ModalState(STEALTH)
+	!ModalState(SHAMANDANCE)
+	OR(3)
+		Class(Myself,THIEF_ALL)
+		Class(Myself,MONK)
+		Class(Myself,SHAMAN)
+THEN
+	RESPONSE #100
+		FindTraps()
+END~~~~~
+		REPLACE_TEXTUALLY ~~~~~IF[%TAB% %WNL%]*Global(.BDAI_SKILL_MODE.,.LOCALS.,3)[%TAB% %WNL%]*ActionListEmpty()[%TAB% %WNL%]*InParty(Myself)[%TAB% %WNL%]*!ModalState(BATTLESONG)[%TAB% %WNL%]*OR(2)[%TAB% %WNL%]*Class(Myself,BARD_ALL)[%TAB% %WNL%]*Class(Myself,SHAMAN)[%TAB% %WNL%]*OR(2)[%TAB% %WNL%]*Range([EVILCUTOFF],30)[%TAB% %WNL%]*ActuallyInCombat()[%TAB% %WNL%]*THEN[%TAB% %WNL%]*RESPONSE #100[%TAB% %WNL%]*SetGlobal(.BD_BRDS.,.LOCALS.,1)[%TAB% %WNL%]*BattleSong()[%TAB% %WNL%]*END[%TAB% %WNL%]*IF[%TAB% %WNL%]*Global(.BDAI_SKILL_MODE.,.LOCALS.,3)[%TAB% %WNL%]*ActionListEmpty()[%TAB% %WNL%]*InParty(Myself)[%TAB% %WNL%]*ModalState(BATTLESONG)[%TAB% %WNL%]*!See([EVILCUTOFF])[%TAB% %WNL%]*!ActuallyInCombat()[%TAB% %WNL%]*OR(2)[%TAB% %WNL%]*Class(Myself,BARD_ALL)[%TAB% %WNL%]*Class(Myself,SHAMAN)[%TAB% %WNL%]*Delay(30)[%TAB% %WNL%]*Global(.BD_BRDS.,.LOCALS.,1)[%TAB% %WNL%]*THEN[%TAB% %WNL%]*RESPONSE #100[%TAB% %WNL%]*SetGlobal(.BD_BRDS.,.LOCALS.,0)[%TAB% %WNL%]*ClearActions(Myself)[%TAB% %WNL%]*END~~~~~ ~~~~~IF
+	Global("BDAI_SKILL_MODE","LOCALS",3)
+	ActionListEmpty()
+	InParty(Myself)
+	!ModalState(BATTLESONG)
+	Class(Myself,BARD_ALL)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_BRDS","LOCALS",1)
+		BattleSong()
+END
+
+IF
+	Global("BDAI_SKILL_MODE","LOCALS",3)
+	ActionListEmpty()
+	InParty(Myself)
+	!ModalState(BATTLESONG)
+	Class(Myself,SHAMAN)
+	OR(2)
+		Range([EVILCUTOFF],30)
+		ActuallyInCombat()
+THEN
+	RESPONSE #100
+		SetGlobal("BD_BRDS","LOCALS",1)
+		BattleSong()
+END
+
+IF
+	Global("BDAI_SKILL_MODE","LOCALS",3)
+	ActionListEmpty()
+	InParty(Myself)
+	ModalState(BATTLESONG)
+	!See([EVILCUTOFF])
+	!ActuallyInCombat()
+	Class(Myself,SHAMAN)
+	Delay(30)
+	Global("BD_BRDS","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("BD_BRDS","LOCALS",0)
+		ClearActions(Myself)
+END~~~~~
+		
+		~~~~~IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(FourthNearestEnemyOf(Myself),OFFHAND)
+	See(FourthNearestEnemyOf(Myself))
+	!StateCheck(FourthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(FourthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(FourthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(FourthNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(FifthNearestEnemyOf(Myself),OFFHAND)
+	See(FifthNearestEnemyOf(Myself))
+	!StateCheck(FifthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(FifthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(FifthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(FifthNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(SixthNearestEnemyOf(Myself),OFFHAND)
+	See(SixthNearestEnemyOf(Myself))
+	!StateCheck(SixthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(SixthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(SixthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(SixthNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(SeventhNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(SeventhNearestEnemyOf(Myself),OFFHAND)
+	See(SeventhNearestEnemyOf(Myself))
+	!StateCheck(SeventhNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(SeventhNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(SeventhNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(SeventhNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(EighthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(EighthNearestEnemyOf(Myself),OFFHAND)
+	See(EighthNearestEnemyOf(Myself))
+	!StateCheck(EighthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(EighthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(EighthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(EighthNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(NinthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(NinthNearestEnemyOf(Myself),OFFHAND)
+	See(NinthNearestEnemyOf(Myself))
+	!StateCheck(NinthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(NinthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(NinthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(NinthNearestEnemyOf(Myself))
+END
+
+IF
+	!ModalState(BATTLESONG)
+	Global("BDAI_DISABLE_ATTACK","LOCALS",0)
+	ActionListEmpty()
+	InParty(Myself)
+	CheckStat(Myself,0,SANCTUARY)
+	OR(2)
+		WeaponCanDamage(TenthNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(TenthNearestEnemyOf(Myself),OFFHAND)
+	See(TenthNearestEnemyOf(Myself))
+	!StateCheck(TenthNearestEnemyOf(Myself),STATE_REALLY_DEAD)
+	!Allegiance(TenthNearestEnemyOf(Myself),GOODCUTOFF)
+	!InParty(TenthNearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		Attack(TenthNearestEnemyOf(Myself))
+END~~~~~
+		REPLACE_TEXTUALLY ~~~~~!ModalState(BATTLESONG)~~~~~ ~~~~~!ModalState(BATTLESONG)
+	!ModalState(TURNUNDEAD)
+	!ModalState(STEALTH)
+	!ModalState(SHAMANDANCE)~~~~~
+		REPLACE_TEXTUALLY ~~~~~AttackOneRound~~~~~ ~~~~~Attack~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+		WeaponEffectiveVs(NearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+		WeaponEffectiveVs(SecondNearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+		WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(NearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(SecondNearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)~~~~~ ~~~~~OR(2)
+		WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+		WeaponCanDamage(ThirdNearestEnemyOf(Myself),OFFHAND)~~~~~
+		REPLACE_TEXTUALLY ~~~~~[%TAB% %WNL%]*HasItem("MELFMET",Myself)~~~~~ ~~~~~~~~~~
+			END
+			BUT_ONLY*/
+ACTION_FOR_EACH file IN bdajantc bdalorac bdbaeloc bdbranwc bdcoranc bddefai bddornc bddynac bdedwinc bdeldotc bdfaldoc bdgarrcc bdgarric bdimoenc bdjaheic bdkagaic bdkhalic bdkivanc bdminscc bdmontac bdneerac bdqualec bdrasaac bdsafanc bdshartc bdskiec bdtiaxc bdviconc bdxanc bdxzarc bdyeslic bdaeriec bdanomec bdcerndc bdhaerc bdhexxac bdjanc bdkeldoc bdkorgac bdmazzyc bdnaliac bdsarevc bdvalygc bdwilsoc bdyoshic BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.bcs~ THEN BEGIN
+		COPY ~nathanstweaks/bcs/bddefai.bcs~ ~override/%file%.bcs~
+	END
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~AR0602.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~Continue()~~~~~ ~~~~~ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		Continue()~~~~~
+	END
+	BUT_ONLY
+END
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Silent Zeke									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1002 DESIGNATED 1002
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+
+COPY ~nathanstweaks/wav/gorin14.wav~ ~override~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Remove "You Must Gather..."					   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1003 DESIGNATED 1003
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+
+STRING_SET 16484 @10031
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Ursa									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1004 DESIGNATED 1004
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+
+COPY_EXISTING ~nexlit.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ActionOverride("Ursa",Attack("Nexlit"))~~~~~ ~~~~~ActionOverride("Ursa",Attack([PC]))~~~~~
+	END
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Knott									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1005 DESIGNATED 1005
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+
+COPY_EXISTING ~knott.cre~ ~override~
+		WRITE_ASCII SCRIPT_OVERRIDE ~BHOSTILE~
+		WRITE_ASCII SCRIPT_CLASS ~SHOUT~
+		WRITE_ASCII SCRIPT_GENERAL ~INITDLG~
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Aldeth' Hunter							   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1006 DESIGNATED 1006
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+	
+COPY_EXISTING ~aldeth.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~Enemy()~~~~~ ~~~~~Enemy()
+ActionOverride("Hunter1",Enemy())
+ActionOverride("Hunter2",Enemy())~~~~~
+	END
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Fix Narlen									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+/*BEGIN @1007 DESIGNATED 1007
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+	
+COPY_EXISTING ~ar0300.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ ~~~~~ ~~~~~ ~~~~~
+	END
+	BUT_ONLY*/
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// More XP										   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2001 DESIGNATED 2001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~gandol.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(250)~~~~~ ~~~~~GiveGoldForce(250)
+AddExperienceParty(250)~~~~~
+	END
+	BUT_ONLY
+	COPY_EXISTING ~NOBW8.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(500)~~~~~ ~~~~~GiveGoldForce(500)
+AddExperienceParty(500)~~~~~
+	END
+	BUT_ONLY
+	COPY_EXISTING ~narlen.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(100)~~~~~ ~~~~~GiveGoldForce(100)
+AddExperienceParty(1000)~~~~~
+		REPLACE_TEXTUALLY ~~~~~GiveItemCreate("MISC36",LastTalkedToBy,3,0,0)~~~~~ ~~~~~GiveItemCreate("MISC36",LastTalkedToBy,3,0,0)
+AddExperienceParty(1200)~~~~~
+	END
+	BUT_ONLY
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// More items are stealable						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2002 DESIGNATED 2002
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+
+COPY_EXISTING ~SLTSTEAL.2DA~ ~override~
+	REPLACE_TEXTUALLY ~~~~~ARMOUR     0~~~~~ ~~~~~ARMOUR     95~~~~~
+	REPLACE_TEXTUALLY ~~~~~BOOTS      0~~~~~ ~~~~~BOOTS      95~~~~~
+	REPLACE_TEXTUALLY ~~~~~HELMET     0~~~~~ ~~~~~HELMET     95~~~~~
+	REPLACE_TEXTUALLY ~~~~~SHIELD     0~~~~~ ~~~~~SHIELD     95~~~~~
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~ribald.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring08~ #0 #0 #0 ~NONE~ ~LRING~
+	COPY_EXISTING ~meronia.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
+	COPY_EXISTING ~berinvar.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~RRING~
+	COPY_EXISTING ~cor.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Show Ulgoths Bard Screen						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @3001 DESIGNATED 3001
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+
+COPY_EXISTING ~bgee.lua~ ~override~
+	REPLACE_TEXTUALLY ~~~~~chapterBackgrounds.59. = .LEAVEA.~~~~~ ~~~~~chapterBackgrounds[59] = "LEAVEA"
+chapterBackgrounds[60] = "ULGOTHST"~~~~~
+COPY_EXISTING ~ar1000.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~DisplayString(Myself,24105)~~~~~ ~~~~~CutSceneId(Player1)
+	FadeToColor([20.0],0)
+	Wait(1)
+	TextScreen("ULGOTH")
+	Wait(1)
+	MultiPlayerSync()
+	FadeFromColor([20.0],0)
+	EndCutSceneMode()~~~~~
+	END
+	BUT_ONLY
+COPY ~nathanstweaks/2da/ulgoth.2da~ ~override~
