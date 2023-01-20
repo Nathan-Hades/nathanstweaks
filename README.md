@@ -1,8 +1,11 @@
-# Nathanstweaks
+# NathansTweaks
+
 ## English
 This is a mod for the Enhanced Editions of Baldur's Gate 1, Baldur's Gate 2 and Icewind Dale 1.
+
 ### 1. Improvements
-#### 1.1.	Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
+
+#### 1.1. Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
 	- The Advanced AI script now causes your characters to stay with an opponent instead of attacking for only one turn.
 	- Thieves, shamans and monks automatically search for traps and illusions
 	- Shamans automatically perform the shaman dance in combat
@@ -69,7 +72,7 @@ Here points in the surroundings are meant where the cursor changes to the two ar
 
 #### 2.4. Melicamp always becomes a human (BG1EE)
 The random factor has been removed.
-	
+
 #### 2.5. Lorebonus for sorcerer (BG1EE, BG2EE, IWD1EE)
 	- +3 Bonus or
 	- +5 Bonus or
@@ -93,14 +96,14 @@ The developer-designed Ulgoth's beard screen has been added.
 	- Imoen: Green Grey
 	- Garric: Light Blue Yellow
 	- Nalia: Light Green Orange
-	
+
 #### 3.3. The Shadow Dragon has its old graphic (BG2EE)
 It is no longer semi-transparent, instead it has its old texture
 
 
 ### 4. Items
 
-#### 4.1. Endless Dart
+#### 4.1. Endless Dart (BG1EE, BG2EE, IWD1EE)
 This dart always returns to the thrower's hand after being thrown.
 It can be bought at Taerum Thunderhammer Smithy, Ribald's Adventurer Mart and Conlan's Smithy.
 
@@ -109,7 +112,7 @@ Dies ist eine Mod für die Enhanced-Editions von Baldur's Gate 1, Baldur's Gate 
 
 ### 1. Verbesserungen
 
-#### 1.1.	Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
+#### 1.1. Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
 	- Das Advanced AI-Skript führt nun dazu, dass deine Charaktere nicht nur eine Runde angreifen, sondern bei einem Gegner bleiben
 	- Diebe, Schamanen und Mönche suchen automatisch nach Fallen und Illusionen
 	- Schamanen führen automatisch den Schamanentanz im Kampf aus
@@ -178,7 +181,7 @@ Hier sind Punkte in der Umgebung gemeint, bei denen der Kursor sich in die beide
 
 #### 2.4. Melicamp wird immer zum Menschen (BG1EE)
 Der Zufallsfaktor wurde entfernt.
-	
+
 #### 2.5. Sagenkundenbonus für Hexenmeister (BG1EE, BG2EE, IWD1EE)
 	- +3 Bonus oder
 	- +5 Bonus oder

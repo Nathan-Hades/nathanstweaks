@@ -4,7 +4,7 @@ Komponenten:
 
 1. Verbesserungen
 
-1.1.	Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
+1.1. Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
 	- Das Advanced AI-Skript führt nun dazu, dass deine Charaktere nicht nur eine Runde angreifen, sondern bei einem Gegner bleiben
 	- Diebe, Schamanen und Mönche suchen automatisch nach Fallen und Illusionen
 	- Schamanen führen automatisch den Schamanentanz im Kampf aus
@@ -48,6 +48,7 @@ Komponenten:
 
 1.9. Hexxat trägt automatisch ihren Umhang (Beta) (BG2EE)
 	- Bei Bedarf zieht sich Hexxat ihren Umhang an oder aus.
+
 1.10. Vorherige Weisheitserhöhungen werden bei Anomens Prüfung berücksichtigt (BG2EE)
 	- Bei der positiven Prüfung von Anomen wird seine Weisheit nicht mehr auf 16 gesetzt, sondern um 4 erhöht. Damit ist es möglich, sie vor der Prüfung dauerhaft um eins zu erhöhen, damit er nach der Prüfung eine Weisheit von 17 hat.
 
@@ -72,7 +73,7 @@ Komponenten:
 
 2.4. Melicamp wird immer zum Menschen (BG1EE)
 	- Der Zufallsfaktor wurde entfernt.
-	
+
 2.5. Sagenkundenbonus für Hexenmeister (BG1EE, BG2EE, IWD1EE)
 	- +3 Bonus oder
 	- +5 Bonus oder
@@ -105,4 +106,4 @@ Komponenten:
 
 4.1. Endloser Wurfpfeil (BG1EE, BG2EE, IWD1EE)
 	- Dieser Wurfpfeil kehrt nach dem Werfen immer in die Hand des Werfers zurück.
-	Er kann bei Taerum Donnerhammer Schmiede, Ribalds Abenteurers Allerlei und Conlans Schmiede gekauft werden.
+	  Er kann bei Taerum Donnerhammer Schmiede, Ribalds Abenteurers Allerlei und Conlans Schmiede gekauft werden.

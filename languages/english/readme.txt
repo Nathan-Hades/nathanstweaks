@@ -6,7 +6,7 @@ Components:
 
 1. Improvements
 
-1.1.	Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
+1.1. Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
 	- The Advanced AI script now causes your characters to stay with an opponent instead of attacking for only one turn.
 	- Thieves, shamans and monks automatically search for traps and illusions
 	- Shamans automatically perform the shaman dance in combat
@@ -73,7 +73,7 @@ Components:
 
 2.4. Melicamp always becomes a human (BG1EE)
 	- The random factor has been removed.
-	
+
 2.5. Lorebonus for sorcerer (BG1EE, BG2EE, IWD1EE)
 	- +3 Bonus or
 	- +5 Bonus or
@@ -97,13 +97,13 @@ Components:
 	- Imoen: Green Grey
 	- Garric: Light Blue Yellow
 	- Nalia: Light Green Orange
-	
+
 3.3. The Shadow Dragon has its old graphic (BG2EE)
 	- It is no longer semi-transparent, instead it has its old texture
 
 
 4. Items
 
-4.1. Endless Dart
+4.1. Endless Dart (BG1EE, BG2EE, IWD1EE)
 	- This dart always returns to the thrower's hand after being thrown.
 	It can be bought at Taerum Thunderhammer Smithy, Ribald's Adventurer Mart and Conlan's Smithy.
