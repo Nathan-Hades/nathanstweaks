@@ -1,0 +1,719 @@
+BACKUP ~nathanstweaks/backup~ // location to store files for
+SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
+
+VERSION ~v0.5~
+README ~nathanstweaks/languages/%LANGUAGE%/readme.txt~ 
+	   ~nathanstweaks/languages/english/readme.txt~
+
+LANGUAGE ~English~ ~english~ 
+  ~nathanstweaks/languages/english/setup.tra~
+LANGUAGE ~Deutsch~ ~german~
+  ~nathanstweaks/languages/german/setup.tra~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Scripts								   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1001 DESIGNATED 1001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @0
+GROUP @10
+
+COPY ~nathanstweaks/bs/aGen.BS~ ~scripts~
+COPY ~nathanstweaks/bs/bard0.BS~ ~scripts~
+COPY ~nathanstweaks/bs/thief3.BS~ ~scripts~
+
+
+ACTION_FOR_EACH file IN bdajantc bdalorac bdbaeloc bdbranwc bdcoranc bddefai bddornc bddynac bdedwinc bdeldotc bdfaldoc bdgarrcc bdgarric bdimoenc bdjaheic bdkagaic bdkhalic bdkivanc bdminscc bdmontac bdneerac bdqualec bdrasaac bdsafanc bdshartc bdskiec bdtiaxc bdviconc bdxanc bdxzarc bdyeslic bdaeriec bdanomec bdcerndc bdhaerc bdhexxac bdjanc bdkeldoc bdkorgac bdmazzyc bdnaliac bdsarevc bdvalygc bdwilsoc bdyoshic BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.bcs~ THEN BEGIN
+		COPY ~nathanstweaks/bcs/bddefai.bcs~ ~override/%file%.bcs~
+	END
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	STRING_SET 95129 @10011
+	STRING_SET 95130 @10012
+	STRING_SET 17595 @10013
+	COPY_EXISTING ~AR0602.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~Continue()~~~~~ ~~~~~ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		Continue()~~~~~
+	END
+	BUT_ONLY
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Silent Zeke									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1002 DESIGNATED 1002
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @10
+
+COPY ~nathanstweaks/wav/silent.wav~ ~override/gorin14.wav~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Silent Valygar hidden in shadow				   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1003 DESIGNATED 1003
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @10
+
+COPY ~nathanstweaks/wav/silent.wav~ ~override/valyga41.wav~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Remove "You Must Gather..."					   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1004 DESIGNATED 1004
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @10
+
+STRING_SET 16484 @10041
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Ursa									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1005 DESIGNATED 1005
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @10
+
+COPY_EXISTING ~nexlit.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ActionOverride("Ursa",Attack("Nexlit"))~~~~~ ~~~~~ActionOverride("Ursa",Attack([PC]))~~~~~
+	END
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Knott									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1006 DESIGNATED 1006
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @10
+
+COPY_EXISTING ~knott.cre~ ~override~
+		WRITE_ASCII SCRIPT_OVERRIDE ~BHOSTILE~
+		WRITE_ASCII SCRIPT_CLASS ~SHOUT~
+		WRITE_ASCII SCRIPT_GENERAL ~INITDLG~
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Aldeth' Hunter							   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1007 DESIGNATED 1007
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @10
+	
+COPY_EXISTING ~aldeth.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~Enemy()~~~~~ ~~~~~Enemy()
+ActionOverride("Hunter1",Enemy())
+ActionOverride("Hunter2",Enemy())~~~~~
+	END
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Technical improvements to quest items			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1008 DESIGNATED 1008
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @10
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~MISC83.itm~ ~override~ //Schlüssel zum Flussstöpsel -> Schlüssel
+		WRITE_SHORT 0x1C 8
+	BUT_ONLY
+	COPY_EXISTING ~MISC93.itm~ ~override~ //Seltsamer Schlüssel -> Schlüssel
+		WRITE_SHORT 0x1C 8
+	BUT_ONLY
+	COPY_EXISTING ~SCRL3I.itm~ ~override~ //Schriftrolle an Mirianne -> Critical Item
+		WRITE_LONG 0x18 45
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~MISC7V.itm~ ~override~ //Hundefleisch ist nicht mehr stapelbar
+		WRITE_SHORT 0x38 1
+	BUT_ONLY
+	COPY_EXISTING ~MISC4N.itm~ ~override~ //Eicheln -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~PLOT01B.itm~ ~override~ //Stein des Hüters -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~MISC6M.itm~ ~override~ //Dämonenherz -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~MISC6X.itm~ ~override~ //Portaledelstein -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~MISC7Z.itm~ ~override~ //Kohle -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~MISC8V.itm~ ~override~ //Schlüsselstein für das Heim -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+	COPY_EXISTING ~EDWINKEY.itm~ ~override~ //Mae'Vars Safeschlüssel -> Schlüssel
+		WRITE_SHORT 0x1C 8
+	BUT_ONLY
+	COPY_EXISTING ~MISC5N.itm~ ~override~ //Roter Stofffetzen -> Buch
+		WRITE_SHORT 0x1C 37
+	BUT_ONLY
+	COPY_EXISTING ~MISC4W.itm~ ~override~ //Ewins Dokumente -> Buch
+		WRITE_SHORT 0x1C 37
+	BUT_ONLY
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Hexxad Cloak Tweak							   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1009 DESIGNATED 1009
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @10
+COPY ~nathanstweaks/bcs/hexcloak.bcs~ ~override~
+COPY_EXISTING ~ohhex8.cre~ ~override~
+			  ~ohhex9.cre~ ~override~
+			  ~ohhex10.cre~ ~override~
+			  ~ohhex11.cre~ ~override~
+			  ~ohhex13.cre~ ~override~
+			  ~ohhex15.cre~ ~override~
+			  ~ohhex25.cre~ ~override~
+		WRITE_ASCII SCRIPT_GENERAL ~hexcloak~
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Anomen Wisdom Bonus					   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1010 DESIGNATED 1010
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @10
+COPY ~nathanstweaks/spl/SPIN678.spl~ ~override~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Fix Narlen									   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+/*BEGIN @1007 DESIGNATED 1007
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+	
+COPY_EXISTING ~ar0300.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ ~~~~~ ~~~~~ ~~~~~
+	END
+	BUT_ONLY*/
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// More XP										   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2001 DESIGNATED 2001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @20
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~gandol.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(250)~~~~~ ~~~~~GiveGoldForce(250)
+AddExperienceParty(350)~~~~~
+	END
+	BUT_ONLY
+	COPY_EXISTING ~NOBW8.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(500)~~~~~ ~~~~~GiveGoldForce(500)
+AddExperienceParty(500)~~~~~
+	END
+	BUT_ONLY
+	COPY_EXISTING ~narlen.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(100)~~~~~ ~~~~~GiveGoldForce(100)
+AddExperienceParty(1000)~~~~~
+		REPLACE_TEXTUALLY ~~~~~GiveItemCreate("MISC36",LastTalkedToBy,3,0,0)~~~~~ ~~~~~GiveItemCreate("MISC36",LastTalkedToBy,3,0,0)
+AddExperienceParty(1200)~~~~~
+	END
+	BUT_ONLY
+	COPY_EXISTING ~gerde.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveGoldForce(75)~~~~~ ~~~~~GiveGoldForce(75)
+AddExperienceParty(350)~~~~~
+	END
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~embarl.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GiveItem("MISC4U",LastTalkedToBy)~~~~~ ~~~~~GiveItem("MISC4U",LastTalkedToBy)
+AddExperienceParty(2000)~~~~~
+	END
+	BUT_ONLY
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// More items are stealable						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2002 DESIGNATED 2002
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+GROUP @20
+
+COPY_EXISTING ~SLTSTEAL.2DA~ ~override~
+	REPLACE_TEXTUALLY ~~~~~ARMOUR     0~~~~~ ~~~~~ARMOUR     95~~~~~
+	REPLACE_TEXTUALLY ~~~~~BOOTS      0~~~~~ ~~~~~BOOTS      95~~~~~
+	REPLACE_TEXTUALLY ~~~~~HELMET     0~~~~~ ~~~~~HELMET     95~~~~~
+	REPLACE_TEXTUALLY ~~~~~SHIELD     0~~~~~ ~~~~~SHIELD     95~~~~~
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~ribald.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring08~ #0 #0 #0 ~NONE~ ~RRING~
+		BUT_ONLY
+	COPY_EXISTING ~meronia.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
+		BUT_ONLY
+	COPY_EXISTING ~berinvar.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~RRING~
+		BUT_ONLY
+	COPY_EXISTING ~cor.cre~ ~override~
+		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
+		BUT_ONLY
+	COPY_EXISTING ~obssol01.cre~ ~override~
+		ADD_CRE_ITEM ~belt02~ #0 #0 #0 ~NONE~ ~belt~
+		BUT_ONLY
+	COPY_EXISTING ~mgkhol01.dlg~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY ~~~~~GiveItemCreate("BELT02",LastTalkedToBy,0,0,0)~~~~~ ~~~~~TakeItemReplace("obssol01","LastTalkedToBy","BELT02")~~~~~
+		END
+		BUT_ONLY
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Changeable things are twice as far reachable	   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2003 DESIGNATED 2003
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+GROUP @20
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.bcs$~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,5)~~~~~ ~~~~~Range(LastTrigger,10)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,6)~~~~~ ~~~~~Range(LastTrigger,12)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,9)~~~~~ ~~~~~Range(LastTrigger,18)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,10)~~~~~ ~~~~~Range(LastTrigger,20)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,12)~~~~~ ~~~~~Range(LastTrigger,24)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,15)~~~~~ ~~~~~Range(LastTrigger,30)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,16)~~~~~ ~~~~~Range(LastTrigger,32)~~~~~
+		REPLACE_TEXTUALLY ~~~~~Range(LastTrigger,20)~~~~~ ~~~~~Range(LastTrigger,40)~~~~~
+	END
+	IF ~112~	// Clicked([ANYONE])
+	BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Melicamp always becomes a human				   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2004 DESIGNATED 2004
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @20
+
+COPY_EXISTING ~thalan.dlg~ ~override~
+DECOMPILE_AND_PATCH BEGIN
+	REPLACE_TEXTUALLY ~~~~~RandomNum(2,1)~~~~~ ~~~~~True()~~~~~
+	REPLACE_TEXTUALLY ~~~~~RandomNum(2,2)~~~~~ ~~~~~False()~~~~~
+END
+BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Lorebonus for Sorcerer						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @20051 DESIGNATED 20051
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+SUBCOMPONENT @2005
+GROUP @20
+COPY_EXISTING ~lore.2DA~ ~override~
+	INSERT_2DA_ROW 9 2 ~SORCERER                3~
+BUT_ONLY
+
+BEGIN @20052 DESIGNATED 20052
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+SUBCOMPONENT @2005
+GROUP @20
+COPY_EXISTING ~lore.2DA~ ~override~
+	INSERT_2DA_ROW 9 2 ~SORCERER                5~
+BUT_ONLY
+
+BEGIN @20053 DESIGNATED 20053
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+SUBCOMPONENT @2005
+GROUP @20
+COPY_EXISTING ~lore.2DA~ ~override~
+	INSERT_2DA_ROW 9 2 ~SORCERER                10~
+BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Show Ulgoths Bard Screen						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @3001 DESIGNATED 3001
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @30
+
+COPY_EXISTING ~bgee.lua~ ~override~
+	REPLACE_TEXTUALLY ~~~~~chapterBackgrounds.59. = .LEAVEA.~~~~~ ~~~~~chapterBackgrounds[59] = "LEAVEA"
+chapterBackgrounds[60] = "ULGOTHST"~~~~~
+COPY_EXISTING ~ar1000.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~DisplayString(Myself,24105)~~~~~ ~~~~~CutSceneId(Player1)
+	FadeToColor([1.0],0)
+	Wait(1)
+	TextScreen("ULGOTH")
+	Wait(1)
+	MultiPlayerSync()
+	FadeFromColor([20.0],0)
+	EndCutSceneMode()~~~~~
+	END
+	BUT_ONLY
+COPY ~nathanstweaks/2da/ulgoth.2da~ ~override~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better colours								   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @3002 DESIGNATED 3002
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+GROUP @30
+
+ACTION_FOR_EACH file IN AERIE6 AERIE7 AERIE9 AERIE10 AERIE11 AERIE12 AJANTI AJANTI4 AJANTI6 KELDOR8 KELDOR9 KELDOR10 KELDOR12 KELDOR14 yeslic yeslic5 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 125
+			WRITE_BYTE 0x2D 50
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN branwe branwe5 ANOMEN6 ANOMEN7 ANOMEN8 ANOMEN9 ANOMEN10 ANOMEN12 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 125
+			WRITE_BYTE 0x2D 79
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN tiax tiax4 tiax6 viconi viconi4 viconi6 viconi7 VICON8 VICON9 VICONI11 VICON13 VICON16 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 125
+			WRITE_BYTE 0x2D 136
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN eldotd eldoth eldoth5 montar montar2 montar4 montar6 safana safana4 safana6 safana7 skie skie6 YOSHI7 YOSHI8 YOSHI10 YOSHI11 YOSHI12 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 136
+			WRITE_BYTE 0x2D 136
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN kivan kivan4 kivan6 minsc minsc2 minsc4 minsc6 minsc7 minsc8 minsc9 minsc10 minsc12 minsc14 VALYG8 VALYG9 VALYG11 VALYG12 VALYG14 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 54
+			WRITE_BYTE 0x2D 50
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN CERND10 CERND12 CERND13 CERND13B CERND14 faldor faldor5 jaheir jaheir2 jaheir4 jaheir6 jaheir7 jaheir8 jaheir11 jaheir12 jahei12b jahei14 jaheird BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 54
+			WRITE_BYTE 0x2D 41
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN coran coran5 khalid khalid2 khalid4 khalid6 mazzy8 mazzy9 mazzy11 mazzy12 mazzy15 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 127
+			WRITE_BYTE 0x2D 50
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN kagain kagain2 kagain4 kagain6 KORGAN8 KORGAN9 KORGAN11 KORGAN12 KORGAN15 SAREVOK SAREVOKD SAREVOKG sharte sharte4 sharte6 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 127
+			WRITE_BYTE 0x2D 136
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN NALIA8 NALIA10 NALIA11 NALIA13 NALIA15 NALIA18 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 133
+			WRITE_BYTE 0x2D 128
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN garric garric2 garric4 garric6 BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 57
+			WRITE_BYTE 0x2D 50
+		BUT_ONLY
+	END
+END
+
+ACTION_FOR_EACH file IN imoen imoen1 imoen2 imoen4 imoen6 imoen10 imoen15 imoen211 imoen213 imoendrm BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ THEN BEGIN
+		COPY_EXISTING ~%file%.cre~ ~override~
+			WRITE_BYTE 0x2E 54
+			WRITE_BYTE 0x2D 30
+		BUT_ONLY
+	END
+END
+
+COPY_EXISTING ~clascolr.2DA~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 1 ; col < %cols%-1 ; ++col) BEGIN
+		READ_2DA_ENTRY 2 col 1 entry
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "FIGHTER"				= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_MAGE"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_MAGE_THIEF"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "BERSERKER"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "WIZARD_SLAYER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "KENSAI"				= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "BARBARIAN"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "DWARVEN_DEFENDER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A7_MARKSMAN"			= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 127
+			SET_2DA_ENTRY  1 %col%+1 cols 50
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "CLERIC"				= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_CLERIC"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "CLERIC_MAGE"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_MAGE_CLERIC"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "LATHANDER"			= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 50
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "THIEF"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_THIEF"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "ASSASIN"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "BOUNTY_HUNTER"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "SWASHBUCKLER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "SHADOWDANCER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A!ADVENTURER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A!BURGLAR"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A!SOULKNIFE"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A!SHARPSHOOTER"	= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 136
+			SET_2DA_ENTRY  1 %col%+1 cols 136
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "PALADIN"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "CAVALIER"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "INQUISITOR"       = 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "UNDEAD_HUNTER"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "HELM"				= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "OHTYR"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A7_BOWKNIGHT"		= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 79
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "PALADIN"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "CAVALIER"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "INQUISITOR"       = 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "UNDEAD_HUNTER"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "HELM"				= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "OHTYR"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A7_BOWKNIGHT"		= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 79
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "DRUID"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FIGHTER_DRUID"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "TOTEMIC_DRUID"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "SHAPESHIFTER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "BEAST_FRIEND"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "SHAMAN"			= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 54
+			SET_2DA_ENTRY  1 %col%+1 cols 41
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "RANGER"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "FERALAN"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "STALKER"			= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "BEASTMASTER"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "A7_SHARPSHOOTER"	= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 54
+			SET_2DA_ENTRY  1 %col%+1 cols 50
+		END
+		PATCH_IF (("%entry%" STRING_COMPARE_CASE "CLERIC_THIEF"	= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "TALOS"		= 0) OR
+				  ("%entry%" STRING_COMPARE_CASE "Blackguard"	= 0)) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 136
+		END
+		PATCH_IF ("%entry%" STRING_COMPARE_CASE "CLERIC_RANGER"	= 0) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 54
+		END
+		PATCH_IF ("%entry%" STRING_COMPARE_CASE "OHTEMPUS"	= 0) BEGIN
+			SET_2DA_ENTRY  2 %col%+1 cols 125
+			SET_2DA_ENTRY  1 %col%+1 cols 41
+		END
+	END
+BUT_ONLY
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// The Shadow Dragon has its old graphic			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @3003 DESIGNATED 3003
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @30
+
+COPY_EXISTING ~SHADRA01.cre~ ~override~
+			  ~DRAGSHAD.cre~ ~override~
+	LPF DELETE_EFFECT INT_VAR match_opcode = 66 END
+	LPF DELETE_EFFECT INT_VAR match_opcode = 51 END
+	BUT_ONLY
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// infinite dart						 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @4001 DESIGNATED 4001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+GROUP @40
+
+COPY ~nathanstweaks/bam/nh011.bam~ ~override~
+COPY ~nathanstweaks/bam/nh012.bam~ ~override~
+COPY_EXISTING ~dart01.itm~ ~override/nh01.itm~
+	SAY			 0x08 @40011
+	SAY			 0x0c @40011
+	SAY			 0x50 @40012
+	SAY			 0x54 @40012
+	WRITE_LONG   0x34 500 // price
+	WRITE_SHORT  0x38 0     // stack
+	WRITE_ASCIIE 0x3a ~nh011~ #8 // icon, inventory
+	WRITE_ASCIIE 0x58 ~nh012~ #8 // icon, description
+    READ_LONG    0x64 abil_off
+    READ_SHORT   0x68 abil_num
+    FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+      SET base = abil_off + (index * 0x28)
+      READ_BYTE  (base + 0x00) type
+      PATCH_IF type = 2 BEGIN 
+        WRITE_SHORT (base + 0x22) 0 // zero charges
+        WRITE_SHORT (base + 0x24) 3 // recharges when drained
+      END
+    END  
+	
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~taerum.sto~    ~override~ // Thunderhammer Smithy
+		ADD_STORE_ITEM ~nh01~ LAST #0 #0 #0 ~IDENTIFIED~ #5 
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~ribald.sto~    ~override~ // Ribald
+		ADD_STORE_ITEM ~nh01~ LAST #0 #0 #0 ~IDENTIFIED~ #5 
+END
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY_EXISTING ~kusmith.sto~    ~override~ // Conlan
+		ADD_STORE_ITEM ~nh01~ LAST #0 #0 #0 ~IDENTIFIED~ #5 
+END

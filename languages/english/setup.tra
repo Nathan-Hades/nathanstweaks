@@ -1,0 +1,44 @@
+@0		= ~This component is not available for your game~
+@10		= ~Improvements~
+@1001	= ~Better scripts for your characters~
+@10011	= ~BARD SINGING:~
+@10012	= ~The bard will always sing. (<script>)~
+@10013	= ~The thief will always be on the lookout for traps. But if he sees an enemy, he will attack him. (<script>)~
+@1002	= ~Zeke is now silent (Makes no sense in English)~
+@1003	= ~Valygar is no longer annoying when he is hiding~
+@1004	= ~No You must gather your party before venturing forth-sound more~
+@10041	= ~You must gather your party before venturing forth~ []
+@1005	= ~Ursa now attacks the player~
+@1006	= ~Knott reacts to the fight in front of the tent~
+@1007	= ~Aldeth hunters join in the fight~
+@1008	= ~Technical improvements to quest items~
+@1009	= ~Hexxat automatically wears her cloak~
+@1010	= ~Previous increases in wisdom are taken into account in Anomen's test~
+@20		= ~Convenience/Cheats~
+@2001	= ~More quests give XP~
+@2002	= ~More items are stealable~
+@2003	= ~Changeable things in the landscape are twice as far reachable~
+@2004	= ~Melicamp always becomes a human~
+@2005	= ~Lorebonus for sorcerer~
+@20051	= ~3~
+@20052	= ~5~
+@20053	= ~10~
+@30		= ~Graphic/UI~
+@3001	= ~Show the Ulgoths Bard-Screen~
+@3002	= ~Uniform colours for NPCs and character creation~
+@3003	= ~The Shadow Dragon has its old graphic~
+@40		= ~Items~
+@4001	= ~Endless Dart~
+@40011	= ~Sharpened Dart~
+@40012	= ~The small size of this weapon belies its great power. Immediately after striking its target, this dart reappears in the hand of the wielder, ready to be hurled again.
+
+STATISTICS:
+
+Return to the thrower immediately.
+
+Damage: 1d3
+Speed Factor: 2
+Proficiency Type: Dart
+Type: One-handed
+
+Weight: 0~

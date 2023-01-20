@@ -1,0 +1,44 @@
+@0		= ~Diese Komponente ist fuer dein Spiel nicht verfuegbar~
+@10		= ~Verbesserungen~
+@1001	= ~Bessere Skripte fuer deine Charaktere~
+@10011	= ~BARDE SINGEND:~
+@10012	= ~Der Barde wird immer singen. (<script>)~
+@10013	= ~Der Dieb wird immer nach Fallen Ausschau halten. Wenn er jedoch einen Feind sieht, greift er diesen an. (<script>)~
+@1002	= ~Zeke ist jetzt stumm~
+@1003	= ~Valygar nervt nicht mehr, wenn er sich versteckt~
+@1004	= ~Kein Ihr muesst eure Gruppe erst sammeln-Klang mehr~
+@10041	= ~Ihr müsst Eure Gruppe erst sammeln, bevor Ihr das Gebiet verlassen könnt.~ []
+@1005	= ~Ursa greift jetzt den Spieler an~
+@1006	= ~Knott reagiert auf den Kampf vor dem Zelt~
+@1007	= ~Aldeth Jaeger greifen mit in den Kampf ein~
+@1008	= ~Technische Verbesserungen an Questgegenständen~
+@1009	= ~Hexxat traegt automatisch ihren Umhang (Beta)~
+@1010	= ~Vorherige Weisheitserhöhungen werden bei Anomens Prüfung berücksichtigt~
+@20		= ~Erleichterungen/Cheats~
+@2001	= ~Mehr Quests geben XP~
+@2002	= ~Mehr Gegenstände sind stehlbar~
+@2003	= ~Interaktive Punkte in der Umgebung sind doppelt so weit erreichbar~
+@2004	= ~Melicamp wird immer zum Menschen~
+@2005	= ~Sagenkundenbonus fuer Hexenmeister~
+@20051	= ~3~
+@20052	= ~5~
+@20053	= ~10~
+@30		= ~Grafik~
+@3001	= ~Zeige den Ulgoths Bart-Screen~
+@3002	= ~Einheitliche Farben für NPCs und Charaktererstellung~
+@3003	= ~Der Schattendrache hat seine alte Grafik~
+@40		= ~Gegenstände~
+@4001	= ~Endloser Wurfpfeil~
+@40011	= ~Geschärfter Wurfpfeil~
+@40012	= ~Dieser unscheinbaren, kleinen Waffe sieht man gar nicht an, wie mächtig sie in Wahrheit ist. Direkt nachdem dieser Wurfpfeil sein Ziel getroffen hat, taucht er in der Hand des Werfers wieder auf und kann sofort erneut geworfen werden.
+
+EIGENSCHAFTEN:
+
+Kehrt sofort zum Werfer zurück.
+
+Schaden: 1W3 (Geschoss)
+Initiativefaktor: 2
+Fertigkeit: Wurfpfeil
+Typ: 1-händig
+
+Gewicht: 0~
