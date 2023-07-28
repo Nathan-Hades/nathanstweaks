@@ -32,7 +32,7 @@ Components:
 1.7. Aldeth hunters join in the fight (BG1EE)
 	- The hunters of Aldeth in the first Mantle Forest area now join the fight against you. This was sometimes not the case.
 
-1.8. Technical improvements to quest items (BG1EE, BG2EE)
+1.8. Technical improvements to quest items (BG1EE, BG2EE,  IWD1EE)
 	- The Key to the River Plug is now a Key (BG1EE)
 	- The Strange Key is now a key (BG1EE)
 	- Scroll to Mirianne can no longer be sold (BG1EE)
@@ -46,6 +46,7 @@ Components:
 	- Mae'Vars Safe Key is now a key (BG2EE)
 	- The Red Rag is now a book (BG2EE)
 	- Ewin's documents are now a book (BG2EE)
+	- Containers can no longer be sold (IWD1EE)
 
 1.9. Hexxat automatically wears her cloak (Beta) (BG2EE)
 	- Hexxat puts on or takes off her cloak as needed.
@@ -148,7 +149,7 @@ Components:
 	- Edwin:	Quarter Staff, Dart
 	- Anomen & Korgan:	Plate mail
 	- Aerie & Edwin:	Traveler's Robe
-	- All: +1 Waffe
+	- All: +1 Weapon
 
 5.2 Better thieving abilities for NPCs (BG1EE)
 	This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
@@ -156,7 +157,7 @@ Components:
 		- 95% Open locks
 		- 100% Find traps
 
-5.2 BBetter spells for NPCs (Beta) (BG1EE)
+5.2 Better spells for NPCs (Beta) (BG1EE)
 	This requires ToB-Style NPCs from Tweaks Anthology
 	- Branwen:
 		- 3x Cure Light Wounds
