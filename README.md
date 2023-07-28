@@ -78,6 +78,14 @@ The random factor has been removed.
 	- +5 Bonus or
 	- +10 Bonus
 
+#### 2.6. Skip all tasks in Candlekeep (Prologue) (BG1EE)
+You automatically receive:
+	- Gold
+	- Items
+	- Experience
+	- Spells
+Attention is paid to what abilities your character has.
+Alternatively, you can get the 300 Gold from Firebead Elvenhair
 
 ### 3. Graphic/UI
 
@@ -100,12 +108,77 @@ The developer-designed Ulgoth's beard screen has been added.
 #### 3.3. The Shadow Dragon has its old graphic (BG2EE)
 It is no longer semi-transparent, instead it has its old texture
 
-
 ### 4. Items
 
 #### 4.1. Endless Dart (BG1EE, BG2EE, IWD1EE)
 This dart always returns to the thrower's hand after being thrown.
 It can be bought at Taerum Thunderhammer Smithy, Ribald's Adventurer Mart and Conlan's Smithy.
+
+#### 4.2. Mace's Fall becomes +3 (BG2EE)
+This flail was +1 before now it is +3
+The price is also adjusted
+
+### 5. NPCs
+
+#### 5.1 Better proficiencies and items for NPCs (BG1EE, BG2EE)
+This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
+BG1EE:
+	- Ajantis:		2*Bastard swords, 2*Longbow
+	- Alora:		Dagger, Slings, Sword and Shield Style
+	- Edwin:		Dart
+	- Jaheira:		2*Club, 2*Slings
+	- Kagain:		2*Axe, 2*Crossbow
+	- Khalid:		2*Long Sword, 2*Longbows
+	- Minsc:		2*Two-Handed Sword, 2*Longbows, 2*Two-Weapon Style
+	- Montaron:		Dagger, Short Bow
+	- Shar-Teel:	2*Long Sword, 2*Two-Weapon Style
+	- Thiefs and Druids: Studded leather
+	- Bards: Chain mail
+	- Thief, Bard and Druid: Buckler
+	- Fighter, Paladin, Ranger and Cleric: Splint mail and a medium shield or, at lower strength, a small shield
+	- Ranged weapons: 3*80
+	- Potions and Wands: Quick Slot
+	
+BG2EE:
+	- Anomen:	3*War Hammer, 4*Flail, 3*Mace
+	- Edwin:	Quarter Staff, Dart
+	- Anomen & Korgan:	Plate mail
+	- Aerie & Edwin:	Traveler's Robe
+	- All: +1 Waffe
+
+#### 5.2 Better thieving abilities for NPCs (BG1EE)
+This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
+All thieves get all available thief points in that order:
+	- 95% Open locks
+	- 100% Find traps
+
+#### 5.2 BBetter spells for NPCs (Beta) (BG1EE)
+This requires ToB-Style NPCs from Tweaks Anthology
+- Branwen:
+	- 3x Cure Light Wounds
+- Dynaheir:
+	- 2x Chromatic Orb
+- Edwin:
+	- 2x Sleep
+- Eldoth:
+	- 2x Identify
+- Faldorn:
+	- 3x Slow Poison
+- Quayle:
+	- 2x Sleep
+- Tiax:
+	- 2x Cure Light Wounds
+- Viconia:
+	- 1x Command
+	- 3x Cure Light Wounds
+- Xan:
+	- 1x Identify
+	- 2x Sleep
+- Yeslick:
+	- 1x Remove Fear
+	- 1x Slow Poison
+	- 1x Silence
+	- 3x Cure Light Wounds
 
 ## German
 Dies ist eine Mod für die Enhanced-Editions von Baldur's Gate 1, Baldur's Gate 2 und Icewind Dale 1.
@@ -187,6 +260,14 @@ Der Zufallsfaktor wurde entfernt.
 	- +5 Bonus oder
 	- +10 Bonus
 
+#### 2.6. Überspringe alle Augaben in Kerzenburg (Prolog) (BG1EE)
+Du erhälst automatisch:
+	- Gold
+	- Gegenstände
+	- Erfahrung
+	- Zauber
+Dabei wird darauf geachtet, welche Fähigkeiten dein Charakter hat.
+Alternativ erhälst du auch die 300 Gold von Firebead Elfenhaar
 
 ### 3. Grafik
 
@@ -215,3 +296,70 @@ Er ist nicht mehr halbtransparent, sondern hat seine alte Textur
 #### 4.1. Endloser Wurfpfeil (BG1EE, BG2EE, IWD1EE)
 Dieser Wurfpfeil kehrt nach dem Werfen immer in die Hand des Werfers zurück.
 Er kann bei Taerum Donnerhammer Schmiede, Ribalds Abenteurers Allerlei und Conlans Schmiede gekauft werden.
+
+#### 4.2. Ardulias Fall wird +3 (BG2EE)
+Dieser Flegel war vorher +2 nun ist er +3
+Der Preis ist ebenfalls angepasst
+
+### 5. NPCs
+
+#### 5.1 Bessere Fertigkeiten und Items für NPCs (BG1EE, BG2EE)
+Hierfür wird TdB-Stil NSCs und Make Montaron an Assassin von Tweaks-Anthology benötigt
+BG1EE:
+- Ajantis:		2*Bastardschwert, 2*Langbogen
+- Alora:		Dolch, Schleuder, Waffe und Schild
+- Edwin:		Wurfpfeil
+- Jaheira:		2*Keule, 2*Schleuder
+- Kagain:		2*Axt, 2*Armbrust
+- Khalid:		2*Langschwert, 2*Langbogen
+- Minsc:		2*Zweihänder, 2*Langbogen, 2*Kampf mit 2 Waffen
+- Montaron:		Dolch, Kurzbogen
+- Shar-Teel:	2*Langschwert, 2*Kampf mit 2 Waffen
+- Diebe und Druiden: Beschlagene Lederrüstung
+- Barden: Kettenhemd
+- Diebe, Barden und Druiden: Tartsche
+- Krieger, Paladine, Waldläufer und Kleriker: Schienenpanzer und ein Mittlerer Schild oder bei niedrigere Stärke ein kleiner Schild
+- Fernkampfwaffen: 3*80 Stück
+- Tränke und Zauberstäbe: Schnellauswahl
+	
+BG2EE:
+- Anomen:	3*Kriegshammer, 4*Flegel/Morgenstern, 3*Streitkolben
+- Edwin:	Kampfstab, Wurfpfeil
+- Anomen & Korgan:	Plattenpanzer
+- Aerie & Edwin:	Robe des Reisenden
+- Alle: +1 Waffe
+
+####5.2 Bessere Diebesfähigkeiten für NPCs (BG1EE)
+Hierfür wird TdB-Stil NSCs und Make Montaron an Assassin von Tweaks-Anthology benötigt
+Alle Diebe bekommen alle jeweils verfügbaren Diebespunkte in dieser Reihenfolge:
+	- 95% Schlösser öffnen
+	- 100% Fallen finden
+
+#### 5.2 Bessere Zauber für NPCs (Beta) (BG1EE)
+Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
+- Branwen:
+	- 3x Leichte Wunden heilen
+- Dynaheir:
+	- 2x Farbkugel
+- Edwin:
+	- 2x Schlaf
+- Eldoth:
+	- 2x Identifizieren
+- Faldorn:
+	- 3x Gift verlangsamen
+- Quayle:
+	- 2x Schlaf
+- Tiax:
+	- 2x Leichte Wunden heilen
+- Viconia:
+	- 1x Befehl
+	- 3x Leichte Wunden heilen
+- Xan:
+	- 1x Identifizieren
+	- 2x Schlaf
+- Yeslick:
+	- 1x Furcht bannen
+	- 1x Gift verlangsamen
+	- 1x Stille
+	- 3x Leichte Wunden heilen
+	

@@ -31,7 +31,7 @@ Komponenten:
 1.7. Aldeth Jäger greifen mit in den Kampf ein (BG1EE)
 	- Die Jäger von Aldeth im ersten Mantelwald-Gebiet greifen jetzt in den Kampf gegen dich mit ein. Das war manchmal nicht der Fall.
 
-1.8. Technische Verbesserungen an Questgegenständen (BG1EE, BG2EE)
+1.8. Technische Verbesserungen an Questgegenständen (BG1EE, BG2EE, IWD1EE)
 	- Der Schlüssel zum Flussstöpsel ist jetzt ein Schlüssel (BG1EE)
 	- Der Seltsamer Schlüssel ist jetzt ein Schlüssel (BG1EE)
 	- Schriftrolle an Mirianne kann nicht mehr verkauft werden (BG1EE)
@@ -45,6 +45,7 @@ Komponenten:
 	- Der Mae'Vars Safeschlüssel ist jetzt ein Schlüssel (BG2EE)
 	- Der Roter Stofffetzen ist jetzt ein Buch (BG2EE)
 	- Ewins Dokumente sind jetzt ein Buch (BG2EE)
+	- Behälter können nicht mehr verkauft werden (IWD1EE)
 
 1.9. Hexxat trägt automatisch ihren Umhang (Beta) (BG2EE)
 	- Bei Bedarf zieht sich Hexxat ihren Umhang an oder aus.
@@ -79,6 +80,14 @@ Komponenten:
 	- +5 Bonus oder
 	- +10 Bonus
 
+2.6. Überspringe alle Augaben in Kerzenburg (Prolog) (BG1EE)
+	- Du erhälst automatisch:
+		- Gold
+		- Gegenstände
+		- Erfahrung
+		- Zauber
+	- Dabei wird darauf geachtet, welche Fähigkeiten dein Charakter hat.
+	- Alternativ erhälst du auch die 300 Gold von Firebead Elfenhaar
 
 3. Grafik
 
@@ -107,3 +116,71 @@ Komponenten:
 4.1. Endloser Wurfpfeil (BG1EE, BG2EE, IWD1EE)
 	- Dieser Wurfpfeil kehrt nach dem Werfen immer in die Hand des Werfers zurück.
 	  Er kann bei Taerum Donnerhammer Schmiede, Ribalds Abenteurers Allerlei und Conlans Schmiede gekauft werden.
+
+4.2. Ardulias Fall wird +3 (BG2EE)
+	- Dieser Flegel war vorher +2 nun ist er +3
+	- Der Preis ist ebenfalls angepasst
+
+
+5. NPCs
+
+5.1 Bessere Fertigkeiten und Items für NPCs (BG1EE, BG2EE)
+	Hierfür wird TdB-Stil NSCs und Make Montaron an Assassin von Tweaks-Anthology benötigt
+	BG1EE:
+	- Ajantis:		2*Bastardschwert, 2*Langbogen
+	- Alora:		Dolch, Schleuder, Waffe und Schild
+	- Edwin:		Wurfpfeil
+	- Jaheira:		2*Keule, 2*Schleuder
+	- Kagain:		2*Axt, 2*Armbrust
+	- Khalid:		2*Langschwert, 2*Langbogen
+	- Minsc:		2*Zweihänder, 2*Langbogen, 2*Kampf mit 2 Waffen
+	- Montaron:		Dolch, Kurzbogen
+	- Shar-Teel:	2*Langschwert, 2*Kampf mit 2 Waffen
+	- Diebe und Druiden: Beschlagene Lederrüstung
+	- Barden: Kettenhemd
+	- Diebe, Barden und Druiden: Tartsche
+	- Krieger, Paladine, Waldläufer und Kleriker: Schienenpanzer und ein Mittlerer Schild oder bei niedrigere Stärke ein kleiner Schild
+	- Fernkampfwaffen: 3*80 Stück
+	- Tränke und Zauberstäbe: Schnellauswahl
+	
+	BG2EE:
+	- Anomen:	3*Kriegshammer, 4*Flegel/Morgenstern, 3*Streitkolben
+	- Edwin:	Kampfstab, Wurfpfeil
+	- Anomen & Korgan:	Plattenpanzer
+	- Aerie & Edwin:	Robe des Reisenden
+	- Alle: +1 Waffe
+
+5.2 Bessere Diebesfähigkeiten für NPCs (BG1EE)
+	Hierfür wird TdB-Stil NSCs und Make Montaron an Assassin von Tweaks-Anthology benötigt
+	- Alle Diebe bekommen alle jeweils verfügbaren Diebespunkte in dieser Reihenfolge:
+		- 95% Schlösser öffnen
+		- 100% Fallen finden
+
+5.2 Bessere Zauber für NPCs (Beta) (BG1EE)
+	Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
+	- Branwen:
+		- 3x Leichte Wunden heilen
+	- Dynaheir:
+		- 2x Farbkugel
+	- Edwin:
+		- 2x Schlaf
+	- Eldoth:
+		- 2x Identifizieren
+	- Faldorn:
+		- 3x Gift verlangsamen
+	- Quayle:
+		- 2x Schlaf
+	- Tiax:
+		- 2x Leichte Wunden heilen
+	- Viconia:
+		- 1x Befehl
+		- 3x Leichte Wunden heilen
+	- Xan:
+		- 1x Identifizieren
+		- 2x Schlaf
+	- Yeslick:
+		- 1x Furcht bannen
+		- 1x Gift verlangsamen
+		- 1x Stille
+		- 3x Leichte Wunden heilen
+	

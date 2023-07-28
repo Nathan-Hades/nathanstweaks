@@ -1,0 +1,233 @@
+IF
+	Global("NATHANSTART01","GLOBAL",0)
+THEN
+	RESPONSE #100
+		GivePartyGold(50)
+		GiveItemCreate("DAGG01",Player1,1,0,0)
+		GiveItemCreate("DAGG01",Player1,1,0,0)
+		GiveItemCreate("DAGG01",Player1,1,0,0)
+		GiveItemCreate("POTN08",Player1,2,0,0)
+		GiveItemCreate("RING11",Player1,1,0,0)
+		GiveItemCreate("MISC17",Player1,1,0,0)
+		GiveItemCreate("HAMM01",Player1,1,0,0)
+		AddexperienceParty(345)
+		ActionOverride(Player1,ApplySpell(Player1,WIZARD_PROTECTION_FROM_EVIL))
+		SetGlobal("NATHANSTART01","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART02","GLOBAL",0)
+	OR(12)
+		CheckStatGT(Player1,9,STR)
+		CheckStatGT(Player1,9,PICKPOCKET)
+		CheckStatGT(Player2,9,STR)
+		CheckStatGT(Player2,9,PICKPOCKET)
+		CheckStatGT(Player3,9,STR)
+		CheckStatGT(Player3,9,PICKPOCKET)
+		CheckStatGT(Player4,9,STR)
+		CheckStatGT(Player4,9,PICKPOCKET)
+		CheckStatGT(Player5,9,STR)
+		CheckStatGT(Player5,9,PICKPOCKET)
+		CheckStatGT(Player6,9,STR)
+		CheckStatGT(Player6,9,PICKPOCKET)
+THEN
+	RESPONSE #100
+		GiveItemCreate("AMUL09",Player1,1,0,0)
+		SetGlobal("NATHANSTART02","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART03","GLOBAL",0)
+	OR(12)
+		CheckStatGT(Player1,17,STR)
+		CheckStatGT(Player1,19,PICKPOCKET)
+		CheckStatGT(Player2,17,STR)
+		CheckStatGT(Player2,19,PICKPOCKET)
+		CheckStatGT(Player3,17,STR)
+		CheckStatGT(Player3,19,PICKPOCKET)
+		CheckStatGT(Player4,17,STR)
+		CheckStatGT(Player4,19,PICKPOCKET)
+		CheckStatGT(Player5,17,STR)
+		CheckStatGT(Player5,19,PICKPOCKET)
+		CheckStatGT(Player6,17,STR)
+		CheckStatGT(Player6,19,PICKPOCKET)
+THEN
+	RESPONSE #100
+		GivePartyGold(18)
+		GiveItemCreate("SCRL67",Player1,1,0,0)
+		GiveItemCreate("SCRL76",Player1,1,0,0)
+		SetGlobal("NATHANSTART03","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART04","GLOBAL",0)
+	OR(18)
+		CheckStatGT(Player1,18,STR)
+		CheckStatGT(Player1,50,STREXTRA)
+		CheckStatGT(Player1,29,PICKPOCKET)
+		CheckStatGT(Player2,18,STR)
+		CheckStatGT(Player2,50,STREXTRA)
+		CheckStatGT(Player2,29,PICKPOCKET)
+		CheckStatGT(Player3,18,STR)
+		CheckStatGT(Player3,50,STREXTRA)
+		CheckStatGT(Player3,29,PICKPOCKET)
+		CheckStatGT(Player4,18,STR)
+		CheckStatGT(Player4,50,STREXTRA)
+		CheckStatGT(Player4,29,PICKPOCKET)
+		CheckStatGT(Player5,18,STR)
+		CheckStatGT(Player5,50,STREXTRA)
+		CheckStatGT(Player5,29,PICKPOCKET)
+		CheckStatGT(Player6,18,STR)
+		CheckStatGT(Player6,50,STREXTRA)
+		CheckStatGT(Player6,29,PICKPOCKET)
+THEN
+	RESPONSE #100
+		GivePartyGold(36)
+		GiveItemCreate("POTN21",Player1,1,0,0)
+		GiveItemCreate("DAGG01",Player1,1,0,0)
+		SetGlobal("NATHANSTART04","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART05","GLOBAL",0)
+	OR(12)
+		CheckStatGT(Player1,21,STR)
+		CheckStatGT(Player1,64,PICKPOCKET)
+		CheckStatGT(Player2,21,STR)
+		CheckStatGT(Player2,64,PICKPOCKET)
+		CheckStatGT(Player3,21,STR)
+		CheckStatGT(Player3,64,PICKPOCKET)
+		CheckStatGT(Player4,21,STR)
+		CheckStatGT(Player4,64,PICKPOCKET)
+		CheckStatGT(Player5,21,STR)
+		CheckStatGT(Player5,64,PICKPOCKET)
+		CheckStatGT(Player6,21,STR)
+		CheckStatGT(Player6,64,PICKPOCKET)
+THEN
+	RESPONSE #100
+		GiveItemCreate("MISC41",Player1,1,0,0)
+		SetGlobal("NATHANSTART05","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART06","GLOBAL",0)
+	OR(18)
+		CheckStatGT(Player1,18,STR)
+		CheckStatGT(Player1,0,STREXTRA)
+		CheckStatGT(Player1,24,PICKPOCKET)
+		CheckStatGT(Player2,18,STR)
+		CheckStatGT(Player2,0,STREXTRA)
+		CheckStatGT(Player2,24,PICKPOCKET)
+		CheckStatGT(Player3,18,STR)
+		CheckStatGT(Player3,0,STREXTRA)
+		CheckStatGT(Player3,24,PICKPOCKET)
+		CheckStatGT(Player4,18,STR)
+		CheckStatGT(Player4,0,STREXTRA)
+		CheckStatGT(Player4,24,PICKPOCKET)
+		CheckStatGT(Player5,18,STR)
+		CheckStatGT(Player5,0,STREXTRA)
+		CheckStatGT(Player5,24,PICKPOCKET)
+		CheckStatGT(Player6,18,STR)
+		CheckStatGT(Player6,0,STREXTRA)
+		CheckStatGT(Player6,24,PICKPOCKET)
+THEN
+	RESPONSE #100
+		GiveItemCreate("POTN08",Player1,1,0,0)
+		SetGlobal("NATHANSTART06","GLOBAL",1)
+END
+
+
+IF
+	Global("NATHANSTART07","GLOBAL",0)
+	OR(6)
+		CheckStatGT(Player1,9,PICKPOCKET)
+		CheckStatGT(Player2,9,PICKPOCKET)
+		CheckStatGT(Player3,9,PICKPOCKET)
+		CheckStatGT(Player4,9,PICKPOCKET)
+		CheckStatGT(Player5,9,PICKPOCKET)
+		CheckStatGT(Player6,9,PICKPOCKET)
+THEN
+	RESPONSE #100
+		AddexperienceParty(10)
+		SetGlobal("NATHANSTART07","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART08","GLOBAL",0)
+	OR(6)
+		CheckStatGT(Player1,19,PICKPOCKET)
+		CheckStatGT(Player2,19,PICKPOCKET)
+		CheckStatGT(Player3,19,PICKPOCKET)
+		CheckStatGT(Player4,19,PICKPOCKET)
+		CheckStatGT(Player5,19,PICKPOCKET)
+		CheckStatGT(Player6,19,PICKPOCKET)
+THEN
+	RESPONSE #100
+		AddexperienceParty(10)
+		SetGlobal("NATHANSTART08","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART09","GLOBAL",0)
+	OR(6)
+		CheckStatGT(Player1,29,PICKPOCKET)
+		CheckStatGT(Player2,29,PICKPOCKET)
+		CheckStatGT(Player3,29,PICKPOCKET)
+		CheckStatGT(Player4,29,PICKPOCKET)
+		CheckStatGT(Player5,29,PICKPOCKET)
+		CheckStatGT(Player6,29,PICKPOCKET)
+THEN
+	RESPONSE #100
+		AddexperienceParty(20)
+		SetGlobal("NATHANSTART09","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART10","GLOBAL",0)
+	OR(6)
+		CheckStatGT(Player1,64,PICKPOCKET)
+		CheckStatGT(Player2,64,PICKPOCKET)
+		CheckStatGT(Player3,64,PICKPOCKET)
+		CheckStatGT(Player4,64,PICKPOCKET)
+		CheckStatGT(Player5,64,PICKPOCKET)
+		CheckStatGT(Player6,64,PICKPOCKET)
+THEN
+	RESPONSE #100
+		AddexperienceParty(10)
+		SetGlobal("NATHANSTART10","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART11","GLOBAL",0)
+	OR(6)
+		CheckStatGT(Player1,24,PICKPOCKET)
+		CheckStatGT(Player2,24,PICKPOCKET)
+		CheckStatGT(Player3,24,PICKPOCKET)
+		CheckStatGT(Player4,24,PICKPOCKET)
+		CheckStatGT(Player5,24,PICKPOCKET)
+		CheckStatGT(Player6,24,PICKPOCKET)
+THEN
+	RESPONSE #100
+		AddexperienceParty(10)
+		SetGlobal("NATHANSTART11","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART12","GLOBAL",0)
+	OR(6)
+		ReactionGT(Player1,NEUTRAL_UPPER)
+		ReactionGT(Player2,NEUTRAL_UPPER)
+		ReactionGT(Player3,NEUTRAL_UPPER)
+		ReactionGT(Player4,NEUTRAL_UPPER)
+		ReactionGT(Player5,NEUTRAL_UPPER)
+		ReactionGT(Player6,NEUTRAL_UPPER)
+THEN
+	RESPONSE #100
+		GiveItemCreate("DAGG02",Player1,1,0,0)
+		TakePartyGold(1)
+		SetGlobal("NATHANSTART12","GLOBAL",1)
+END
+IF
+	Global("NATHANSTART13","GLOBAL",0)
+	OR(6)
+		ReactionLT(Player1,FRIENDLY_LOWER)
+		ReactionLT(Player2,FRIENDLY_LOWER)
+		ReactionLT(Player3,FRIENDLY_LOWER)
+		ReactionLT(Player4,FRIENDLY_LOWER)
+		ReactionLT(Player5,FRIENDLY_LOWER)
+		ReactionLT(Player6,FRIENDLY_LOWER)
+THEN
+	RESPONSE #100
+		GivePartyGold(9)
+		SetGlobal("NATHANSTART13","GLOBAL",1)
+END

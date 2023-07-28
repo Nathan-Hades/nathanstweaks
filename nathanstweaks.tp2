@@ -1,7 +1,7 @@
 BACKUP ~nathanstweaks/backup~ // location to store files for
 SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
 
-VERSION ~v0.5~
+VERSION ~v0.6~
 README ~nathanstweaks/languages/%LANGUAGE%/readme.txt~ 
 	   ~nathanstweaks/languages/english/readme.txt~
 
@@ -32,19 +32,50 @@ ACTION_FOR_EACH file IN bdajantc bdalorac bdbaeloc bdbranwc bdcoranc bddefai bdd
 		COPY ~nathanstweaks/bcs/bddefai.bcs~ ~override/%file%.bcs~
 	END
 END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	STRING_SET 25484 @10011
+	STRING_SET 25485 @10012
+	STRING_SET 17595 @10013
+	COPY_EXISTING ~AR2600.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))~~~~~ ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))
+		ActionOverride(Player2,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		
+		ActionOverride(Player3,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		
+		ActionOverride(Player4,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		
+		ActionOverride(Player5,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
+		
+		ActionOverride(Player6,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
+		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
+		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
+		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))~~~~~
+	END
+	BUT_ONLY
+END
+
 ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	STRING_SET 95129 @10011
 	STRING_SET 95130 @10012
 	STRING_SET 17595 @10013
-	COPY_EXISTING ~AR0602.bcs~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~~~~~Continue()~~~~~ ~~~~~ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride("IMOEN",SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
-		Continue()~~~~~
-	END
-	BUT_ONLY
 END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -154,7 +185,7 @@ ActionOverride("Hunter2",Enemy())~~~~~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
 BEGIN @1008 DESIGNATED 1008
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
 GROUP @10
 
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
@@ -199,6 +230,39 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	BUT_ONLY
 	COPY_EXISTING ~MISC4W.itm~ ~override~ //Ewins Dokumente -> Buch
 		WRITE_SHORT 0x1C 37
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY_EXISTING ~GEMBG01.itm~ ~override~		//Behälter -> Critical Item
+				  ~GEMBG02.itm~ ~override~
+				  ~GEMBG03.itm~ ~override~
+				  ~GEMBG04.itm~ ~override~
+				  ~GEMBG05.itm~ ~override~
+				  ~GEMBG06.itm~ ~override~
+				  ~GEMBG07.itm~ ~override~
+				  ~GEMBG08.itm~ ~override~
+				  ~SCRCS01.itm~ ~override~
+				  ~SCRCS02.itm~ ~override~
+				  ~SCRCS03.itm~ ~override~
+				  ~SCRCS04.itm~ ~override~
+				  ~SCRCS05.itm~ ~override~
+				  ~SCRCS06.itm~ ~override~
+				  ~SCRCS07.itm~ ~override~
+				  ~SCRCS08.itm~ ~override~
+				  ~SCRCS09.itm~ ~override~
+				  ~SCRCS10.itm~ ~override~
+				  ~PTNBG01.itm~ ~override~
+				  ~PTNBG02.itm~ ~override~
+				  ~PTNBG03.itm~ ~override~
+				  ~PTNBG04.itm~ ~override~
+				  ~PTNBG05.itm~ ~override~
+				  ~PTNBG06.itm~ ~override~
+				  ~PTNBG07.itm~ ~override~
+				  ~PTNBG08.itm~ ~override~
+				  ~PTNBG09.itm~ ~override~
+				  ~PTNBG10.itm~ ~override~
+		WRITE_LONG 0x18 45
 	BUT_ONLY
 END
 
@@ -421,6 +485,111 @@ GROUP @20
 COPY_EXISTING ~lore.2DA~ ~override~
 	INSERT_2DA_ROW 9 2 ~SORCERER                10~
 BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Skip Chapters 4 and 5 in BG2					   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+/*BEGIN @2006 DESIGNATED 2006
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @20
+
+COPY ~nathanstweaks/bcs/MOVIE03B.BCS~ ~override~
+
+COPY_EXISTING ~BAG04.sto~    ~override~
+	ADD_STORE_ITEM ~sw1h45~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw1h38~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw1h39~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw1h52~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw2h12~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw2h08~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~blun18~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~blun23~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~halb05~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sper06~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sper08~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~staf13~ LAST #1 #10 #10 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~staf09~ LAST #1 #21 #1 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~STAF16~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~DAGG12~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~xbow13~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~xbow10~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~slng06~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~helm19~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~helm17~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~plat12~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~plat16~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~plat13~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~leat18~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~leat12~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~SHLD22~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~brac14~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~brac16~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~clck26~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~clck24~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~belt08~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~boot01~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~amul25~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~amul17~ LAST #15 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~AMUL20~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~bdamul26~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~ring27~ LAST #1 #1 #1 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~ring34~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~misc9y~ LAST #8 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrlai~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl7l~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl7r~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl7f~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl7q~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrla4~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8i~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8g~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8o~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8e~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8y~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl8d~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl9z~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl9r~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl9h~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl9v~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~scrl9g~ LAST #1 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~sw1h54a~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~sw1h54b~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~halb09b~ LAST #0 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~bow19b~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~misc8z~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~misc8u~ LAST #0 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~misc3l~ LAST #3 #0 #0 ~IDENTIFIED~ #1 
+	ADD_STORE_ITEM ~misc9x~ LAST #1 #0 #0 ~IDENTIFIED~ #3 
+	ADD_STORE_ITEM ~misc3o~ LAST #3 #0 #0 ~IDENTIFIED~ #1
+	ADD_STORE_ITEM ~MISC3A~ LAST #1 #0 #0 ~IDENTIFIED~ #1*/
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Skip Candlekeep Quests						   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @20071 DESIGNATED 20071
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+SUBCOMPONENT @2007
+GROUP @20
+
+EXTEND_BOTTOM ~AR2600.bcs~ ~nathanstweaks/baf/ar2600a.baf~
+
+BEGIN @20072 DESIGNATED 20072
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+SUBCOMPONENT @2007
+GROUP @20
+
+EXTEND_BOTTOM ~AR2600.bcs~ ~nathanstweaks/baf/ar2600a.baf~
+EXTEND_BOTTOM ~AR2600.bcs~ ~nathanstweaks/baf/ar2600b.baf~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -683,8 +852,8 @@ BEGIN @4001 DESIGNATED 4001
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
 GROUP @40
 
-COPY ~nathanstweaks/bam/nh011.bam~ ~override~
-COPY ~nathanstweaks/bam/nh012.bam~ ~override~
+COPY ~nathanstweaks/bam/nh011.BAM~ ~override~
+COPY ~nathanstweaks/bam/nh012.BAM~ ~override~
 COPY_EXISTING ~dart01.itm~ ~override/nh01.itm~
 	SAY			 0x08 @40011
 	SAY			 0x0c @40011
@@ -717,3 +886,529 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	COPY_EXISTING ~kusmith.sto~    ~override~ // Conlan
 		ADD_STORE_ITEM ~nh01~ LAST #0 #0 #0 ~IDENTIFIED~ #5 
 END
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better Ardulias Fall				 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @4002 DESIGNATED 4002
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @40
+
+COPY_EXISTING ~blun20.itm~ ~override/blun20.itm~
+	SAY			 0x0c @40021
+	SAY			 0x54 @40022
+	WRITE_LONG   0x34 4500
+	WRITE_SHORT  0x86 3
+	WRITE_SHORT  0x8c 4
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better NPC Profiencies & Items				   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @5001 DESIGNATED 5001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @50
+
+REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @501
+REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4090~ @502
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~AJANTI.cre~ ~override/AJANTI.cre~
+				  ~AJANTI4.cre~ ~override/AJANTI4.cre~
+				  ~AJANTI6.cre~ ~override/AJANTI6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 89 2
+		SET_BG2_PROFICIENCY 104 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SW1H01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD03~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~ALORA.cre~ ~override/ALORA.cre~
+				  ~ALORA6.cre~ ~override/ALORA6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 107 1
+		SET_BG2_PROFICIENCY 112 1
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DAGG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~MISC88~ #0 #0 #0 ~IDENTIFIED~ ~lring~
+	
+	COPY_EXISTING ~CORAN.cre~ ~override/CORAN.cre~
+				  ~CORAN5.cre~ ~override/CORAN5.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H04~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD03~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~EDWIN.cre~ ~override/EDWIN.cre~
+				  ~EDWIN2.cre~ ~override/EDWIN2.cre~
+				  ~EDWIN4.cre~ ~override/EDWIN4.cre~
+				  ~EDWIN6.cre~ ~override/EDWIN6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 106 1
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~DART01~ #80 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DART01~ #80 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~MISC89~ #0 #0 #0 ~IDENTIFIED~ ~amulet~
+	
+	COPY_EXISTING ~ELDOTH.cre~ ~override/ELDOTH.cre~
+				  ~ELDOTH5.cre~ ~override/ELDOTH5.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H20~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+	
+	COPY_EXISTING ~FALDOR.cre~ ~override/FALDOR.cre~
+				  ~FALDOR5.cre~ ~override/FALDOR5.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~DART01~ #80 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BLUN01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~GARRIC.cre~ ~override/GARRIC.cre~
+				  ~GARRIC2.cre~ ~override/GARRIC2.cre~
+				  ~GARRIC4.cre~ ~override/GARRIC4.cre~
+				  ~GARRIC6.cre~ ~override/GARRIC6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~XBOW04~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H07~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+	
+	COPY_EXISTING ~IMOEN1.cre~ ~override/IMOEN1.cre~
+				  ~IMOEN2.cre~ ~override/IMOEN2.cre~
+				  ~IMOEN4.cre~ ~override/IMOEN4.cre~
+				  ~IMOEN6.cre~ ~override/IMOEN6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW05~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H07~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~POTN08~ #3 #0 #0 ~IDENTIFIED~ ~qitem1~
+		ADD_CRE_ITEM ~POTN14~ #1 #0 #0 ~IDENTIFIED~ ~qitem2~
+		ADD_CRE_ITEM ~WAND12~ #10 #0 #0 ~IDENTIFIED~ ~qitem3~
+	
+	COPY_EXISTING ~JAHEIR.cre~ ~override/JAHEIR.cre~
+				  ~JAHEIR2.cre~ ~override/JAHEIR2.cre~
+				  ~JAHEIR4.cre~ ~override/JAHEIR4.cre~
+				  ~JAHEIR6.cre~ ~override/JAHEIR6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 107 2
+		SET_BG2_PROFICIENCY 115 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BLUN01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD03~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~POTN10~ #1 #0 #0 ~IDENTIFIED~ ~qitem1~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~KAGAIN.cre~ ~override/KAGAIN.cre~
+				  ~KAGAIN2.cre~ ~override/KAGAIN2.cre~
+				  ~KAGAIN4.cre~ ~override/KAGAIN4.cre~
+				  ~KAGAIN6.cre~ ~override/KAGAIN6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 92 2
+		SET_BG2_PROFICIENCY 103 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~AX1H01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~XBOW01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BOLT01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD03~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM12~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~KHALID.cre~ ~override/KHALID.cre~
+				  ~KHALID2.cre~ ~override/KHALID2.cre~
+				  ~KHALID4.cre~ ~override/KHALID4.cre~
+				  ~KHALID6.cre~ ~override/KHALID6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 90 2
+		SET_BG2_PROFICIENCY 104 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H04~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD03~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~KIVAN.cre~ ~override/KIVAN.cre~
+				  ~KIVAN4.cre~ ~override/KIVAN4.cre~
+				  ~KIVAN6.cre~ ~override/KIVAN6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~HALB01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~MINSC.cre~ ~override/MINSC.cre~
+				  ~MINSC2.cre~ ~override/MINSC2.cre~
+				  ~MINSC4.cre~ ~override/MINSC4.cre~
+				  ~MINSC6.cre~ ~override/MINSC6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 93 2
+		SET_BG2_PROFICIENCY 104 2
+		SET_BG2_PROFICIENCY 114 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SW2H01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BOW03~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~MONTAR.cre~ ~override/MONTAR.cre~
+				  ~MONTAR2.cre~ ~override/MONTAR2.cre~
+				  ~MONTAR4.cre~ ~override/MONTAR4.cre~
+				  ~MONTAR6.cre~ ~override/MONTAR6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 105 1
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW05~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DAGG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~POTN08~ #1 #0 #0 ~IDENTIFIED~ ~qitem1~
+		ADD_CRE_ITEM ~POTN14~ #1 #0 #0 ~IDENTIFIED~ ~qitem2~
+	
+	COPY_EXISTING ~QUAYLE.cre~ ~override/QUAYLE.cre~
+				  ~QUAYLE4.cre~ ~override/QUAYLE4.cre~
+				  ~QUAYLE6.cre~ ~override/QUAYLE6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BLUN01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD01~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+	
+	COPY_EXISTING ~SAFANA.cre~ ~override/SAFANA.cre~
+				  ~SAFANA4.cre~ ~override/SAFANA4.cre~
+				  ~SAFANA6.cre~ ~override/SAFANA6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SW1H46~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DART01~ #80 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+	
+	COPY_EXISTING ~SHARTE.cre~ ~override/SHARTE.cre~
+				  ~SHARTE4.cre~ ~override/SHARTE4.cre~
+				  ~SHARTE6.cre~ ~override/SHARTE6.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 90 2
+		SET_BG2_PROFICIENCY 114 2
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SW1H04~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H04~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~SKIE.cre~ ~override/SKIE.cre~
+				  ~SKIE6.cre~ ~override/SKIE6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BOW05~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SW1H07~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~AROW01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD10~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+	
+	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
+				  ~TIAX4.cre~ ~override/TIAX4.cre~
+				  ~TIAX6.cre~ ~override/TIAX6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~STAF01~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD01~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~LEAT04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+	
+	COPY_EXISTING ~VICONI.cre~ ~override/VICONI.cre~
+				  ~VICONI4.cre~ ~override/VICONI4.cre~
+				  ~VICONI6.cre~ ~override/VICONI6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~BLUN04~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD01~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CHAN04~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	
+	COPY_EXISTING ~XZAR.cre~ ~override/XZAR.cre~
+				  ~XZAR2.cre~ ~override/XZAR2.cre~
+				  ~XZAR4.cre~ ~override/XZAR4.cre~
+				  ~XZAR6.cre~ ~override/XZAR6.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~DAGG05~ #80 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DAGG05~ #80 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~POTN08~ #1 #0 #0 ~IDENTIFIED~ ~qitem1~
+		ADD_CRE_ITEM ~SCRL82~ #1 #0 #0 ~IDENTIFIED~ ~qitem2~
+		ADD_CRE_ITEM ~SCRL84~ #1 #0 #0 ~IDENTIFIED~ ~qitem3~
+END
+
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~AERIE6.cre~ ~override/AERIE6.cre~
+				  ~AERIE7.cre~ ~override/AERIE7.cre~
+				  ~AERIE9.cre~ ~override/AERIE9.cre~
+				  ~AERIE10.cre~ ~override/AERIE10.cre~
+				  ~AERIE11.cre~ ~override/AERIE11.cre~
+				  ~AERIE12.cre~ ~override/AERIE12.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~SLNG02~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~STAF02~ #0 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver1~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver2~
+		ADD_CRE_ITEM ~BULL01~ #80 #0 #0 ~IDENTIFIED~ ~quiver3~
+		ADD_CRE_ITEM ~SHLD01~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+
+	COPY_EXISTING ~ANOMEN6.cre~ ~override/ANOMEN6.cre~
+				  ~ANOMEN7.cre~ ~override/ANOMEN7.cre~
+				  ~ANOMEN8.cre~ ~override/ANOMEN8.cre~
+				  ~ANOMEN9.cre~ ~override/ANOMEN9.cre~
+				  ~ANOMEN10.cre~ ~override/ANOMEN10.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 97 3
+		SET_BG2_PROFICIENCY 100 4
+		SET_BG2_PROFICIENCY 101 3
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~BLUN03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~NPSHLD~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~PLAT01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+
+	COPY_EXISTING ~EDWIN7.cre~ ~override/EDWIN7.cre~
+				  ~EDWIN9.cre~ ~override/EDWIN9.cre~
+				  ~EDWIN11.cre~ ~override/EDWIN11.cre~
+				  ~EDWIN12.cre~ ~override/EDWIN12.cre~
+				  ~EDWIN13.cre~ ~override/EDWIN13.cre~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 106 1
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~DART02~ #80 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~DART02~ #80 #0 #0 ~IDENTIFIED~ ~weapon2~
+		ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~MISC89~ #0 #0 #0 ~IDENTIFIED~ ~amulet~
+		ADD_CRE_ITEM ~EDWINKEY~ #0 #0 #0 ~IDENTIFIED~ ~inv1~
+
+	COPY_EXISTING ~KORGAN8.cre~ ~override/KORGAN8.cre~
+				  ~KORGAN9.cre~ ~override/KORGAN9.cre~
+				  ~KORGAN11.cre~ ~override/KORGAN11.cre~
+				  ~KORGAN12.cre~ ~override/KORGAN12.cre~
+				  ~ANOMEN10.cre~ ~override/ANOMEN10.cre~
+		REMOVE_CRE_ITEMS
+		ADD_CRE_ITEM ~KORAX01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
+		ADD_CRE_ITEM ~SHLD05~ #0 #0 #0 ~IDENTIFIED~ ~shield~
+		ADD_CRE_ITEM ~PLAT01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
+		ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+END
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better NPC Thieving Abilities		 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @5002 DESIGNATED 5002
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @50
+
+REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @500
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN	
+	COPY_EXISTING ~ALORA.cre~ ~override/ALORA.cre~
+				  ~ALORA6.cre~ ~override/ALORA6.cre~
+		WRITE_BYTE 0x67 65
+		WRITE_BYTE 0x6A 0
+		WRITE_BYTE 0x69 50
+	
+	COPY_EXISTING ~CORAN.cre~ ~override/CORAN.cre~
+				  ~CORAN5.cre~ ~override/CORAN5.cre~
+		WRITE_BYTE 0x67 70
+		WRITE_BYTE 0x68 0
+		WRITE_BYTE 0x69 50
+	
+	COPY_EXISTING ~IMOEN1.cre~ ~override/IMOEN1.cre~
+				  ~IMOEN2.cre~ ~override/IMOEN2.cre~
+				  ~IMOEN4.cre~ ~override/IMOEN4.cre~
+				  ~IMOEN6.cre~ ~override/IMOEN6.cre~
+		WRITE_BYTE 0x67 40
+		WRITE_BYTE 0x68 0
+		WRITE_BYTE 0x69 0
+	
+	COPY_EXISTING ~MONTAR.cre~ ~override/MONTAR.cre~
+				  ~MONTAR2.cre~ ~override/MONTAR2.cre~
+				  ~MONTAR4.cre~ ~override/MONTAR4.cre~
+				  ~MONTAR6.cre~ ~override/MONTAR6.cre~
+		WRITE_BYTE 0x67 40
+		WRITE_BYTE 0x64 0
+		WRITE_BYTE 0x65 0
+		WRITE_BYTE 0x6A 0
+	
+	COPY_EXISTING ~SAFANA.cre~ ~override/SAFANA.cre~
+				  ~SAFANA4.cre~ ~override/SAFANA4.cre~
+				  ~SAFANA6.cre~ ~override/SAFANA6.cre~
+		WRITE_BYTE 0x67 45
+		WRITE_BYTE 0x68 0
+		WRITE_BYTE 0x45 0
+	
+	COPY_EXISTING ~SKIE.cre~ ~override/SKIE.cre~
+				  ~SKIE6.cre~ ~override/SKIE6.cre~
+		WRITE_BYTE 0x67 75
+		WRITE_BYTE 0x68 0
+		WRITE_BYTE 0x69 40
+		WRITE_BYTE 0x6A 0
+		WRITE_BYTE 0x45 0
+	
+	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
+				  ~TIAX4.cre~ ~override/TIAX4.cre~
+				  ~TIAX6.cre~ ~override/TIAX6.cre~
+		WRITE_BYTE 0x67 55
+		WRITE_BYTE 0x68 0
+		WRITE_BYTE 0x69 10
+		WRITE_BYTE 0x6A 0
+		WRITE_BYTE 0x45 0
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better NPC Spells					 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @5003 DESIGNATED 5003
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @50
+
+REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @500
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN	
+	COPY_EXISTING ~BRANWE.cre~ ~override/BRANWE.cre~
+				  ~BRANWE5.cre~ ~override/BRANWE5.cre~
+		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
+		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
+	
+	COPY_EXISTING ~DYNAHE.cre~ ~override/DYNAHE.cre~
+				  ~DYNAHE2.cre~ ~override/DYNAHE2.cre~
+				  ~DYNAHE4.cre~ ~override/DYNAHE4.cre~
+				  ~DYNAHE6.cre~ ~override/DYNAHE6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPWI112~
+		ADD_MEMORIZED_SPELL ~SPWI118~ #0 ~wizard~ ( 2 )
+	
+	COPY_EXISTING ~EDWIN.cre~ ~override/EDWIN.cre~
+				  ~EDWIN2.cre~ ~override/EDWIN2.cre~
+				  ~EDWIN4.cre~ ~override/EDWIN4.cre~
+				  ~EDWIN6.cre~ ~override/EDWIN6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPWI105~
+		ADD_MEMORIZED_SPELL ~SPWI116~ #0 ~wizard~ ( 2 )
+	
+	COPY_EXISTING ~ELDOTH.cre~ ~override/ELDOTH.cre~
+				  ~ELDOTH5.cre~ ~override/ELDOTH5.cre~
+		REMOVE_MEMORIZED_SPELL ~SPWI119~
+		ADD_MEMORIZED_SPELL ~SPWI110~ #0 ~wizard~ ( 2 )
+	
+	COPY_EXISTING ~FALDOR.cre~ ~override/FALDOR.cre~
+				  ~FALDOR5.cre~ ~override/FALDOR5.cre~
+		REMOVE_MEMORIZED_SPELL ~SPPR202~ ~SPPR205~ ~SPPR207~
+		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 3 )
+	
+	COPY_EXISTING ~QUAYLE.cre~ ~override/QUAYLE.cre~
+				  ~QUAYLE4.cre~ ~override/QUAYLE4.cre~
+				  ~QUAYLE6.cre~ ~override/QUAYLE6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPWI112~
+		ADD_MEMORIZED_SPELL ~SPWI116~ #0 ~wizard~ ( 2 )
+	
+	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
+				  ~TIAX4.cre~ ~override/TIAX4.cre~
+				  ~TIAX6.cre~ ~override/TIAX6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
+		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 2 )
+	
+	COPY_EXISTING ~VICONI.cre~ ~override/VICONI.cre~
+				  ~VICONI4.cre~ ~override/VICONI4.cre~
+				  ~VICONI6.cre~ ~override/VICONI6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
+		ADD_MEMORIZED_SPELL ~SPPR102~ #0 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
+	
+	COPY_EXISTING ~XAN.cre~ ~override/XAN.cre~
+				  ~XAN4.cre~ ~override/XAN4.cre~
+				  ~XAN6.cre~ ~override/XAN6.cre~
+		REMOVE_MEMORIZED_SPELL ~SPWI104~ ~SPWI105~
+		ADD_MEMORIZED_SPELL ~SPWI116~ #0 ~wizard~ ( 2 )
+		ADD_MEMORIZED_SPELL ~SPWI110~ #0 ~wizard~ ( 1 )
+	
+	COPY_EXISTING ~YESLIC.cre~ ~override/YESLIC.cre~
+				  ~YESLIC5.cre~ ~override/YESLIC5.cre~
+		REMOVE_MEMORIZED_SPELL ~SPPR101~ ~SPPR103~ ~SPPR113~ ~SPPR208~
+		ADD_MEMORIZED_SPELL ~SPPR108~ #0 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
+		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR211~ #1 ~priest~ ( 1 )
+END
+

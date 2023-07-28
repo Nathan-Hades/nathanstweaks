@@ -23,6 +23,10 @@
 @20051	= ~3~
 @20052	= ~5~
 @20053	= ~10~
+@2006	= ~Ueberspringe Kapitel 4 und 5 in BG2 (Beta)~
+@2007	= ~Ueberspringe alle Augaben in Kerzenburg (Prolog)~
+@20071	= ~Ohne 300 Gold von Firebead Elfenhaar~
+@20072	= ~Mit 300 Gold von Firebead Elfenhaar~
 @30		= ~Grafik~
 @3001	= ~Zeige den Ulgoths Bart-Screen~
 @3002	= ~Einheitliche Farben für NPCs und Charaktererstellung~
@@ -42,3 +46,25 @@ Fertigkeit: Wurfpfeil
 Typ: 1-händig
 
 Gewicht: 0~
+@4002	= ~Ardulias Fall wird +3~
+@40021	= ~Ardulias Fall +3~
+@40022	= ~Ardulia der Flinke war ein Mann, dessen Geschwindigkeit und Geschick im Umgang mit dem Kampfmesser ihn zu einem tödlichen Kämpfer machten. Er stellte seine Fähigkeiten bei Überfällen auf Ansiedlungen entlang der Schwertküste wiederholt unter Beweis. Oft forderte er den Anführer des Dorfes zu einem Duell um die Herrschaft über das Dorf heraus. Dank seiner Geschwindigkeit konnte er diese Duelle rasch zu seinen Gunsten entscheiden. An einem Frühlingsmorgen traf er jedoch auf einen Gegner, der ihm überlegen war. Ardulia kämpfte gegen den Priester Itgan, der diesen Streitkolben schwang. Nach jedem Treffer schien Ardulia zu taumeln. Er wurde langsamer und es dauerte immer länger, bis er sich wieder fing. Ohne seine legendäre Geschwindigkeit stand er auf verlorenem Boden und fiel unter den gezielten, ruhigen Schlägen Itgans.
+
+EIGENSCHAFTEN:
+
+Bei jedem Treffer wird das Ziel für 2 Runden verlangsamt (Rettungswurf +3 gg. Zauber).
+
+ETW0-Bonus: -3
+Schaden: 1W6 +4 (Wucht)
+Initiativefaktor: 6
+Fertigkeit: Streitkolben
+Typ: 1-händig
+Mindeststärke: 10
+
+Gewicht: 8~
+@50		= ~NPCs~
+@501	= ~Hierfuer wird TdB-Stil NSCs von Tweaks-Anthology benoetigt~
+@502	= ~Hierfuer wird Make Montaron an Assassin von Tweaks-Anthology benoetigt~
+@5001	= ~Bessere Fertigkeiten und Items für NPCs~
+@5002	= ~Bessere Diebesfähigkeiten für NPCs~
+@5003	= ~Bessere Zauber für NPCs (Beta)~

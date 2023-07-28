@@ -1,0 +1,7 @@
+IF
+	Global("NATHANSTART14","GLOBAL",0)
+THEN
+	RESPONSE #100
+		GivePartyGold(300)
+		SetGlobal("NATHANSTART14","GLOBAL",1)
+END

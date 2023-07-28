@@ -79,6 +79,15 @@ Components:
 	- +5 Bonus or
 	- +10 Bonus
 
+2.6. Skip all tasks in Candlekeep (Prologue) (BG1EE)
+	- You automatically receive:
+		- Gold
+		- Items
+		- Experience
+		- Spells
+	- Attention is paid to what abilities your character has.
+	- Alternatively, you can get the 300 Gold from Firebead Elvenhair
+
 
 3. Graphic/UI
 
@@ -107,3 +116,71 @@ Components:
 4.1. Endless Dart (BG1EE, BG2EE, IWD1EE)
 	- This dart always returns to the thrower's hand after being thrown.
 	It can be bought at Taerum Thunderhammer Smithy, Ribald's Adventurer Mart and Conlan's Smithy.
+
+4.2. Mace's Fall becomes +3 (BG2EE)
+	- This flail was +1 before now it is +3
+	- The price is also adjusted
+
+
+5. NPCs
+
+5.1 Better proficiencies and items for NPCs (BG1EE, BG2EE)
+	This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
+	BG1EE:
+	- Ajantis:		2*Bastard swords, 2*Longbow
+	- Alora:		Dagger, Slings, Sword and Shield Style
+	- Edwin:		Dart
+	- Jaheira:		2*Club, 2*Slings
+	- Kagain:		2*Axe, 2*Crossbow
+	- Khalid:		2*Long Sword, 2*Longbows
+	- Minsc:		2*Two-Handed Sword, 2*Longbows, 2*Two-Weapon Style
+	- Montaron:		Dagger, Short Bow
+	- Shar-Teel:	2*Long Sword, 2*Two-Weapon Style
+	- Thiefs and Druids: Studded leather
+	- Bards: Chain mail
+	- Thief, Bard and Druid: Buckler
+	- Fighter, Paladin, Ranger and Cleric: Splint mail and a medium shield or, at lower strength, a small shield
+	- Ranged weapons: 3*80
+	- Potions and Wands: Quick Slot
+	
+	BG2EE:
+	- Anomen:	3*War Hammer, 4*Flail, 3*Mace
+	- Edwin:	Quarter Staff, Dart
+	- Anomen & Korgan:	Plate mail
+	- Aerie & Edwin:	Traveler's Robe
+	- All: +1 Waffe
+
+5.2 Better thieving abilities for NPCs (BG1EE)
+	This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
+	- All thieves get all available thief points in that order:
+		- 95% Open locks
+		- 100% Find traps
+
+5.2 BBetter spells for NPCs (Beta) (BG1EE)
+	This requires ToB-Style NPCs from Tweaks Anthology
+	- Branwen:
+		- 3x Cure Light Wounds
+	- Dynaheir:
+		- 2x Chromatic Orb
+	- Edwin:
+		- 2x Sleep
+	- Eldoth:
+		- 2x Identify
+	- Faldorn:
+		- 3x Gift verlangsamen
+	- Quayle:
+		- 2x Sleep
+	- Tiax:
+		- 2x Cure Light Wounds
+	- Viconia:
+		- 1x Command
+		- 3x Cure Light Wounds
+	- Xan:
+		- 1x Identify
+		- 2x Sleep
+	- Yeslick:
+		- 1x Remove Fear
+		- 1x Slow Poison
+		- 1x Silence
+		- 3x Cure Light Wounds
+	

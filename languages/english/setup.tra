@@ -23,6 +23,10 @@
 @20051	= ~3~
 @20052	= ~5~
 @20053	= ~10~
+@2006	= ~Skip chapters 4 and 5 in BG2 (Beta)~
+@2007	= ~Skip all tasks in Candlekeep (Prologue)~
+@20071	= ~Without 300 Gold from Firebead Elvenhair~
+@20072	= ~With 300 gold from Firebead Elvenhair~
 @30		= ~Graphic/UI~
 @3001	= ~Show the Ulgoths Bard-Screen~
 @3002	= ~Uniform colours for NPCs and character creation~
@@ -42,3 +46,27 @@ Proficiency Type: Dart
 Type: One-handed
 
 Weight: 0~
+@4002	= ~Ardulia's Fall becomes +3~
+@40021	= ~Ardulia's Fall +3~
+@40022	= ~Ardulia the Agile was a man whose speed and skill at knife play made him exceptionally lethal in battle, and he repeatedly proved it by leading raids on settlements along the Sword Coast. He would often challenge the village leader for possession of the town, and with his speed, the duels were always quickly decided in his favor. Ardulia met his match one spring morn however, when he battled the priest Itgan, who wielded this mace. Ardulia seemed to stagger under each blow, slowing his pace to recoup and regain his breath. Without his speed, Ardulia was lost, and fell to the measured attacks of Itgan.
+
+STATISTICS:
+
+Combat abilities:
+– Hit target must save vs. Spell at +3 or be slowed for 2 rounds
+
+THAC0: +3
+Damage: 1d6+4 (crushing)
+Speed Factor: 6
+Proficiency Type: Mace
+Type: One-handed
+Requires:
+ 10 Strength
+
+Weight: 8~
+@50		= ~NPCs~
+@501	= ~This requires ToB-Style NPCs from Tweaks Anthology~
+@502	= ~This requires Make Montaron an Assassin from Tweaks Anthology~
+@5001	= ~Better proficiencies and items for NPCs~
+@5002	= ~Better thieving abilities for NPCs~
+@5003	= ~Better spells for NPCs (Beta)~
