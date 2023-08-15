@@ -301,6 +301,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
 GROUP @10
 COPY ~nathanstweaks/spl/SPIN678.spl~ ~override~
 
+
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////												   \\\\\
@@ -399,12 +400,15 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~cor.cre~ ~override~
 		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
 		BUT_ONLY
+	COPY_EXISTING ~renal.cre~ ~override~
+		REPLACE_CRE_ITEM ~boot01~ #0 #0 #0 ~NONE~ ~belt~
+		BUT_ONLY
 	COPY_EXISTING ~obssol01.cre~ ~override~
 		ADD_CRE_ITEM ~belt02~ #0 #0 #0 ~NONE~ ~belt~
 		BUT_ONLY
 	COPY_EXISTING ~mgkhol01.dlg~ ~override~
 		DECOMPILE_AND_PATCH BEGIN
-			REPLACE_TEXTUALLY ~~~~~GiveItemCreate("BELT02",LastTalkedToBy,0,0,0)~~~~~ ~~~~~TakeItemReplace("obssol01","LastTalkedToBy","BELT02")~~~~~
+			REPLACE_TEXTUALLY ~~~~~GiveItemCreate("BELT02",LastTalkedToBy,0,0,0)~~~~~ ~~~~~TakeItemReplace("obssol01",LastTalkedToBy,"BELT02")~~~~~
 		END
 		BUT_ONLY
 END
@@ -590,6 +594,38 @@ GROUP @20
 
 EXTEND_BOTTOM ~AR2600.bcs~ ~nathanstweaks/baf/ar2600a.baf~
 EXTEND_BOTTOM ~AR2600.bcs~ ~nathanstweaks/baf/ar2600b.baf~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// New BG2 Playercharacter gets Manuals	from BG1   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2008 DESIGNATED 2008
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @20
+COPY_EXISTING ~AR0602.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~SetGlobal("BG1DrizztItem","GLOBAL",1)~~~~~ ~~~~~SetGlobal("BG1DrizztItem","GLOBAL",1)
+		Continue()
+END
+
+IF
+	Global("BG1Manuals","GLOBAL",0)
+	XP(Player1,89000)
+THEN
+	RESPONSE #100
+		ChangeStat(Player1,STR,1,ADD)
+		ChangeStat(Player1,DEX,1,ADD)
+		ChangeStat(Player1,CON,1,ADD)
+		ChangeStat(Player1,INT,1,ADD)
+		ChangeStat(Player1,WIS,3,ADD)
+		ChangeStat(Player1,CHR,1,ADD)
+		SetGlobal("BG1Manuals","GLOBAL",1)~~~~~
+END
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -905,6 +941,34 @@ COPY_EXISTING ~blun20.itm~ ~override/blun20.itm~
 	WRITE_LONG   0x34 4500
 	WRITE_SHORT  0x86 3
 	WRITE_SHORT  0x8c 4
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better +1 Weapons in BG1			 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+/*BEGIN @4003 DESIGNATED 4003
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @40
+
+COPY_EXISTING ~dart01.itm~ ~override/nh01.itm~
+	SAY			 0x08 @40031
+	SAY			 0x0c @40031
+	SAY			 0x50 @40032
+	SAY			 0x54 @40032
+    READ_LONG    0x64 abil_off
+    READ_SHORT   0x68 abil_num
+    FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+      SET base = abil_off + (index * 0x28)
+      READ_BYTE  (base + 0x00) type
+      PATCH_IF type = 2 BEGIN 
+        WRITE_SHORT (base + 0x22) 0 // zero charges
+        WRITE_SHORT (base + 0x24) 3 // recharges when drained
+      END
+    END*/
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
