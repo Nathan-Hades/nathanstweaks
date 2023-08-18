@@ -156,7 +156,7 @@ Komponenten:
 		- 95% Schlösser öffnen
 		- 100% Fallen finden
 
-5.2 Bessere Zauber für NPCs (Beta) (BG1EE)
+5.2 Bessere Zauber für NPCs (BG1EE)
 	Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
 	- Branwen:
 		- 3x Leichte Wunden heilen

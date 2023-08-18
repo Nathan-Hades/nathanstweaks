@@ -157,7 +157,7 @@ Components:
 		- 95% Open locks
 		- 100% Find traps
 
-5.2 Better spells for NPCs (Beta) (BG1EE)
+5.2 Better spells for NPCs (BG1EE)
 	This requires ToB-Style NPCs from Tweaks Anthology
 	- Branwen:
 		- 3x Cure Light Wounds

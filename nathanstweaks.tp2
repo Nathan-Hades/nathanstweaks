@@ -1418,8 +1418,11 @@ REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @501
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN	
 	COPY_EXISTING ~BRANWE.cre~ ~override/BRANWE.cre~
 				  ~BRANWE5.cre~ ~override/BRANWE5.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem
 		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
 		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem
 	
 	COPY_EXISTING ~DYNAHE.cre~ ~override/DYNAHE.cre~
 				  ~DYNAHE2.cre~ ~override/DYNAHE2.cre~
@@ -1442,8 +1445,11 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	
 	COPY_EXISTING ~FALDOR.cre~ ~override/FALDOR.cre~
 				  ~FALDOR5.cre~ ~override/FALDOR5.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem
 		REMOVE_MEMORIZED_SPELL ~SPPR202~ ~SPPR205~ ~SPPR207~
 		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 3 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem
 	
 	COPY_EXISTING ~QUAYLE.cre~ ~override/QUAYLE.cre~
 				  ~QUAYLE4.cre~ ~override/QUAYLE4.cre~
@@ -1454,15 +1460,21 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
 				  ~TIAX4.cre~ ~override/TIAX4.cre~
 				  ~TIAX6.cre~ ~override/TIAX6.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem
 		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
 		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 2 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem
 	
 	COPY_EXISTING ~VICONI.cre~ ~override/VICONI.cre~
 				  ~VICONI4.cre~ ~override/VICONI4.cre~
 				  ~VICONI6.cre~ ~override/VICONI6.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem
 		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~
 		ADD_MEMORIZED_SPELL ~SPPR102~ #0 ~priest~ ( 1 )
 		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem
 	
 	COPY_EXISTING ~XAN.cre~ ~override/XAN.cre~
 				  ~XAN4.cre~ ~override/XAN4.cre~
@@ -1473,10 +1485,13 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	
 	COPY_EXISTING ~YESLIC.cre~ ~override/YESLIC.cre~
 				  ~YESLIC5.cre~ ~override/YESLIC5.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem
 		REMOVE_MEMORIZED_SPELL ~SPPR101~ ~SPPR103~ ~SPPR113~ ~SPPR208~
 		ADD_MEMORIZED_SPELL ~SPPR108~ #0 ~priest~ ( 1 )
 		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
 		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 1 )
 		ADD_MEMORIZED_SPELL ~SPPR211~ #1 ~priest~ ( 1 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem
 END
 
