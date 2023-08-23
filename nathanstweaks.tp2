@@ -408,7 +408,7 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~mgkhol01.dlg~ ~override~
 		DECOMPILE_AND_PATCH BEGIN
-			REPLACE_TEXTUALLY ~~~~~GiveItemCreate("BELT02",LastTalkedToBy,0,0,0)~~~~~ ~~~~~TakeItemReplace("obssol01",LastTalkedToBy,"BELT02")~~~~~
+			REPLACE_TEXTUALLY ~~~~~GiveItemCreate("BELT02",LastTalkedToBy,0,0,0)~~~~~ ~~~~~ActionOverride("obssol01",GiveItem("BELT02",Player1))~~~~~
 		END
 		BUT_ONLY
 END
@@ -1486,12 +1486,14 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~YESLIC.cre~ ~override/YESLIC.cre~
 				  ~YESLIC5.cre~ ~override/YESLIC5.cre~
 		READ_LONG  0x2a8 mem_info
-		READ_SHORT  (mem_info + 0x02) spell_mem
-		REMOVE_MEMORIZED_SPELL ~SPPR101~ ~SPPR103~ ~SPPR113~ ~SPPR208~
+		READ_SHORT  (mem_info + 0x02) spell_mem0
+		READ_SHORT  (mem_info + 0x12) spell_mem1
+		REMOVE_MEMORIZED_SPELL ~SPPR101~ ~SPPR103~ ~SPPR113~ ~SPPR208~ ~SPPR213~
 		ADD_MEMORIZED_SPELL ~SPPR108~ #0 ~priest~ ( 1 )
 		ADD_MEMORIZED_SPELL ~SPPR103~ #0 ~priest~ ( 3 )
-		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 2 )
 		ADD_MEMORIZED_SPELL ~SPPR211~ #1 ~priest~ ( 1 )
-		WRITE_SHORT  (mem_info + 0x02) spell_mem
+		WRITE_SHORT  (mem_info + 0x02) spell_mem0
+		WRITE_SHORT  (mem_info + 0x12) spell_mem1
 END
 
