@@ -1,7 +1,7 @@
 BACKUP ~nathanstweaks/backup~ // location to store files for
 SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
 
-VERSION ~v0.6.5~
+VERSION ~v0.7.2~
 README ~nathanstweaks/languages/%LANGUAGE%/readme.txt~ 
 	   ~nathanstweaks/languages/english/readme.txt~
 
