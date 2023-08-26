@@ -9,7 +9,7 @@ This is a mod for the Enhanced Editions of Baldur's Gate 1, Baldur's Gate 2 and 
 
 ### 1. Improvements
 
-#### 1.1. Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
+#### 1.1. Better scripts for your characters (BG1EE, BG2EE, IWD1EE)
 The Advanced AI script now causes your characters to stay with an opponent instead of attacking for only one turn.
 Thieves, shamans and monks automatically search for traps and illusions
 Shamans automatically perform the shaman dance in combat
@@ -89,9 +89,18 @@ You automatically receive:
 - Experience
 - Spells
 
-Attention is paid to what abilities your character has.
-
+Attention is paid to what abilities your character has.  
 Alternatively, you can get the 300 Gold from Firebead Elvenhair
+
+#### 2.7. New player characters created in BG2 receive the manuals from BG1 (BG2EE)
+If your character has exactly 89000 EP at the beginning of BG2EE (which hopefully only non-imported characters have), you will receive:
+- +1 Strengt
+- +1 Dexterity
+- +1 Constitution
+- +1 Intelligence
+- +3 Wisdom
+- +1 Charisma
+
 
 ### 3. Graphic/UI
 
@@ -158,7 +167,7 @@ All thieves get all available thief points in that order:
 - 95% Open locks
 - 100% Find traps
 
-#### 5.3 Better spells for NPCs (Beta) (BG1EE)
+#### 5.3 Better spells for NPCs (BG1EE)
 This requires ToB-Style NPCs from Tweaks Anthology
 - Branwen:
 	- 3\*Cure Light Wounds
@@ -175,23 +184,23 @@ This requires ToB-Style NPCs from Tweaks Anthology
 - Tiax:
 	- 2\*Cure Light Wounds
 - Viconia:
-	- 1\*Command
 	- 3\*Cure Light Wounds
+	- 1\*Command
 - Xan:
 	- 1\*Identify
 	- 2\*Sleep
 - Yeslick:
-	- 1\*Remove Fear
-	- 1\*Slow Poison
-	- 1\*Silence
 	- 3\*Cure Light Wounds
+	- 1\*Remove Fear
+	- 2\*Slow Poison
+	- 1\*Silence
 
 ## German
 Dies ist eine Mod für die Enhanced-Editions von Baldur's Gate 1, Baldur's Gate 2 und Icewind Dale 1.
 
 ### 1. Verbesserungen
 
-#### 1.1. Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
+#### 1.1. Bessere Skripte für deine Charaktere (BG1EE, BG2EE, IWD1EE)
 - Das Advanced AI-Skript führt nun dazu, dass deine Charaktere nicht nur eine Runde angreifen, sondern bei einem Gegner bleiben
 - Diebe, Schamanen und Mönche suchen automatisch nach Fallen und Illusionen
 - Schamanen führen automatisch den Schamanentanz im Kampf aus
@@ -277,6 +286,15 @@ Dabei wird darauf geachtet, welche Fähigkeiten dein Charakter hat.
 
 Alternativ erhälst du auch die 300 Gold von Firebead Elfenhaar
 
+#### 2.7. In BG2 neu erstellte Spielercharaktere erhalten die Leitfäden aus BG1 (BG2EE)
+Hat dein Charakter zu Beginn von BG2EE genau 89000 EP (was hoffentlich nur nicht importierte Charaktere haben), erhälst du:
+- +1 Stärke
+- +1 Geschicklichkeit
+- +1 Konstitution
+- +1 Intelligenz
+- +3 Weisheit
+- +1 Charisma
+
 ### 3. Grafik
 
 #### 3.1. Zeige den Ulgoths Bart-Screen (BG1EE)
@@ -343,7 +361,7 @@ Alle Diebe bekommen alle jeweils verfügbaren Diebespunkte in dieser Reihenfolge
 - 95% Schlösser öffnen
 - 100% Fallen finden
 
-#### 5.3 Bessere Zauber für NPCs (Beta) (BG1EE)
+#### 5.3 Bessere Zauber für NPCs (BG1EE)
 Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
 - Branwen:
 	- 3\*Leichte Wunden heilen
@@ -360,14 +378,14 @@ Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
 - Tiax:
 	- 2\*Leichte Wunden heilen
 - Viconia:
+	- 3\*Leichte Wunden heilen
 	- 1\*Befehl
-	- 3x Leichte Wunden heilen
 - Xan:
 	- 1\*Identifizieren
 	- 2\*Schlaf
 - Yeslick:
-	- 1\*Furcht bannen
-	- 1\*Gift verlangsamen
-	- 1\*Stille
 	- 3\*Leichte Wunden heilen
+	- 1\*Furcht bannen
+	- 2\*Gift verlangsamen
+	- 1\*Stille
 	
