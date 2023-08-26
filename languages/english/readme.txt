@@ -68,6 +68,7 @@ Components:
 	- The mage ring of ribald (BG2EE)
 	- Ring +1 from Meronia, Berinvar and Cor Delryn (BG2EE)
 	- Gold belt of Urnst of Reyna (Beta) (BG2EE)
+	- Boots of Speed of Renal Blutskalp (BG2EE)
 
 2.3. Changeable things in the landscape are twice as far reachable (BG1EE, BG2EE, IWD1EE)
 	- Here points in the surroundings are meant where the cursor changes to the two arrows as a circle
@@ -183,14 +184,14 @@ Components:
 	- Tiax:
 		- 2x Cure Light Wounds
 	- Viconia:
-		- 1x Command
 		- 3x Cure Light Wounds
+		- 1x Command
 	- Xan:
 		- 1x Identify
 		- 2x Sleep
 	- Yeslick:
-		- 1x Remove Fear
-		- 1x Slow Poison
-		- 1x Silence
 		- 3x Cure Light Wounds
+		- 1x Remove Fear
+		- 2x Slow Poison
+		- 1x Silence
 	

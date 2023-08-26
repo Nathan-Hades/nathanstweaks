@@ -183,14 +183,14 @@ Komponenten:
 	- Tiax:
 		- 2x Leichte Wunden heilen
 	- Viconia:
-		- 1x Befehl
 		- 3x Leichte Wunden heilen
+		- 1x Befehl
 	- Xan:
 		- 1x Identifizieren
 		- 2x Schlaf
 	- Yeslick:
-		- 1x Furcht bannen
-		- 1x Gift verlangsamen
-		- 1x Stille
 		- 3x Leichte Wunden heilen
+		- 1x Furcht bannen
+		- 2x Gift verlangsamen
+		- 1x Stille
 	
