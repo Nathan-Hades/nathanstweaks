@@ -1349,15 +1349,15 @@ REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4090~ @502
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN	
 	COPY_EXISTING ~ALORA.cre~ ~override/ALORA.cre~
 				  ~ALORA6.cre~ ~override/ALORA6.cre~
-		WRITE_BYTE 0x67 65
+		WRITE_BYTE 0x67 60
 		WRITE_BYTE 0x6A 0
-		WRITE_BYTE 0x69 50
+		WRITE_BYTE 0x69 55
 	
 	COPY_EXISTING ~CORAN.cre~ ~override/CORAN.cre~
 				  ~CORAN5.cre~ ~override/CORAN5.cre~
-		WRITE_BYTE 0x67 70
+		WRITE_BYTE 0x67 65
 		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 50
+		WRITE_BYTE 0x69 25
 	
 	COPY_EXISTING ~IMOEN1.cre~ ~override/IMOEN1.cre~
 				  ~IMOEN2.cre~ ~override/IMOEN2.cre~
@@ -1385,18 +1385,18 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	
 	COPY_EXISTING ~SKIE.cre~ ~override/SKIE.cre~
 				  ~SKIE6.cre~ ~override/SKIE6.cre~
-		WRITE_BYTE 0x67 75
+		WRITE_BYTE 0x67 70
 		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 40
+		WRITE_BYTE 0x69 45
 		WRITE_BYTE 0x6A 0
 		WRITE_BYTE 0x45 0
 	
 	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
 				  ~TIAX4.cre~ ~override/TIAX4.cre~
 				  ~TIAX6.cre~ ~override/TIAX6.cre~
-		WRITE_BYTE 0x67 55
+		WRITE_BYTE 0x67 65
 		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 10
+		WRITE_BYTE 0x69 0
 		WRITE_BYTE 0x6A 0
 		WRITE_BYTE 0x45 0
 END

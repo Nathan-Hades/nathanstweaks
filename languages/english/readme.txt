@@ -89,6 +89,15 @@ Components:
 	- Attention is paid to what abilities your character has.
 	- Alternatively, you can get the 300 Gold from Firebead Elvenhair
 
+2.7. New player characters created in BG2 receive the manuals from BG1 (BG2EE)
+	- If your character has exactly 89000 EP at the beginning of BG2EE (which hopefully only non-imported characters have), you will receive:
+		- +1 Strengt
+		- +1 Dexterity
+		- +1 Constitution
+		- +1 Intelligence
+		- +3 Wisdom
+		- +1 Charisma
+
 
 3. Graphic/UI
 

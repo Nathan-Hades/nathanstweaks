@@ -68,6 +68,7 @@ Komponenten:
 	- Der Magierring von Ribald (BG2EE)
 	- Ring +1 von Meronia, Berinvar und Cor Delryn (BG2EE)
 	- Goldriemen von Urnst von Reyna (Beta) (BG2EE)
+	- Siebenmeilenstiefel von Renal Blutskalp (BG2EE)
 
 2.3. Interaktive Punkte in der Umgebung sind doppelt so weit erreichbar (BG1EE, BG2EE, IWD1EE)
 	- Hier sind Punkte in der Umgebung gemeint, bei denen der Kursor sich in die beiden Pfeile als Kreis ändert
@@ -88,6 +89,15 @@ Komponenten:
 		- Zauber
 	- Dabei wird darauf geachtet, welche Fähigkeiten dein Charakter hat.
 	- Alternativ erhälst du auch die 300 Gold von Firebead Elfenhaar
+
+2.7. In BG2 neu erstellte Spielercharaktere erhalten die Leitfäden aus BG1 (BG2EE)
+	- Hat dein Charakter zu Beginn von BG2EE genau 89000 EP (was hoffentlich nur nicht importierte Charaktere haben), erhälst du:
+		- +1 Stärke
+		- +1 Geschicklichkeit
+		- +1 Konstitution
+		- +1 Intelligenz
+		- +3 Weisheit
+		- +1 Charisma
 
 3. Grafik
 
