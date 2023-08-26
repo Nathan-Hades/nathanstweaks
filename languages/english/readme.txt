@@ -6,7 +6,7 @@ Components:
 
 1. Improvements
 
-1.1. Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
+1.1. Better scripts for your characters (BG1EE, BG2EE, IWD1EE)
 	- The Advanced AI script now causes your characters to stay with an opponent instead of attacking for only one turn.
 	- Thieves, shamans and monks automatically search for traps and illusions
 	- Shamans automatically perform the shaman dance in combat

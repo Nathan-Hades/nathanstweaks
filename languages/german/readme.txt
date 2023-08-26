@@ -4,7 +4,7 @@ Komponenten:
 
 1. Verbesserungen
 
-1.1. Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
+1.1. Bessere Skripte für deine Charaktere (BG1EE, BG2EE, IWD1EE)
 	- Das Advanced AI-Skript führt nun dazu, dass deine Charaktere nicht nur eine Runde angreifen, sondern bei einem Gegner bleiben
 	- Diebe, Schamanen und Mönche suchen automatisch nach Fallen und Illusionen
 	- Schamanen führen automatisch den Schamanentanz im Kampf aus
