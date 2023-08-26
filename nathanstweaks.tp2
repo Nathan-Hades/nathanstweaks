@@ -1,7 +1,7 @@
 BACKUP ~nathanstweaks/backup~ // location to store files for
 SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
 
-VERSION ~v0.6~
+VERSION ~v0.6.5~
 README ~nathanstweaks/languages/%LANGUAGE%/readme.txt~ 
 	   ~nathanstweaks/languages/english/readme.txt~
 
@@ -401,7 +401,7 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 		REPLACE_CRE_ITEM ~ring06~ #0 #0 #0 ~NONE~ ~LRING~
 		BUT_ONLY
 	COPY_EXISTING ~renal.cre~ ~override~
-		REPLACE_CRE_ITEM ~boot01~ #0 #0 #0 ~NONE~ ~belt~
+		REPLACE_CRE_ITEM ~boot01~ #0 #0 #0 ~NONE~ ~boots~
 		BUT_ONLY
 	COPY_EXISTING ~obssol01.cre~ ~override~
 		ADD_CRE_ITEM ~belt02~ #0 #0 #0 ~NONE~ ~belt~
