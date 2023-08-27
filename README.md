@@ -1,4 +1,4 @@
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Nathan-Hades/nathanstweaks?color=darkred&include_prereleases&label=latest%20release)](https://github.com/Nathan-Hades/nathanstweaks/releases)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Nathan-Hades/nathanstweaks?sort=date&color=darkred&label=latest%20release)](https://github.com/Nathan-Hades/nathanstweaks/releases)
 [![Platform](https://img.shields.io/static/v1?label=platform&message=Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20iOS&color=informational)](https://github.com/Nathan-Hades/nathanstweaks/releases)
 [![Supported games](https://img.shields.io/static/v1?label=supported%20games&message=BG%3AEE%20%7C%20BG2%3AEE%20%7C%20IWD%3AEE&color=indigo)](https://github.com/Nathan-Hades/nathanstweaks/releases)
 [![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20German&color=limegreen)](https://github.com/Nathan-Hades/nathanstweaks/releases)
