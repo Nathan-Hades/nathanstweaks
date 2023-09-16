@@ -1318,6 +1318,15 @@ COPY_EXISTING ~EDWIN7.cre~ ~override/EDWIN7.cre~
 	ADD_CRE_ITEM ~CLCK13~ #0 #0 #0 ~IDENTIFIED~ ~armor~
 	ADD_CRE_ITEM ~MISC89~ #0 #0 #0 ~IDENTIFIED~ ~amulet~
 	ADD_CRE_ITEM ~EDWINKEY~ #0 #0 #0 ~IDENTIFIED~ ~inv1~
+	
+COPY_EXISTING ~JAHEIR7.cre~ ~override/JAHEIR7.cre~
+			  ~JAHEIR8.cre~ ~override/JAHEIR8.cre~
+			  ~JAHEIR11.cre~ ~override/JAHEIR11.cre~
+			  ~JAHEIR12.cre~ ~override/JAHEIR12.cre~
+	LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+	SET_BG2_PROFICIENCY 102 2
+	SET_BG2_PROFICIENCY 107 2
+	SET_BG2_PROFICIENCY 115 2
 
 COPY_EXISTING ~KORGAN8.cre~ ~override/KORGAN8.cre~
 			  ~KORGAN9.cre~ ~override/KORGAN9.cre~
@@ -1330,7 +1339,6 @@ COPY_EXISTING ~KORGAN8.cre~ ~override/KORGAN8.cre~
 	ADD_CRE_ITEM ~PLAT01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
 	ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
 	
-	
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////												   \\\\\
@@ -1339,67 +1347,94 @@ COPY_EXISTING ~KORGAN8.cre~ ~override/KORGAN8.cre~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @5002 DESIGNATED 5002
+BEGIN @5002 DESIGNATED 5012
 REQUIRE_PREDICATE GAME_IS ~bgee~ @0
 GROUP @50
 
 REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @501
 REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4090~ @502
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN	
-	COPY_EXISTING ~ALORA.cre~ ~override/ALORA.cre~
-				  ~ALORA6.cre~ ~override/ALORA6.cre~
-		WRITE_BYTE 0x67 60
-		WRITE_BYTE 0x6A 0
-		WRITE_BYTE 0x69 55
-	
-	COPY_EXISTING ~CORAN.cre~ ~override/CORAN.cre~
-				  ~CORAN5.cre~ ~override/CORAN5.cre~
-		WRITE_BYTE 0x67 65
-		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 25
-	
-	COPY_EXISTING ~IMOEN1.cre~ ~override/IMOEN1.cre~
-				  ~IMOEN2.cre~ ~override/IMOEN2.cre~
-				  ~IMOEN4.cre~ ~override/IMOEN4.cre~
-				  ~IMOEN6.cre~ ~override/IMOEN6.cre~
-		WRITE_BYTE 0x67 40
-		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 0
-	
-	COPY_EXISTING ~MONTAR.cre~ ~override/MONTAR.cre~
-				  ~MONTAR2.cre~ ~override/MONTAR2.cre~
-				  ~MONTAR4.cre~ ~override/MONTAR4.cre~
-				  ~MONTAR6.cre~ ~override/MONTAR6.cre~
-		WRITE_BYTE 0x67 40
-		WRITE_BYTE 0x64 0
-		WRITE_BYTE 0x65 0
-		WRITE_BYTE 0x6A 0
-	
-	COPY_EXISTING ~SAFANA.cre~ ~override/SAFANA.cre~
-				  ~SAFANA4.cre~ ~override/SAFANA4.cre~
-				  ~SAFANA6.cre~ ~override/SAFANA6.cre~
-		WRITE_BYTE 0x67 45
-		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x45 0
-	
-	COPY_EXISTING ~SKIE.cre~ ~override/SKIE.cre~
-				  ~SKIE6.cre~ ~override/SKIE6.cre~
-		WRITE_BYTE 0x67 70
-		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 45
-		WRITE_BYTE 0x6A 0
-		WRITE_BYTE 0x45 0
-	
-	COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
-				  ~TIAX4.cre~ ~override/TIAX4.cre~
-				  ~TIAX6.cre~ ~override/TIAX6.cre~
-		WRITE_BYTE 0x67 65
-		WRITE_BYTE 0x68 0
-		WRITE_BYTE 0x69 0
-		WRITE_BYTE 0x6A 0
-		WRITE_BYTE 0x45 0
-END
+COPY_EXISTING ~ALORA.cre~ ~override/ALORA.cre~
+			  ~ALORA6.cre~ ~override/ALORA6.cre~
+	WRITE_BYTE 0x67 60
+	WRITE_BYTE 0x6A 0
+	WRITE_BYTE 0x69 55
+
+COPY_EXISTING ~CORAN.cre~ ~override/CORAN.cre~
+			  ~CORAN5.cre~ ~override/CORAN5.cre~
+	WRITE_BYTE 0x67 65
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x69 25
+
+COPY_EXISTING ~IMOEN1.cre~ ~override/IMOEN1.cre~
+			  ~IMOEN2.cre~ ~override/IMOEN2.cre~
+			  ~IMOEN4.cre~ ~override/IMOEN4.cre~
+			  ~IMOEN6.cre~ ~override/IMOEN6.cre~
+	WRITE_BYTE 0x67 40
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x69 0
+
+COPY_EXISTING ~MONTAR.cre~ ~override/MONTAR.cre~
+			  ~MONTAR2.cre~ ~override/MONTAR2.cre~
+			  ~MONTAR4.cre~ ~override/MONTAR4.cre~
+			  ~MONTAR6.cre~ ~override/MONTAR6.cre~
+	WRITE_BYTE 0x67 40
+	WRITE_BYTE 0x64 0
+	WRITE_BYTE 0x65 0
+	WRITE_BYTE 0x6A 0
+
+COPY_EXISTING ~SAFANA.cre~ ~override/SAFANA.cre~
+			  ~SAFANA4.cre~ ~override/SAFANA4.cre~
+			  ~SAFANA6.cre~ ~override/SAFANA6.cre~
+	WRITE_BYTE 0x67 45
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x45 0
+
+COPY_EXISTING ~SKIE.cre~ ~override/SKIE.cre~
+			  ~SKIE6.cre~ ~override/SKIE6.cre~
+	WRITE_BYTE 0x67 70
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x69 45
+	WRITE_BYTE 0x6A 0
+	WRITE_BYTE 0x45 0
+
+COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
+			  ~TIAX4.cre~ ~override/TIAX4.cre~
+			  ~TIAX6.cre~ ~override/TIAX6.cre~
+	WRITE_BYTE 0x67 65
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x69 0
+	WRITE_BYTE 0x6A 0
+	WRITE_BYTE 0x45 0
+
+
+BEGIN @5002 DESIGNATED 5022
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
+GROUP @50
+
+REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @501
+
+COPY_EXISTING ~YOSHI7.cre~ ~override/YOSHI7.cre~
+			  ~YOSHI8.cre~ ~override/YOSHI8.cre~
+			  ~YOSHI10.cre~ ~override/YOSHI10.cre~
+			  ~YOSHI11.cre~ ~override/YOSHI11.cre~
+			  ~YOSHI12.cre~ ~override/YOSHI12.cre~
+	WRITE_BYTE 0x45 0
+	WRITE_BYTE 0x65 15
+	WRITE_BYTE 0x67 70
+	WRITE_BYTE 0x68 0
+	WRITE_BYTE 0x69 90
+	WRITE_BYTE 0x6A 60
+
+COPY_EXISTING ~JAN8.cre~ ~override/JAN8.cre~
+			  ~JAN10.cre~ ~override/JAN10.cre~
+			  ~JAN11.cre~ ~override/JAN11.cre~
+			  ~JAN12.cre~ ~override/JAN12.cre~
+			  ~JAN15.cre~ ~override/JAN15.cre~
+	WRITE_BYTE 0x64 0
+	WRITE_BYTE 0x69 60
+	WRITE_BYTE 0x6A 105
+
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -1410,7 +1445,7 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
 BEGIN @5003 DESIGNATED 5003
-REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
 GROUP @50
 
 REQUIRE_COMPONENT ~cdtweaks/cdtweaks.tp2~ ~4020~ @501
@@ -1497,3 +1532,45 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 		WRITE_SHORT  (mem_info + 0x12) spell_mem1
 END
 
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN	
+	COPY_EXISTING ~ANOMEN6.cre~ ~override/ANOMEN6.cre~
+				  ~ANOMEN7.cre~ ~override/ANOMEN7.cre~
+				  ~ANOMEN8.cre~ ~override/ANOMEN8.cre~
+				  ~ANOMEN9.cre~ ~override/ANOMEN9.cre~
+				  ~ANOMEN10.cre~ ~override/ANOMEN10.cre~
+				  ~ANOMEN12.cre~ ~override/ANOMEN12.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem0
+		READ_SHORT  (mem_info + 0x12) spell_mem1
+		READ_SHORT  (mem_info + 0x22) spell_mem2
+		READ_SHORT  (mem_info + 0x32) spell_mem3
+		REMOVE_MEMORIZED_SPELL ~SPPR102~ ~SPPR103~ ~SPPR107~ ~SPPR202~ ~SPPR208~ ~SPPR212~ ~SPPR213~ ~SPPR303~ ~SPPR315~ ~SPPR413~
+		ADD_MEMORIZED_SPELL ~SPPR101~ #0 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR108~ #0 ~priest~ ( 2 )
+		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 3 )
+		ADD_MEMORIZED_SPELL ~SPPR317~ #2 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR318~ #2 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR417~ #3 ~priest~ ( 1 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem0
+		WRITE_SHORT  (mem_info + 0x12) spell_mem1
+		WRITE_SHORT  (mem_info + 0x22) spell_mem2
+		WRITE_SHORT  (mem_info + 0x32) spell_mem3
+
+	COPY_EXISTING ~JAHEIR7.cre~ ~override/JAHEIR7.cre~
+				  ~JAHEIR8.cre~ ~override/JAHEIR8.cre~
+				  ~JAHEIR11.cre~ ~override/JAHEIR11.cre~
+				  ~JAHEIR12.cre~ ~override/JAHEIR12.cre~
+		READ_LONG  0x2a8 mem_info
+		READ_SHORT  (mem_info + 0x02) spell_mem0
+		READ_SHORT  (mem_info + 0x12) spell_mem1
+		READ_SHORT  (mem_info + 0x22) spell_mem2
+		REMOVE_MEMORIZED_SPELL ~SPPR103~ ~SPPR105~ ~SPPR113~ ~SPPR202~ ~SPPR204~ ~SPPR302~ ~SPPR305~
+		ADD_MEMORIZED_SPELL ~SPPR101~ #0 ~priest~ ( 2 )
+		ADD_MEMORIZED_SPELL ~SPPR105~ #0 ~priest~ ( 1 )
+		ADD_MEMORIZED_SPELL ~SPPR111~ #0 ~priest~ ( 2 )
+		ADD_MEMORIZED_SPELL ~SPPR212~ #1 ~priest~ ( 3 )
+		ADD_MEMORIZED_SPELL ~SPPR317~ #2 ~priest~ ( 2 )
+		WRITE_SHORT  (mem_info + 0x02) spell_mem0
+		WRITE_SHORT  (mem_info + 0x12) spell_mem1
+		WRITE_SHORT  (mem_info + 0x22) spell_mem2
+END
