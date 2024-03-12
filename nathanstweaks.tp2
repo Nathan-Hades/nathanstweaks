@@ -1,7 +1,7 @@
 BACKUP ~nathanstweaks/backup~ // location to store files for
 SUPPORT ~NathanHades@Baldurs-gate.de~ // forum url
 
-VERSION ~v0.7.2~
+VERSION ~v1.0~
 README ~nathanstweaks/languages/%LANGUAGE%/readme.txt~ 
 	   ~nathanstweaks/languages/english/readme.txt~
 
@@ -9,6 +9,91 @@ LANGUAGE ~English~ ~english~
   ~nathanstweaks/languages/english/setup.tra~
 LANGUAGE ~Deutsch~ ~german~
   ~nathanstweaks/languages/german/setup.tra~
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Stats Enhanced        	                       \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1001 DESIGNATED 1001
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @000
+GROUP @10
+
+STRING_SET_EVALUATE 9582 @10011
+
+STRING_SET_EVALUATE 9584 @10012
+
+STRING_SET_EVALUATE 9583 @10013
+
+STRING_SET_EVALUATE 9585 @10014
+
+STRING_SET_EVALUATE 9586 @10015
+
+STRING_SET_EVALUATE 9587 @10016
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Classtext Enhanced       	                       \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1002 DESIGNATED 1002
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @000
+GROUP @10
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+
+	///// Kämpfer
+	STRING_SET_EVALUATE 9556 @10020100
+	///// Mönch
+	STRING_SET_EVALUATE 24234 @10021100
+	///// Mönch des Dunklen Mondes
+	STRING_SET_EVALUATE 31981 @10021101
+	///// Sonnenseelenmönch
+	STRING_SET_EVALUATE 31984 @10021102
+	///// Krieger/Magier/Dieb
+	STRING_SET_EVALUATE 9576 @10021300
+	STRING_SET_EVALUATE 24232 @10021300
+
+END
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+
+	///// Kämpfer
+	STRING_SET_EVALUATE 9556 @10020100
+	///// Mönch
+	STRING_SET_EVALUATE 45867 @10021100
+	///// Mönch des Dunklen Mondes
+	STRING_SET_EVALUATE 74307 @10021101
+	///// Sonnenseelenmönch
+	STRING_SET_EVALUATE 74310 @10021102
+	///// Krieger/Magier/Dieb
+	STRING_SET_EVALUATE 9576 @10021300
+
+END
+
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+
+	///// Kämpfer
+	STRING_SET_EVALUATE 37090 @10020100
+	///// Mönch
+	STRING_SET_EVALUATE 34606 @10021100
+	STRING_SET_EVALUATE 37256 @10021100
+	///// Mönch des Dunklen Mondes
+	STRING_SET_EVALUATE 37260 @10021101
+	///// Sonnenseelenmönch
+	STRING_SET_EVALUATE 37263 @10021102
+	///// Krieger/Magier/Dieb
+	STRING_SET_EVALUATE 37280 @10021300
+	STRING_SET_EVALUATE 37282 @10021300
+	STRING_SET_EVALUATE 37282 @10021300
+
+END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -18,14 +103,13 @@ LANGUAGE ~Deutsch~ ~german~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1001 DESIGNATED 1001
+BEGIN @1003 DESIGNATED 1003
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @0
 GROUP @10
 
 COPY ~nathanstweaks/bs/aGen.BS~ ~scripts~
-COPY ~nathanstweaks/bs/bard0.BS~ ~scripts~
 COPY ~nathanstweaks/bs/thief3.BS~ ~scripts~
-
+COPY ~nathanstweaks/bs/bard0.BS~ ~scripts~
 
 ACTION_FOR_EACH file IN bdajantc bdalorac bdbaeloc bdbranwc bdcoranc bddefai bddornc bddynac bdedwinc bdeldotc bdfaldoc bdgarrcc bdgarric bdimoenc bdjaheic bdkagaic bdkhalic bdkivanc bdminscc bdmontac bdneerac bdqualec bdrasaac bdsafanc bdshartc bdskiec bdtiaxc bdviconc bdxanc bdxzarc bdyeslic bdaeriec bdanomec bdcerndc bdhaerc bdhexxac bdjanc bdkeldoc bdkorgac bdmazzyc bdnaliac bdsarevc bdvalygc bdwilsoc bdyoshic BEGIN
 	ACTION_IF FILE_EXISTS_IN_GAME ~%file%.bcs~ THEN BEGIN
@@ -33,49 +117,42 @@ ACTION_FOR_EACH file IN bdajantc bdalorac bdbaeloc bdbranwc bdcoranc bddefai bdd
 	END
 END
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	STRING_SET 25484 @10011
-	STRING_SET 25485 @10012
-	STRING_SET 17595 @10013
+	STRING_SET 25484 @10031
+	STRING_SET 25485 @10032
+	STRING_SET 17594 @10033
+	STRING_SET 17595 @10034
 	COPY_EXISTING ~AR2600.bcs~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
 		REPLACE_TEXTUALLY ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))~~~~~ ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))
 		ActionOverride(Player2,ChangeAIScript("bddefai",CLASS))
-		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride(Player2,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
-		
 		ActionOverride(Player3,ChangeAIScript("bddefai",CLASS))
-		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride(Player3,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
-		
 		ActionOverride(Player4,ChangeAIScript("bddefai",CLASS))
-		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride(Player4,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
-		
 		ActionOverride(Player5,ChangeAIScript("bddefai",CLASS))
-		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride(Player5,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))
-		
-		ActionOverride(Player6,ChangeAIScript("bddefai",CLASS))
-		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_ITEMS","LOCALS",1))
-		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",1))
-		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",1))
-		ActionOverride(Player6,SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",1))~~~~~
+		ActionOverride(Player6,ChangeAIScript("bddefai",CLASS))~~~~~
 	END
 	BUT_ONLY
 END
 
 ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
-	STRING_SET 95129 @10011
-	STRING_SET 95130 @10012
-	STRING_SET 17595 @10013
+	STRING_SET 95129 @10031
+	STRING_SET 95130 @10032
+	STRING_SET 17595 @10033
+	COPY_EXISTING ~AR0602.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))~~~~~ ~~~~~ActionOverride(Player1,ChangeAIScript("BDDEFAI",CLASS))
+		ActionOverride(Player2,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player3,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player4,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player5,ChangeAIScript("bddefai",CLASS))
+		ActionOverride(Player6,ChangeAIScript("bddefai",CLASS))~~~~~
+	END
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	STRING_SET 37580 @10031
+	STRING_SET 37581 @10032
+	STRING_SET 37549 @10033
 END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -86,7 +163,7 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1002 DESIGNATED 1002
+BEGIN @1004 DESIGNATED 1004
 REQUIRE_PREDICATE GAME_IS ~bgee~ @0
 GROUP @10
 
@@ -100,7 +177,7 @@ COPY ~nathanstweaks/wav/silent.wav~ ~override/gorin14.wav~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1003 DESIGNATED 1003
+BEGIN @1005 DESIGNATED 1005
 REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
 GROUP @10
 
@@ -114,11 +191,11 @@ COPY ~nathanstweaks/wav/silent.wav~ ~override/valyga41.wav~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1004 DESIGNATED 1004
+BEGIN @1006 DESIGNATED 1006
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
 GROUP @10
 
-STRING_SET 16484 @10041
+STRING_SET 16484 @10061
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -128,7 +205,7 @@ STRING_SET 16484 @10041
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1005 DESIGNATED 1005
+BEGIN @1007 DESIGNATED 1007
 REQUIRE_PREDICATE GAME_IS ~bgee~ @0
 GROUP @10
 
@@ -146,7 +223,7 @@ COPY_EXISTING ~nexlit.dlg~ ~override~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1006 DESIGNATED 1006
+BEGIN @1008 DESIGNATED 1008
 REQUIRE_PREDICATE GAME_IS ~bgee~ @0
 GROUP @10
 
@@ -164,7 +241,7 @@ COPY_EXISTING ~knott.cre~ ~override~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1007 DESIGNATED 1007
+BEGIN @1009 DESIGNATED 1009
 REQUIRE_PREDICATE GAME_IS ~bgee~ @0
 GROUP @10
 	
@@ -184,7 +261,7 @@ ActionOverride("Hunter2",Enemy())~~~~~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1008 DESIGNATED 1008
+BEGIN @1010 DESIGNATED 1010
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
 GROUP @10
 
@@ -207,9 +284,7 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~MISC4N.itm~ ~override~ //Eicheln -> Edelstein
 		WRITE_SHORT 0x1C 34
 	BUT_ONLY
-	COPY_EXISTING ~PLOT01B.itm~ ~override~ //Stein des Hüters -> Edelstein
-		WRITE_SHORT 0x1C 34
-	BUT_ONLY
+	
 	COPY_EXISTING ~MISC6M.itm~ ~override~ //Dämonenherz -> Edelstein
 		WRITE_SHORT 0x1C 34
 	BUT_ONLY
@@ -230,6 +305,21 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	BUT_ONLY
 	COPY_EXISTING ~MISC4W.itm~ ~override~ //Ewins Dokumente -> Buch
 		WRITE_SHORT 0x1C 37
+	BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+COPY_EXISTING ~PLOT01B.itm~ ~override~ //Stein des Hüters -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+COPY_EXISTING  ~plot01i.itm~ ~override~	// Geschichte des Eingekerkerten -> Buch
+		WRITE_SHORT 0x1C 37
+	BUT_ONLY
+COPY_EXISTING  ~plot01j.itm~ ~override~	// Schlüsselstein -> Edelstein
+		WRITE_SHORT 0x1C 34
+	BUT_ONLY
+COPY_EXISTING  ~plot01k.itm~ ~override~	// Schlüsselstein -> Edelstein
+		WRITE_SHORT 0x1C 34
 	BUT_ONLY
 END
 
@@ -274,7 +364,7 @@ END
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1009 DESIGNATED 1009
+BEGIN @1011 DESIGNATED 1011
 REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
 GROUP @10
 COPY ~nathanstweaks/bcs/hexcloak.bcs~ ~override~
@@ -296,7 +386,7 @@ COPY_EXISTING ~ohhex8.cre~ ~override~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @1010 DESIGNATED 1010
+BEGIN @1012 DESIGNATED 1012
 REQUIRE_PREDICATE GAME_IS ~bg2ee~ @0
 GROUP @10
 COPY ~nathanstweaks/spl/SPIN678.spl~ ~override~
@@ -381,11 +471,13 @@ BEGIN @2002 DESIGNATED 2002
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
 GROUP @20
 
-COPY_EXISTING ~SLTSTEAL.2DA~ ~override~
-	REPLACE_TEXTUALLY ~~~~~ARMOUR     0~~~~~ ~~~~~ARMOUR     95~~~~~
-	REPLACE_TEXTUALLY ~~~~~BOOTS      0~~~~~ ~~~~~BOOTS      95~~~~~
-	REPLACE_TEXTUALLY ~~~~~HELMET     0~~~~~ ~~~~~HELMET     95~~~~~
-	REPLACE_TEXTUALLY ~~~~~SHIELD     0~~~~~ ~~~~~SHIELD     95~~~~~
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	COPY_EXISTING ~SLTSTEAL.2DA~ ~override~
+		REPLACE_TEXTUALLY ~~~~~ARMOUR     0~~~~~ ~~~~~ARMOUR     95~~~~~
+		REPLACE_TEXTUALLY ~~~~~BOOTS      0~~~~~ ~~~~~BOOTS      95~~~~~
+		REPLACE_TEXTUALLY ~~~~~HELMET     0~~~~~ ~~~~~HELMET     95~~~~~
+		REPLACE_TEXTUALLY ~~~~~SHIELD     0~~~~~ ~~~~~SHIELD     95~~~~~
+END
 
 ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~ribald.cre~ ~override~
@@ -625,6 +717,145 @@ THEN
 		ChangeStat(Player1,CHR,1,ADD)
 		SetGlobal("BG1Manuals","GLOBAL",1)~~~~~
 END
+BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Shaman can walk								   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2009 DESIGNATED 2009
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @0
+GROUP @20
+
+COPY_EXISTING ~spsh004.spl~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    LPF DELETE_SPELL_EFFECT
+      INT_VAR opcode_to_delete = 363  // Movement rate check
+    END
+    LPF DELETE_SPELL_EFFECT
+      INT_VAR opcode_to_delete = 126  // Movement rate bonus
+    END
+  END
+BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The riddle statue is abbreviated	               \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2010 DESIGNATED 2010
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @000
+
+COPY_EXISTING ~ppstat01.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~GlobalLT("AllTwelve","AR1512",11)~~~~~ ~~~~~GlobalLT("chapter","GLOBAL",2)~~~~~
+		REPLACE_TEXTUALLY ~~~~~GlobalGT("AllTwelve","AR1512",10)~~~~~ ~~~~~GlobalGT("chapter","GLOBAL",2)~~~~~
+		REPLACE_TEXTUALLY ~~~~~AddXPObject(Player6,5000)~~~~~ ~~~~~AddXPObject(Player6,5000)
+SetGlobal("FaceOne","AR1512",2)
+TriggerActivation("Face1",FALSE)
+SetGlobal("FaceTwo","AR1512",2)
+TriggerActivation("Face2",FALSE)
+SetGlobal("FaceThree","AR1512",2)
+TriggerActivation("Face3",FALSE)
+SetGlobal("FaceFour","AR1512",2)
+TriggerActivation("Face4",FALSE)
+SetGlobal("FaceFive","AR1512",2)
+TriggerActivation("Face5",FALSE)
+SetGlobal("FaceSix","AR1512",2)
+TriggerActivation("Face6",FALSE)
+SetGlobal("FaceSeven","AR1512",2)
+TriggerActivation("Face7",FALSE)
+SetGlobal("FaceEight","AR1512",2)
+TriggerActivation("Face8",FALSE)
+SetGlobal("FaceNine","AR1512",2)
+TriggerActivation("Face9",FALSE)
+SetGlobal("FaceTen","AR1512",2)
+TriggerActivation("Face10",FALSE)
+SetGlobal("FaceEleven","AR1512",2)
+TriggerActivation("Face11",FALSE)
+SetGlobal("FaceTwelve","AR1512",2)
+TriggerActivation("Face12",FALSE)~~~~~
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Woman can solve all Quests		               \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2011 DESIGNATED 2011
+REQUIRE_PREDICATE GAME_IS ~bg2ee iwdee~ @000
+
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~jaylos.dlg~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY ~~~~~Gender(LastTalkedToBy,FEMALE)~~~~~ ~~~~~False()~~~~~
+			REPLACE_TEXTUALLY ~~~~~Gender(LastTalkedToBy,MALE)~~~~~ ~~~~~~~~~~
+	END
+END
+
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY_EXISTING ~DWHITCOM.dlg~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY ~~~~~Gender(LastTalkedToBy,MALE)~~~~~ ~~~~~~~~~~
+	END
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Keep Mantle of Waukeen			               \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2012 DESIGNATED 2012
+REQUIRE_PREDICATE GAME_IS ~bg2ee~ @000
+
+COPY_EXISTING ~Celogan.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~~~~~TakePartyItem("misc8l")~~~~~ ~~~~~TakePartyItem("misc8l")
+		ActionOverride("celogan",SetItemFlags("misc8l",NONSTEALABLE,FALSE))~~~~~
+END
+
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Shaman = Druid					               \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @2013 DESIGNATED 2013
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @000
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.dlg$~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~Class(Player1,DRUID_ALL)
+!Class(Player1,SHAMAN)~ ~Class(Player1,DRUID_ALL)~
+		REPLACE_TEXTUALLY ~OR(2)
+!Class(Player1,DRUID_ALL)
+Class(Player1,SHAMAN)~ ~!Class(Player1,DRUID_ALL)~
+END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.bcs$~ ~override~
+	DECOMPILE_BCS_TO_BAF
+		REPLACE_TEXTUALLY ~Class(Player1,DRUID_ALL)
+!Class(Player1,SHAMAN)~ ~Class(Player1,DRUID_ALL)~
+		REPLACE_TEXTUALLY ~OR(2)
+.*!Class(Player1,DRUID_ALL)
+.*Class(Player1,SHAMAN)~ ~!Class(Player1,DRUID_ALL)~
+	COMPILE_BAF_TO_BCS
 BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -879,6 +1110,239 @@ COPY_EXISTING ~SHADRA01.cre~ ~override~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////												   \\\\\
+///// Better Priest and Mage Book					   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @3004 DESIGNATED 3004
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @30
+
+COPY_EXISTING ~UI.MENU~ ~override~
+	REPLACE_TEXTUALLY ~~~~~button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*168 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*0[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 0"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(1)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*246 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*1[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 1"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(2)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*328 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*2[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 2"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(3)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*403 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*3[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 3"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(4)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*484 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*4[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 4"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(5)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*566 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*5[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 5"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(6)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*642 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*prpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*6[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxPriestPage > 6"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setPriestBookLevel(7)"[%TAB% %WNL%]*}~~~~~ ~~~~~button
+	{
+		area		166 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(1)"
+		sequence	0
+		enabled		"maxPriestPage > 0"
+		action		"setPriestBookLevel(1)"
+	}
+	button
+	{
+		area		246 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(2)"
+		sequence	1
+		enabled		"maxPriestPage > 1"
+		action		"setPriestBookLevel(2)"
+	}
+	button
+	{
+		area		326 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(3)"
+		sequence	2
+		enabled		"maxPriestPage > 2"
+		action		"setPriestBookLevel(3)"
+	}
+	button
+	{
+		area		406 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(4)"
+		sequence	3
+		enabled		"maxPriestPage > 3"
+		action		"setPriestBookLevel(4)"
+	}
+	button
+	{
+		area		486 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(5)"
+		sequence	4
+		enabled		"maxPriestPage > 4"
+		action		"setPriestBookLevel(5)"
+	}
+	button
+	{
+		area		566 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(6)"
+		sequence	5
+		enabled		"maxPriestPage > 5"
+		action		"setPriestBookLevel(6)"
+	}
+	button
+	{
+		area		646 110 54 54
+		bam		GUIPRTC
+		frame lua "getPriestBookSpellLevelFrame(7)"
+		sequence	6
+		enabled		"maxPriestPage > 6"
+		action		"setPriestBookLevel(7)"
+	}
+	button
+	{
+		area 18 290 52 132
+		bam GUIPRC
+		sequence 0
+		action
+		"
+			if currentSpellLevel > 1 then
+				setPriestBookLevel(currentSpellLevel - 1)
+			end
+		"
+	}
+	button
+	{
+		area 794 290 52 132
+		bam GUIPRC
+		sequence 1
+		action
+		"
+			if currentSpellLevel < 7 then
+				setPriestBookLevel(currentSpellLevel + 1)
+			end
+		"
+	}~~~~~
+	REPLACE_TEXTUALLY ~~~~~`[%TAB% %WNL%]*menu[%TAB% %WNL%]*{[%TAB% %WNL%]*name 'PRIEST'~~~~~ ~~~~~function getPriestBookSpellLevelFrame(level)
+	local ret = 0
+
+	if currentSpellLevel == level then
+		ret = 2
+	end
+
+	return ret
+end
+`
+menu
+{
+	name 'PRIEST'~~~~~
+	REPLACE_TEXTUALLY ~~~~~button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*168 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*0[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 0"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(1)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*227 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*1[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 1"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(2)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*286 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*2[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 2"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(3)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*345 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*3[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 3"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(4)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*404 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*4[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 4"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(5)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*464 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*5[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 5"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(6)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*523 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*6[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 6"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(7)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*583 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*7[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 7"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(8)"[%TAB% %WNL%]*}[%TAB% %WNL%]*button[%TAB% %WNL%]*{[%TAB% %WNL%]*area[%TAB% %WNL%]*644 110 54 54[%TAB% %WNL%]*bam[%TAB% %WNL%]*GUIPRTC[%TAB% %WNL%]*highlightgroup[%TAB% %WNL%]*mgpage[%TAB% %WNL%]*sequence[%TAB% %WNL%]*8[%TAB% %WNL%]*enabled[%TAB% %WNL%]*"maxMagePage > 8"[%TAB% %WNL%]*action[%TAB% %WNL%]*"setMageBookLevel(9)"[%TAB% %WNL%]*}~~~~~ ~~~~~button
+	{
+		area		168 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(1)"
+		sequence	0
+		enabled		"maxMagePage > 0"
+		action		"setMageBookLevel(1)"
+	}
+	button
+	{
+		area		227 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(2)"
+		frame lua	"getMageBookSpellLevelFrame(2)"
+		sequence	1
+		enabled		"maxMagePage > 1"
+		action		"setMageBookLevel(2)"
+	}
+	button
+	{
+		area		286 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(3)"
+		sequence	2
+		enabled		"maxMagePage > 2"
+		action		"setMageBookLevel(3)"
+	}
+	button
+	{
+		area		345 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(4)"
+		sequence	3
+		enabled		"maxMagePage > 3"
+		action		"setMageBookLevel(4)"
+	}
+	button
+	{
+		area		404 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(5)"
+		sequence	4
+		enabled		"maxMagePage > 4"
+		action		"setMageBookLevel(5)"
+	}
+	button
+	{
+		area		464 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(6)"
+		sequence	5
+		enabled		"maxMagePage > 5"
+		action		"setMageBookLevel(6)"
+	}
+	button
+	{
+		area		523 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(7)"
+		sequence	6
+		enabled		"maxMagePage > 6"
+		action		"setMageBookLevel(7)"
+	}
+	button
+	{
+		area		583 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(8)"
+		sequence	7
+		enabled		"maxMagePage > 7"
+		action		"setMageBookLevel(8)"
+	}
+	button
+	{
+		area		644 110 54 54
+		bam		GUIPRTC
+		frame lua	"getMageBookSpellLevelFrame(9)"
+		sequence	8
+		enabled		"maxMagePage > 8"
+		action		"setMageBookLevel(9)"
+	}
+	button
+	{
+		area 18 290 52 132
+		bam GUIPRC
+		sequence 0
+		action
+		"
+			if currentSpellLevel > 1 then
+				setMageBookLevel(currentSpellLevel - 1)
+			end
+		"
+	}
+	button
+	{
+		area 794 290 52 132
+		bam GUIPRC
+		sequence 1
+		action
+		"
+			if currentSpellLevel < maxMagePage then
+				setMageBookLevel(currentSpellLevel + 1)
+			end
+		"
+	}~~~~~
+	REPLACE_TEXTUALLY ~~~~~`[%TAB% %WNL%]*menu[%TAB% %WNL%]*{[%TAB% %WNL%]*name 'MAGE'~~~~~ ~~~~~function getMageBookSpellLevelFrame(level)
+	local ret = 0
+
+	if currentSpellLevel == level then
+		ret = 2
+	end
+
+	return ret
+end
+`
+menu
+{
+	name 'MAGE'~~~~~
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
 ///// infinite dart						 			   \\\\\
 /////												   \\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -939,8 +1403,35 @@ COPY_EXISTING ~blun20.itm~ ~override/blun20.itm~
 	SAY			 0x0c @40021
 	SAY			 0x54 @40022
 	WRITE_LONG   0x34 4500
+	WRITE_LONG   0x60 3
 	WRITE_SHORT  0x86 3
 	WRITE_SHORT  0x8c 4
+  
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Moonlight Walkers for all Monks	 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @4003 DESIGNATED 4003
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee~ @0
+GROUP @40
+
+COPY_EXISTING ~rsboot.itm~ ~override~
+    WRITE_LONG 0x1e 0x407FFFC0    // unusable by all but monks of any race
+    LPF DELETE_EFFECT
+      INT_VAR
+      check_globals = 1
+      check_headers = 0
+      match_opcode = 319    // Restrict item
+    END
+  BUT_ONLY
+
+  /*COPY_EXISTING ~item_use.2da~ ~override~
+    LPF REMOVE_TEXT_LINE STR_VAR search = ~^[ %TAB%]*rsboot\b~ END
+  BUT_ONLY*/
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -1295,9 +1786,11 @@ COPY_EXISTING ~ANOMEN6.cre~ ~override/ANOMEN6.cre~
 			  ~ANOMEN9.cre~ ~override/ANOMEN9.cre~
 			  ~ANOMEN10.cre~ ~override/ANOMEN10.cre~
 	LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	SET_BG2_PROFICIENCY 97 3
+	SET_BG2_PROFICIENCY 97 1
 	SET_BG2_PROFICIENCY 100 4
-	SET_BG2_PROFICIENCY 101 3
+	SET_BG2_PROFICIENCY 101 2
+	SET_BG2_PROFICIENCY 107 1
+	SET_BG2_PROFICIENCY 112 1
 	REMOVE_CRE_ITEMS
 	ADD_CRE_ITEM ~BLUN03~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
 	ADD_CRE_ITEM ~NPSHLD~ #0 #0 #0 ~IDENTIFIED~ ~shield~
@@ -1332,12 +1825,11 @@ COPY_EXISTING ~KORGAN8.cre~ ~override/KORGAN8.cre~
 			  ~KORGAN9.cre~ ~override/KORGAN9.cre~
 			  ~KORGAN11.cre~ ~override/KORGAN11.cre~
 			  ~KORGAN12.cre~ ~override/KORGAN12.cre~
-			  ~ANOMEN10.cre~ ~override/ANOMEN10.cre~
 	REMOVE_CRE_ITEMS
 	ADD_CRE_ITEM ~KORAX01~ #0 #0 #0 ~IDENTIFIED~ ~weapon1~
 	ADD_CRE_ITEM ~SHLD05~ #0 #0 #0 ~IDENTIFIED~ ~shield~
 	ADD_CRE_ITEM ~PLAT01~ #0 #0 #0 ~IDENTIFIED~ ~armor~
-	ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
+	ADD_CRE_ITEM ~HELM09~ #0 #0 #0 ~IDENTIFIED~ ~helmet~
 	
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -1532,7 +2024,7 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 		WRITE_SHORT  (mem_info + 0x12) spell_mem1
 END
 
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN	
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~ANOMEN6.cre~ ~override/ANOMEN6.cre~
 				  ~ANOMEN7.cre~ ~override/ANOMEN7.cre~
 				  ~ANOMEN8.cre~ ~override/ANOMEN8.cre~
@@ -1574,3 +2066,64 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 		WRITE_SHORT  (mem_info + 0x12) spell_mem1
 		WRITE_SHORT  (mem_info + 0x22) spell_mem2
 END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////												   \\\\\
+///// Better NPC attributes				 			   \\\\\
+/////												   \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @5004 DESIGNATED 5004
+REQUIRE_PREDICATE GAME_IS ~bgee~ @0
+GROUP @50
+
+COPY_EXISTING ~ELDOTH.cre~ ~override/ELDOTH.cre~
+			  ~ELDOTH5.cre~ ~override/ELDOTH5.cre~
+	WRITE_BYTE 0x23c 17 // dexterity
+
+COPY_EXISTING ~FALDOR.cre~ ~override/FALDOR.cre~
+			  ~FALDOR5.cre~ ~override/FALDOR5.cre~
+	WRITE_BYTE 0x23c 17 // dexterity
+
+COPY_EXISTING ~GARRIC.cre~ ~override/GARRIC.cre~
+			  ~GARRIC2.cre~ ~override/GARRIC2.cre~
+			  ~GARRIC4.cre~ ~override/GARRIC4.cre~
+			  ~GARRIC6.cre~ ~override/GARRIC6.cre~
+	WRITE_BYTE 0x23a 15 // intelligence
+
+COPY_EXISTING ~KAGAIN.cre~ ~override/KAGAIN.cre~
+			  ~KAGAIN2.cre~ ~override/KAGAIN2.cre~
+			  ~KAGAIN4.cre~ ~override/KAGAIN4.cre~
+			  ~KAGAIN6.cre~ ~override/KAGAIN6.cre~
+	WRITE_BYTE 0x238 17 // strength
+
+COPY_EXISTING ~KHALID.cre~ ~override/KHALID.cre~
+			  ~KHALID2.cre~ ~override/KHALID2.cre~
+			  ~KHALID4.cre~ ~override/KHALID4.cre~
+			  ~KHALID6.cre~ ~override/KHALID6.cre~
+	WRITE_BYTE 0x23c 17 // dexterity
+
+COPY_EXISTING ~QUAYLE.cre~ ~override/QUAYLE.cre~
+			  ~QUAYLE4.cre~ ~override/QUAYLE4.cre~
+			  ~QUAYLE6.cre~ ~override/QUAYLE6.cre~
+	WRITE_BYTE 0x238 13 // strength
+	WRITE_BYTE 0x23a 18 // intelligence
+	WRITE_BYTE 0x23e 8  // charisma
+
+COPY_EXISTING ~SHARTE.cre~ ~override/SHARTE.cre~
+			  ~SHARTE4.cre~ ~override/SHARTE4.cre~
+			  ~SHARTE6.cre~ ~override/SHARTE6.cre~
+	WRITE_BYTE 0x23d 12 // constitution
+
+COPY_EXISTING ~TIAX.cre~ ~override/TIAX.cre~
+			  ~TIAX4.cre~ ~override/TIAX4.cre~
+			  ~TIAX6.cre~ ~override/TIAX6.cre~
+	WRITE_BYTE 0x238 10 // strength
+	WRITE_BYTE 0x23c 17 // dexterity
+	WRITE_BYTE 0x23b 16 // wisdom
+
+COPY_EXISTING ~YESLIC.cre~ ~override/YESLIC.cre~
+			  ~YESLIC5.cre~ ~override/YESLIC5.cre~
+	WRITE_BYTE 0x238 16 // strength

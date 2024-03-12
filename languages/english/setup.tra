@@ -1,19 +1,759 @@
 @0		= ~This component is not available for your game~
 @10		= ~Improvements~
-@1001	= ~Better scripts for your characters~
-@10011	= ~BARD SINGING:~
-@10012	= ~The bard will always sing. (<script>)~
-@10013	= ~The thief will always be on the lookout for traps. But if he sees an enemy, he will attack him. (<script>)~
-@1002	= ~Zeke is now silent (Makes no sense in English)~
-@1003	= ~Valygar is no longer annoying when he is hiding~
-@1004	= ~No You must gather your party before venturing forth-sound more~
-@10041	= ~You must gather your party before venturing forth~ []
-@1005	= ~Ursa now attacks the player~
-@1006	= ~Knott reacts to the fight in front of the tent~
-@1007	= ~Aldeth hunters join in the fight~
-@1008	= ~Technical improvements to quest items~
-@1009	= ~Hexxat automatically wears her cloak~
-@1010	= ~Previous increases in wisdom are taken into account in Anomen's test~
+@1001	= ~Improvement of the character value description~
+@10011	= ~STRENGTH: Strength measures a character's muscle, endurance, and stamina. It is the prime requisite of Fighters.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The maximum goes up to 19 for half-orcs!
+
+The strength value has the following effects:
+
+MT: Melee THAC0 adjustment
+MD: Melee damage adjustment
+WA: Weight allowance
+OL: Open a locked door or chest %
+W: Only Warrior (Fighter, Ranger, Paladin and Barbarian)
+
+Wert         MT   MD   WA  OL
+3                 -3     -1       5     3
+4                 -2     -1      15    4
+5                 -2     -1      15    4
+6                 -1      0      30    6
+7                 -1      0      30    6
+8                  0      0      50    8
+9                  0      0      50    8
+10                0      0      70    10
+11                0      0      70    10
+12                0      0      90    12
+13                0      0      90    12
+14                0      0     120   14
+15                0      0     120   14
+16                0     +1    150   16
+17               +1    +1    170   18
+18               +1    +2    200   20
+18/01-50     +1    +3    220   25   W
+18/51-75     +2    +3    250   30   W
+18/76-90     +2    +4    280   35   W
+18/91-99     +2    +5    320   40   W
+18/00          +3    +6    400   45   W
+19               +3    +7    500   50
+20               +3    +7    600   55
+21               +4    +9    700   60
+22               +4    +10     800   60
+23               +5    +11     1000    70
+24               +6    +12     1200    75
+25               +7    +14     1600    80~
+
+@10012	= ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. It is the prime requisite of the Thief.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The maximum goes up to 19 for halflings and elves!
+
+The dexterity value has the following effects:
+
+AC: Armor Class adjustment
+RT: Ranged THAC0 adjustment
+OL: Open Locks
+FT: Find / Disarm traps
+PP: Pick Pockets
+N: Not possible
+
+Wert      AC    RT   OL      FT      PP
+3            +4      0     N        N        N
+4            +3      0     N        N        N
+5            +2      0     N        N        N
+6            +1      0     N        N        N
+7             0       0     N        N        N
+8             0       0     N        N        N
+9             0       0   -10%  -10%   -15%
+10           0       0    -5%   -10%    -5%
+11           0       0     0%     -5%      0%
+12           0       0     0%     0%       0%
+13           0       0     0%     0%       0%
+14           0       0     0%     0%       0%
+15          -1       0     0%     0%       0%
+16          -2     +1    +5%    0%       0%
+17          -3     +2  +10%    0%     +5%
+18          -4     +2  +15%   +5%   +10%
+19          -4     +3  +20%  +10%  +15%
+20          -4     +3  +25%  +15%  +20%
+21          -5     +4  +30%  +20%  +25%
+22          -5     +4  +35%  +25%  +30%
+23          -5     +4  +40%  +30%  +35%
+24          -6     +5  +45%  +35%  +40%
+25          -6     +5  +50%  +40%  +45%
+
+MS: Move Silently (move hide in shadow)
+HS: Hide In Shadow
+DI: Detect Illusion
+FS: Set Traps
+N: Not possible
+P: Possible
+
+Wert      MS       HS      IE      FS
+3            N          N       N       N
+4            N          N       N       N
+5            N          N       N       N
+6            N          N       N       N
+7            N          N       N       N
+8            N          N       N       N
+9          -20%    -10%   P    -10%
+10         -15%     -5%    P    -10%
+11         -10%      0%    P     -5%
+12          -5%       0%    P       0%
+13           0%       0%    P       0%
+14           0%       0%    P       0%
+15           0%       0%    P       0%
+16           0%       0%    P       0%
+17          +5%     +5%   P       0%
+18         +10%    +10%  P    +5%
+19         +15%    +15%  P   +10%
+20         +18%    +18%  P   +15%
+21         +20%    +20%  P   +20%
+22         +23%    +23%  P   +25%
+23         +25%    +25%  P   +30%
+24         +30%    +30%  P   +35%
+25         +35%    +35%  P   +40%~
+
+@10013	= ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The maximum goes up to 19 for dwarves and half-orcs!
+
+The constitution value has the following effects:
+
+HP: Hit Point per level
+In parentheses: Only Warrior (Fighter, Ranger, Paladin and Barbarian)
+RE: Regeneration
+F: Fatigue
+
+Wert      HP             RE           F
+3            -1                 0           -3
+4            -1                 0           -2
+5            -1                 0           -2
+6             0                 0           -1
+7             0                 0           -1
+8             0                 0           0
+9             0                 0           0
+10            0                 0           0
+11            0                 0           0
+12            0                 0           0
+13            0                 0           0
+14            0                 0           0
+15           +1                0          0
+16           +2                0          1
+17         +2(+3)           0           1
+18         +2(+4)           0           2
+19         +2(+5)           0           2
+20         +2(+5)    1TP/60sek     3
+21         +2(+6)    1TP/50sek      3
+22         +2(+6)    1TP/40sek     4
+23         +2(+6)    1TP/30sek     4
+24         +2(+7)    1TP/20sek     5
+25         +2(+7)    1TP/10sek      5~
+
+@10014	= ~INTELLIGENCE: Intelligence measures a character's memory, reasoning, and learning ability. It is the prime requisite of the Mage.
+
+Note: A character with an Intelligence score of 8 or less is illiterate and cannot use scrolls or most wands regardless of <PRO_HISHER> class.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The maximum goes up to 19 for gnomes!
+
+The intelligence value has the following effects:
+
+LS: Chances to learn mage spells in %
+MS: Max # of learnable mage spells per spell level (BGIIEE)
+LB: Lore bonus
+
+Wert       LS       MS         LB
+3              0        0(0)       -20
+4              0        0(0)       -20
+5              0        0(0)       -20
+6              0        0(0)       -20
+7              0        0(0)       -10
+8              0        0(0)       -10
+9             35       6(4)       -10
+10           40       7(5)         0
+11           45        7(5)         0
+12           50        7(6)         0
+13           55        9(6)         0
+14           60        9(7)         0
+15           65       11(7)       +3 
+16           70       11(8)       +5
+17           75       14(8)       +7
+18           85       18(9)      +10
+19           95      Alle(9)    +12
+20           96      Alle(9)    +15
+21           97      Alle(9)    +20
+22           98      Alle(9)    +25
+23           99      Alle(9)    +30
+24          100      Alle(9)    +35
+25          100      Alle(9)    +40~
+
+@10015	= ~WISDOM: Wisdom measures a character's enlightenment, judgment, and common sense. It is the prime requisite of priests.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The wisdom value has the following effects:
+
+BS: Bonus priest spell slot (cumulative)
+LB: Lore bonus
+
+Wert       BS      LB
+3              0        -20
+4              0        -20
+5              0        -20
+6              0        -20
+7              0        -10
+8              0        -10
+9              0        -10
+10            0          0
+11            0          0
+12            0          0
+13            1          0
+14            1          0
+15            2         +3 
+16            2         +5
+17            3         +7
+18            4        +10
+19           1&4       +12
+20           2&4       +15
+21           3&5       +20
+22           4&5       +25
+23           2x5       +30
+24           2x6       +35
+25           6&7       +40~
+
+@10016	= ~CHARISMA: Charisma measures a character's persuasiveness, personal magnetism, and ability to lead. This ability is important to the Druid, Bard, and Paladin.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+The charisma value has the following effects:
+
+SP: Store price
+
+Wert          SP
+3              100%
+4              100%
+5              100%
+6              100%
+7              100%
+8              100%
+9              100%
+10             100%
+11             100%
+12             100%
+13             100%
+14             100%
+15             100%
+16             95%
+17             90%
+18             85%
+19             80%
+20             75%
+21             75%
+22             75%
+23             75%
+24             75%
+25             75%~
+
+@1002	= ~Improved class description~
+@10020100	= ~FIGHTER: The Fighter is a champion, swords<PRO_MANWOMAN>, soldier, and brawler who lives or dies by <PRO_HISHER> knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if <PRO_HESHE> hopes to survive.
+
+CLASS FEATURES:
+
+- can wear helmets
+- can wear any armor and shield
+- can specialize in all weapons up to Grand Mastery (5 points)
+- can specialize in all fighting styles (2 points)
+- can specialize in fighting style with two weapons up to master (3 points)
+
+- Level 1: +4 weapon proficiency
+- Level 1: 1 attacks per round
+- Level 3: +1 weapon proficiency
+- Level 6: +1 weapon proficiency
+- Level 7: 1½ attacks per round
+- Level 9: +1 weapon proficiency
+- Level 12: +1 weapon proficiency
+- Level 13: 2 attacks per round
+- Level 15: +1 weapon proficiency
+- Level 18: +1 weapon proficiency
+- Level 21: +1 weapon proficiency
+- Level 24: +1 weapon proficiency
+- Level 27: +1 weapon proficiency
+- Level 30: +1 weapon proficiency
+- Level 33: +1 weapon proficiency
+- Level 36: +1 weapon proficiency
+- Level 39: +1 weapon proficiency
+
+– Hit Die: d10
+
+Prime Requisites For Dual-Classing: Strength~
+
+@10021100	= ~MONK: Monks are warriors who pursue perfection through contemplation as well as action. They are versatile fighters, especially skilled in combat without weapons or armor. Though Monks cannot cast spells, they have a unique magic of their own: They channel a subtle energy, called ki, which allows them to perform amazing feats. The Monk's best known feat is their ability to stun an opponent with an unarmed blow.
+
+CLASS FEATURES:
+
+– May not wear any armor.
+– May only use weapons available to the Thief class (except two-handed).
+– May only become Proficient (one slot) in any weapon class.
+– May only become Proficient (one slot) in Single-Weapon Style and may not put slots into any other style.
+– Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
+– May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels.
+– Receives a +2 bonus to Saving Throws vs. Spell.
+
+- Level 1: 1d6 unarmed attacks
+- Level 1: 1x Stunning Blow
+
+Stunning Blow: All successful attacks within the next round force the victim to save vs. Spell or be stunned. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- Level 1: 9 as natural Armor Class
+- Level 1: +2 weapon proficiency
+- Level 1: 1 attacks per round
+- Level 2: 8 as natural Armor Class
+- Level 3: 1d8 unarmed attacks
+- Level 3: 1½ attacks per round
+- Level 3: -1 on the Armor Class against missile weapons.
+- Level 4: 7 as natural Armor Class
+- Level 4: +1 weapon proficiency
+- Level 5: Immune to all diseases and cannot be slowed or hasted.
+- Level 5: 2x Stunning Blow
+- Level 6: 1d10 unarmed attacks
+- Level 6: 2 attacks per round
+- Level 6: 6 as natural Armor Class
+- Level 6: -2 on the Armor Class against missile weapons.
+- Level 7: May use the Lay On Hands ability on <PRO_HIMHER>self to heal 2 Hit Points per level.
+- Level 8: Gains a -1 bonus to Speed Factor.
+- Level 8: 5 as natural Armor Class
+- Level 8: +1 weapon proficiency
+- Level 9: 1d12 unarmed attacks
+- Level 9: Unarmed attacks are treated as a +1 magical weapon.
+- Level 9: 2½ attacks per round
+- Level 9: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- Level 9: 3x Stunning Blow
+- Level 9: -3 on the Armor Class against missile weapons.
+- Level 10: 4 as natural Armor Class
+- Level 11: Becomes immune to poison.
+- Level 12: Unarmed attacks are treated as a +2 magical weapon.
+- Level 12: Gains a -1 bonus to Speed Factor.
+- Level 12: 3 as natural Armor Class
+- Level 12: 3 attacks per round
+- Level 12: -4 on the Armor Class against missile weapons.
+- Level 12: +1 weapon proficiency
+- Level 13: 1x Quivering Palm
+
+QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell or die. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- Level 13: 4x Stunning Blow
+- Level 14: 2 as natural Armor Class
+- Level 14: 42% Magic Resistance
+- Level 15: 1d20 unarmed attacks
+- Level 15: Unarmed attacks are treated as a +3 magical weapon.
+- Level 15: 3½ attacks per round
+- Level 15: -5 on the Armor Class against missile weapons.
+- Level 15: 45% Magic Resistance
+- Level 16: 1 as natural Armor Class
+- Level 16: 48% Magic Resistance
+- Level 16: +1 weapon proficiency
+- Level 17: 51% Magic Resistance
+- Level 17: 5x Stunning Blow
+- Level 18: 0 as natural Armor Class
+- Level 18: 4 attacks per round
+- Level 18: -6 on the Armor Class against missile weapons.
+- Level 18: 54% Magic Resistance
+- Level 19: 57% Magic Resistance
+- Level 20: Becomes immune to non-magical weapons.
+- Level 20: 60% Magic Resistance
+- Level 20: +1 weapon proficiency
+- Level 21: 4½ attacks per round
+- Level 21: -1 as natural Armor Class
+- Level 21: -7 on the Armor Class against missile weapons.
+- Level 21: 63% Magic Resistance
+- Level 21: 6x Stunning Blow
+- Level 22: 66% Magic Resistance
+- Level 23: 69% Magic Resistance
+- Level 24: 5 attacks per round
+- Level 24: -2 as natural Armor Class
+- Level 24: -8 on the Armor Class against missile weapons.
+- Level 24: 72% Magic Resistance
+- Level 24: +1 weapon proficiency
+- Level 25: Unarmed attacks are treated as a +4 magical weapon.
+- Level 25: 75% Magic Resistance
+- Level 25: 7x Stunning Blow
+- Level 26: 78% Magic Resistance
+- Level 27: 5½ attacks per round
+- Level 27: -3 as natural Armor Class
+- Level 27: -9 on the Armor Class against missile weapons.
+- Level 27: 81% Magic Resistance
+- Level 28: 84% Magic Resistance
+- Level 28: +1 weapon proficiency
+- Level 29: 87% Magic Resistance
+- Level 29: 8x Stunning Blow
+- Level 30: 6 attacks per round
+- Level 30: -4 as natural Armor Class
+- Level 30: -10 on the Armor Class against missile weapons.
+- Level 30: 90% Magic Resistance
+- Level 31: 93% Magic Resistance
+- Level 32: 96% Magic Resistance
+- Level 33: 6½ attacks per round
+- Level 33: -12 on the Armor Class against missile weapons.
+- Level 33: 99% Magic Resistance
+- Level 33: 9x Stunning Blow
+- Level 34: 102% Magic Resistance
+- Level 35: -5 as natural Armor Class
+- Level 35: 105% Magic Resistance
+- Level 36: 7 attacks per round
+- Level 36: -13 on the Armor Class against missile weapons.
+- Level 36: 108% Magic Resistance
+- Level 37: 111% Magic Resistance
+- Level 37: 10x Stunning Blow
+- Level 38: 114% Magic Resistance
+- Level 39: 7½ attacks per round
+- Level 39: -14 on the Armor Class against missile weapons.
+- Level 39: 117% Magic Resistance
+- Level 40: -6 as natural Armor Class
+- Level 40: 120% Magic Resistance
+
+– Alignment restricted to lawful.
+- Hit Die: d8~
+
+@10021101	= ~DARK MOON MONK: The Order of the Dark Moon is a secretive monastic order that follows the teachings of the dark goddess Shar. Monks of the Dark Moon use physical prowess, dark magic, and many different forms of deception to mask their activities and strike with deadly precision.
+
+CLASS FEATURES:
+
+– +10% to Detect Illusion
+– May invest points into the Detect Illusion skill.
+– May not wear any armor.
+– May only use weapons available to the Thief class (except two-handed).
+– May only become Proficient (one slot) in any weapon class.
+– May only become Proficient (one slot) in Single-Weapon Style and may not put slots into any other style.
+– Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
+– May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels.
+– Receives a +2 bonus to Saving Throws vs. Spell.
+
+- Level 1: 1d6 unarmed attacks
+- Level 1: +2 weapon proficiency
+- Level 1: 1 attacks per round
+- Level 1: 1x Blindness
+- Level 1: 1x Frozen Fist
+
+FROZEN FIST: When this ability is activated, the Dark Moon Monk's fists are wreathed in a frosty shell. For 1 turn, the Dark Moon Monk's unarmed attacks deal an additional 2 points of cold damage on each successful hit.
+
+- Level 1: 9 as natural Armor Class
+- Level 2: 8 as natural Armor Class
+- Level 3: 1d8 unarmed attacks
+- Level 3: 1½ attacks per round
+- Level 3: 1x Blur
+- Level 3: -1 on the Armor Class against missile weapons.
+- Level 4: 7 as natural Armor Class
+- Level 4: +1 weapon proficiency
+- Level 5: Immune to all diseases and cannot be slowed or hasted.
+- Level 5: 2x Frozen Fist
+- Level 6: 1d10 unarmed attacks
+- Level 6: 2 attacks per round
+- Level 6: 6 as natural Armor Class
+- Level 6: -2 on the Armor Class against missile weapons.
+- Level 7: 1x Vampiric Touch
+- Level 8: Gains a -1 bonus to Speed Factor.
+- Level 8: 5 as natural Armor Class
+- Level 8: +1 weapon proficiency
+- Level 9: 1d12 unarmed attacks
+- Level 9: Unarmed attacks are treated as a +1 magical weapon.
+- Level 9: 2½ attacks per round
+- Level 9: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- Level 9: 3x Frozen Fist
+- Level 9: -3 on the Armor Class against missile weapons.
+- Level 10: 4 as natural Armor Class
+- Level 11: Becomes immune to poison.
+- Level 11: 1x Mirror Image
+- Level 12: Unarmed attacks are treated as a +2 magical weapon.
+- Level 12: Gains a -1 bonus to Speed Factor.
+- Level 12: 3 as natural Armor Class
+- Level 12: 3 attacks per round
+- Level 12: -4 on the Armor Class against missile weapons.
+- Level 12: +1 weapon proficiency
+- Level 13: 1x Quivering Palm
+
+QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell or die. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- Level 13: 4x Frozen Fist
+- Level 14: 2 as natural Armor Class
+- Level 14: 42% Magic Resistance
+- Level 15: 1d20 unarmed attacks
+- Level 15: Unarmed attacks are treated as a +3 magical weapon.
+- Level 15: 3½ attacks per round
+- Level 15: -5 on the Armor Class against missile weapons.
+- Level 15: 45% Magic Resistance
+- Level 16: 1 as natural Armor Class
+- Level 16: 48% Magic Resistance
+- Level 16: +1 weapon proficiency
+- Level 17: 51% Magic Resistance
+- Level 17: 5x Frozen Fist
+- Level 18: 0 as natural Armor Class
+- Level 18: 4 attacks per round
+- Level 18: -6 on the Armor Class against missile weapons.
+- Level 18: 54% Magic Resistance
+- Level 19: 57% Magic Resistance
+- Level 20: Becomes immune to non-magical weapons.
+- Level 20: 60% Magic Resistance
+- Level 20: +1 weapon proficiency
+- Level 21: 4½ attacks per round
+- Level 21: -1 as natural Armor Class
+- Level 21: -7 on the Armor Class against missile weapons.
+- Level 21: 63% Magic Resistance
+- Level 21: 6x Frozen Fist
+- Level 22: 66% Magic Resistance
+- Level 23: 69% Magic Resistance
+- Level 24: 5 attacks per round
+- Level 24: -2 as natural Armor Class
+- Level 24: -8 on the Armor Class against missile weapons.
+- Level 24: 72% Magic Resistance
+- Level 24: +1 weapon proficiency
+- Level 25: Unarmed attacks are treated as a +4 magical weapon.
+- Level 25: 75% Magic Resistance
+- Level 25: 7x Frozen Fist
+- Level 26: 78% Magic Resistance
+- Level 27: 5½ attacks per round
+- Level 27: -3 as natural Armor Class
+- Level 27: -9 on the Armor Class against missile weapons.
+- Level 27: 81% Magic Resistance
+- Level 28: 84% Magic Resistance
+- Level 28: +1 weapon proficiency
+- Level 29: 87% Magic Resistance
+- Level 29: 8x Frozen Fist
+- Level 30: 6 attacks per round
+- Level 30: -4 as natural Armor Class
+- Level 30: -10 on the Armor Class against missile weapons.
+- Level 30: 90% Magic Resistance
+- Level 31: 93% Magic Resistance
+- Level 32: 96% Magic Resistance
+- Level 33: 6½ attacks per round
+- Level 33: -12 on the Armor Class against missile weapons.
+- Level 33: 99% Magic Resistance
+- Level 33: 9x Frozen Fist
+- Level 34: 102% Magic Resistance
+- Level 35: -5 as natural Armor Class
+- Level 35: 105% Magic Resistance
+- Level 36: 7 attacks per round
+- Level 36: -13 on the Armor Class against missile weapons.
+- Level 36: 108% Magic Resistance
+- Level 37: 111% Magic Resistance
+- Level 37: 10x Frozen Fist
+- Level 38: 114% Magic Resistance
+- Level 39: 7½ attacks per round
+- Level 39: -14 on the Armor Class against missile weapons.
+- Level 39: 117% Magic Resistance
+- Level 40: -6 as natural Armor Class
+- Level 40: 120% Magic Resistance
+
+- Alignment restricted to lawful evil.
+- Hit Die: d8~
+
+@10021102	= ~SUN SOUL MONK: Sun Soul Monks were once worshippers of Amaunator in the time of the Netheril, but today their worship is divided between Lathander, Selûne, and Sune. Sun Soul Monks adhere strictly to the law, using their martial arts and magical abilities to drive out darkness and corruption wherever they find it.
+
+CLASS FEATURES:
+
+– May not wear any armor.
+– May only use weapons available to the Thief class (except two-handed).
+– May only become Proficient (one slot) in any weapon class.
+– May only become Proficient (one slot) in Single-Weapon Style and may not put slots into any other style.
+– Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
+– May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels.
+– Receives a +2 bonus to Saving Throws vs. Spell.
+
+- Level 1: 1d6 unarmed attacks
+- Level 1: +2 weapon proficiency
+- Level 1: 1 attacks per round
+- Level 1: 9 as natural Armor Class
+- Level 2: 8 as natural Armor Class
+- Level 2: 1x Sun Soulray
+
+SUN SOULRAY: The Sun Soul Monk projects a blast of light from <PRO_HISHER> open palm, dealing 1d8 fire damage for every 2 caster levels (up to a maximum of 5d8 damage) to a single target. undead creatures take an additional 6 points of damage.
+
+- Level 3: 1d8 unarmed attacks
+- Level 3: 1½ attacks per round
+- Level 3: -1 on the Armor Class against missile weapons.
+- Level 4: 7 as natural Armor Class
+- Level 4: +1 weapon proficiency
+- Level 5: Immune to all diseases and cannot be slowed or hasted.
+- Level 5: 1x Flaming Fists
+
+FLAMING FISTS: The Sun Soul Monk channels <PRO_HISHER> inner light into <PRO_HISHER> unarmed attacks, turning <PRO_HISHER> fists into flaming weapons that deal an additional 2d6 fire damage per hit for the next round. The duration increases to 2 rounds at level 9, 3 rounds at level 12, 4 rounds at level 15, and 5 rounds at level 25. This special ability automatically modifies normal attacks; no weapon-switching needs to be done.
+
+- Level 6: 1d10 unarmed attacks
+- Level 6: 2 attacks per round
+- Level 6: 6 as natural Armor Class
+- Level 6: -2 on the Armor Class against missile weapons.
+- Level 6: 2x Sun Soulray
+- Level 7: May use the Lay On Hands ability on <PRO_HIMHER>self to heal 2 Hit Points per level.
+- Level 8: 1x Greater Sun
+
+GREATER SUN: The Sun Soul Monk wreathes <PRO_HIMHER>self in flames that act as a Fireshield (Red), granting the Monk 50% Fire Resistance and protecting <PRO_HIMHER> from attacks made within a 5-ft. radius. An opponent that hits the Monk with any weapons or spells within this radius suffers 1d8+2 points of fire damage.
+
+- Level 8: Gains a -1 bonus to Speed Factor.
+- Level 8: 5 as natural Armor Class
+- Level 8: +1 weapon proficiency
+- Level 9: 1d12 unarmed attacks
+- Level 9: Unarmed attacks are treated as a +1 magical weapon.
+- Level 9: 2½ attacks per round
+- Level 9: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- Level 9: 3x Stunning Blow
+- Level 9: -3 on the Armor Class against missile weapons.
+- Level 10: 4 as natural Armor Class
+- Level 10: 3x Sun Soulray
+- Level 11: Becomes immune to poison.
+- Level 12: Unarmed attacks are treated as a +2 magical weapon.
+- Level 12: Gains a -1 bonus to Speed Factor.
+- Level 12: 3 as natural Armor Class
+- Level 12: 3 attacks per round
+- Level 12: -4 on the Armor Class against missile weapons.
+- Level 12: +1 weapon proficiency
+- Level 13: 1x Sun Soulbeam
+
+SUN SOULBEAM: The Sun Soul Monk emits a dazzling burst of light that strikes at all other creatures within a 15-ft. radius. The Sun Soulbeam does not automatically hit all targets, but makes a melee attack using the Monk's current THAC0 (+3 to hit vs. undead). Struck creatures suffer 9d6 points of fire damage (9d6+3 if undead), unless they save vs. Spell for half. In addition, all creatures except the Monk must save vs. Spell or be blinded for 2 hours.
+
+- Level 13: 4x Stunning Blow
+- Level 14: 2 as natural Armor Class
+- Level 14: 42% Magic Resistance
+- Level 15: 1d20 unarmed attacks
+- Level 15: Unarmed attacks are treated as a +3 magical weapon.
+- Level 15: 3½ attacks per round
+- Level 15: -5 on the Armor Class against missile weapons.
+- Level 15: 45% Magic Resistance
+- Level 16: 1 as natural Armor Class
+- Level 16: 48% Magic Resistance
+- Level 16: +1 weapon proficiency
+- Level 17: 51% Magic Resistance
+- Level 17: 5x Stunning Blow
+- Level 18: 0 as natural Armor Class
+- Level 18: 4 attacks per round
+- Level 18: -6 on the Armor Class against missile weapons.
+- Level 18: 54% Magic Resistance
+- Level 19: 57% Magic Resistance
+- Level 20: Becomes immune to non-magical weapons.
+- Level 20: 60% Magic Resistance
+- Level 20: +1 weapon proficiency
+- Level 21: 4½ attacks per round
+- Level 21: -1 as natural Armor Class
+- Level 21: -7 on the Armor Class against missile weapons.
+- Level 21: 63% Magic Resistance
+- Level 21: 6x Stunning Blow
+- Level 22: 66% Magic Resistance
+- Level 23: 69% Magic Resistance
+- Level 24: 5 attacks per round
+- Level 24: -2 as natural Armor Class
+- Level 24: -8 on the Armor Class against missile weapons.
+- Level 24: 72% Magic Resistance
+- Level 24: +1 weapon proficiency
+- Level 25: Unarmed attacks are treated as a +4 magical weapon.
+- Level 25: 75% Magic Resistance
+- Level 25: 7x Stunning Blow
+- Level 26: 78% Magic Resistance
+- Level 27: 5½ attacks per round
+- Level 27: -3 as natural Armor Class
+- Level 27: -9 on the Armor Class against missile weapons.
+- Level 27: 81% Magic Resistance
+- Level 28: 84% Magic Resistance
+- Level 28: +1 weapon proficiency
+- Level 29: 87% Magic Resistance
+- Level 29: 8x Stunning Blow
+- Level 30: 6 attacks per round
+- Level 30: -4 as natural Armor Class
+- Level 30: -10 on the Armor Class against missile weapons.
+- Level 30: 90% Magic Resistance
+- Level 31: 93% Magic Resistance
+- Level 32: 96% Magic Resistance
+- Level 33: 6½ attacks per round
+- Level 33: -12 on the Armor Class against missile weapons.
+- Level 33: 99% Magic Resistance
+- Level 33: 9x Stunning Blow
+- Level 34: 102% Magic Resistance
+- Level 35: -5 as natural Armor Class
+- Level 35: 105% Magic Resistance
+- Level 36: 7 attacks per round
+- Level 36: -13 on the Armor Class against missile weapons.
+- Level 36: 108% Magic Resistance
+- Level 37: 111% Magic Resistance
+- Level 37: 10x Stunning Blow
+- Level 38: 114% Magic Resistance
+- Level 39: 7½ attacks per round
+- Level 39: -14 on the Armor Class against missile weapons.
+- Level 39: 117% Magic Resistance
+- Level 40: -6 as natural Armor Class
+- Level 40: 120% Magic Resistance
+
+– Alignment restricted to lawful good.
+- Hit Die: d8~
+
+@10021300	= ~FIGHTER/MAGE/THIEF: This character can use the abilities of a Fighter, Mage, and Thief. They cannot use their thieving skills while wearing studded leather and cannot cast spells while wearing armor. They may Specialize in, but not Master, any weapon they can use.
+
+CLASS FEATURES:
+
+- can wear helmets
+- can wear any armor and shield
+- can specialize in all weapons (2 points)
+- can specialize in all fighting styles (2 points)
+- can specialize in fighting style with two weapons up to master (3 points)
+
+
+Level Fighter/Mage/Thief
+- Level 1/1/1: +4 weapon proficiency
+- Level 1/1/1: 1 attacks per round
+- Level 1/1/1: +1 spell on 1. Level
+- Level 1/1/1: Backstabbing x2
+- Level 2/2/3: +1 spell on 1. Level
+- Level 3/2/3: +1 weapon proficiency
+- Level 3/3/4: +1 spell on 2. Level
+- Level 4/4/5: Backstabbing x3
+- Level 4/4/5: +1 spell on 1. and 2. Level
+- Level 5/5/6: +1 spell on 1. and 3. Level
+- Level 6/5/6: +1 weapon proficiency
+- Level 6/6/7: +1 spell on 3. Level
+- Level 6/7/7: +1 spell on 2. and 4. Level
+- Level 7/7/7: 1½ attacks per round
+- Level 7/8/8: +1 spell on 4. Level
+- Level 7/8/9: Backstabbing x4
+- Level 8/9/9: +1 spell on 5. Level
+- Level 9/10/11: +1 weapon proficiency
+- Level 9/10/11: +1 spell on 2. and 5. Level
+- Level 9/11/11: +1 spell on 3., 4. and 5. Level
+- Level 10/11/13: Backstabbing x5
+- Level 11/12/13: +1 spell on 4., 5. and 6. Level
+- Level 12/12/14: +1 weapon proficiency
+- Level 13/13/15: 2 attacks per round
+- Level 13/13/15: +1 spell on 1., 2., 3. and 6. Level
+- Level 14/14/16: +1 spell on 7. Level
+- Level 15/14/17: +1 weapon proficiency
+- Level 15/15/18: +1 spell on 4. and 5. Level
+- Level 17/16/20: +1 spell on 6., 7. and 8. Level
+- Level 18/16/21: +1 weapon proficiency
+- Level 18/17/21: +1 spell on 7. and 8. Level~
+
+@1003	= ~Better scripts for your characters~
+@10031	= ~BARD SINGING:~
+@10032	= ~The bard will always sing. (<script>)~
+@10033	= ~THIEF ADVENTURE:~
+@10034	= ~The thief will always be on the lookout for traps. But if he sees an enemy, he will attack him. (<script>)~
+@1004	= ~Zeke is now silent (Makes no sense in English)~
+@1005	= ~Valygar is no longer annoying when he is hiding~
+@1006	= ~No You must gather your party before venturing forth-sound more~
+@10061	= ~You must gather your party before venturing forth~ []
+@1007	= ~Ursa now attacks the player~
+@1008	= ~Knott reacts to the fight in front of the tent~
+@1009	= ~Aldeth hunters join in the fight~
+@1010	= ~Technical improvements to quest items~
+@1011	= ~Hexxat automatically wears her cloak~
+@1012	= ~Previous increases in wisdom are taken into account in Anomen's test~
 @20		= ~Convenience/Cheats~
 @2001	= ~More quests give XP~
 @2002	= ~More items are stealable~
@@ -28,10 +768,16 @@
 @20071	= ~Without 300 Gold from Firebead Elvenhair~
 @20072	= ~With 300 gold from Firebead Elvenhair~
 @2008	= ~New player characters created in BG2 receive the manuals from BG1~
+@2009	= ~Shamans can walk normally in dance~
+@2010	= ~The riddle statue is abbreviated (Beta)~
+@2011	= ~No gender-bound quests~
+@2012	= ~Waukeens collar is stealable~
+@2013	= ~Shaman is considered druid~
 @30		= ~Graphic/UI~
 @3001	= ~Show the Ulgoths Bard-Screen~
 @3002	= ~Uniform colours for NPCs and character creation~
 @3003	= ~The Shadow Dragon has its old graphic~
+@3004	= ~Right and left arrows in priest and mage windows~
 @40		= ~Items~
 @4001	= ~Endless Dart~
 @40011	= ~Sharpened Dart~
@@ -65,9 +811,11 @@ Requires:
  10 Strength
 
 Weight: 8~
+@4003	= ~Rasaad's Boots for All Monks~
 @50		= ~NPCs~
 @501	= ~This requires ToB-Style NPCs from Tweaks Anthology~
 @502	= ~This requires Make Montaron an Assassin from Tweaks Anthology~
 @5001	= ~Better proficiencies and items for NPCs~
 @5002	= ~Better thieving abilities for NPCs~
 @5003	= ~Better spells for NPCs~
+@5004	= ~Better attributes for NPCs~

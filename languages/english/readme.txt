@@ -6,7 +6,7 @@ Components:
 
 1. Improvements
 
-1.1. Better scripts for your characters (BG1EE, BG2EE, IWD1EE)
+1.1. Better scripts for your characters (Beta) (BG1EE, BG2EE, IWD1EE)
 	- The Advanced AI script now causes your characters to stay with an opponent instead of attacking for only one turn.
 	- Thieves, shamans and monks automatically search for traps and illusions
 	- Shamans automatically perform the shaman dance in combat
@@ -68,7 +68,6 @@ Components:
 	- The mage ring of ribald (BG2EE)
 	- Ring +1 from Meronia, Berinvar and Cor Delryn (BG2EE)
 	- Gold belt of Urnst of Reyna (Beta) (BG2EE)
-	- Boots of Speed of Renal Blutskalp (BG2EE)
 
 2.3. Changeable things in the landscape are twice as far reachable (BG1EE, BG2EE, IWD1EE)
 	- Here points in the surroundings are meant where the cursor changes to the two arrows as a circle
@@ -89,15 +88,6 @@ Components:
 		- Spells
 	- Attention is paid to what abilities your character has.
 	- Alternatively, you can get the 300 Gold from Firebead Elvenhair
-
-2.7. New player characters created in BG2 receive the manuals from BG1 (BG2EE)
-	- If your character has exactly 89000 EP at the beginning of BG2EE (which hopefully only non-imported characters have), you will receive:
-		- +1 Strengt
-		- +1 Dexterity
-		- +1 Constitution
-		- +1 Intelligence
-		- +3 Wisdom
-		- +1 Charisma
 
 
 3. Graphic/UI
@@ -159,7 +149,7 @@ Components:
 	- Edwin:	Quarter Staff, Dart
 	- Anomen & Korgan:	Plate mail
 	- Aerie & Edwin:	Traveler's Robe
-	- All: +1 Weapon
+	- All: +1 Waffe
 
 5.2 Better thieving abilities for NPCs (BG1EE)
 	This requires ToB-Style NPCs and Make Montaron an Assassin from Tweaks Anthology
@@ -167,7 +157,7 @@ Components:
 		- 95% Open locks
 		- 100% Find traps
 
-5.2 Better spells for NPCs (BG1EE)
+5.2 BBetter spells for NPCs (Beta) (BG1EE)
 	This requires ToB-Style NPCs from Tweaks Anthology
 	- Branwen:
 		- 3x Cure Light Wounds
@@ -184,14 +174,14 @@ Components:
 	- Tiax:
 		- 2x Cure Light Wounds
 	- Viconia:
-		- 3x Cure Light Wounds
 		- 1x Command
+		- 3x Cure Light Wounds
 	- Xan:
 		- 1x Identify
 		- 2x Sleep
 	- Yeslick:
-		- 3x Cure Light Wounds
 		- 1x Remove Fear
-		- 2x Slow Poison
+		- 1x Slow Poison
 		- 1x Silence
+		- 3x Cure Light Wounds
 	

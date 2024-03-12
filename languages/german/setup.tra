@@ -1,19 +1,755 @@
 @0		= ~Diese Komponente ist fuer dein Spiel nicht verfuegbar~
 @10		= ~Verbesserungen~
-@1001	= ~Bessere Skripte fuer deine Charaktere~
-@10011	= ~BARDE SINGEND:~
-@10012	= ~Der Barde wird immer singen. (<script>)~
-@10013	= ~Der Dieb wird immer nach Fallen Ausschau halten. Wenn er jedoch einen Feind sieht, greift er diesen an. (<script>)~
-@1002	= ~Zeke ist jetzt stumm~
-@1003	= ~Valygar nervt nicht mehr, wenn er sich versteckt~
-@1004	= ~Kein Ihr muesst eure Gruppe erst sammeln-Klang mehr~
-@10041	= ~Ihr müsst Eure Gruppe erst sammeln, bevor Ihr das Gebiet verlassen könnt.~ []
-@1005	= ~Ursa greift jetzt den Spieler an~
-@1006	= ~Knott reagiert auf den Kampf vor dem Zelt~
-@1007	= ~Aldeth Jaeger greifen mit in den Kampf ein~
-@1008	= ~Technische Verbesserungen an Questgegenständen~
-@1009	= ~Hexxat traegt automatisch ihren Umhang (Beta)~
-@1010	= ~Vorherige Weisheitserhöhungen werden bei Anomens Prüfung berücksichtigt~
+@1001	= ~Verbesserung der Charakterwertebeschreibung~
+@10011	= ~STÄRKE: Mit dieser Eigenschaft werden Muskelkraft, Ausdauer und Zähigkeit eines Charakters gemessen. Stärke ist die Grundvoraussetzung für Kämpfer.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Das Maximum geht bei Halborks bis zu 19!
+
+Der Stärkewert hat folgende Auswirkungen:
+
+TN: Trefferwurfsbonus für Nahkampfwaffen
+Sch: Schadensbonus für Nahkampfwaffen
+Tl: Traglast
+Tü: Türen öffnen %
+K: Nur Kriegerklassen (Kämpfer, Waldläufer, Paladin und Barbar)
+
+Wert         TN   Sch    Tl   Tü  
+3                 -3     -1       5     3
+4                 -2     -1      15    4
+5                 -2     -1      15    4
+6                 -1      0      30    6
+7                 -1      0      30    6
+8                  0      0      50    8
+9                  0      0      50    8
+10                0      0      70    10
+11                0      0      70    10
+12                0      0      90    12
+13                0      0      90    12
+14                0      0     120   14
+15                0      0     120   14
+16                0     +1    150   16
+17               +1    +1    170   18
+18               +1    +2    200   20
+18/01-50     +1    +3    220   25   K
+18/51-75     +2    +3    250   30   K
+18/76-90     +2    +4    280   35   K
+18/91-99     +2    +5    320   40   K
+18/00          +3    +6    400   45   K
+19               +3    +7    500   50
+20               +3    +7    600   55
+21               +4    +9    700   60
+22               +4    +10     800   60
+23               +5    +11     1000    70
+24               +6    +12     1200    75
+25               +7    +14     1600    80~
+
+@10012	= ~GESCHICKLICHKEIT: Die Geschicklichkeit misst die Koordination zwischen Augen und Händen, die Beweglichkeit, das Reaktionsvermögen und den Gleichgewichtssinn eines Charakters. Sie ist die Grundvoraussetzung für einen Dieb.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Das Maximum geht bei Halblingen und Elfen bis zu 19!
+
+Der Geschicklichkeitswert hat folgende Auswirkungen:
+
+TF: Trefferwurfsbonus für Fernkampfwaffen
+RK: Rüstungklassenbonus
+SÖ: Schlösser öffnen
+FF: Fallen finden
+TD: Taschendiebstahl
+
+Wert      RK    TF   SÖ      FF      TD
+3            +4      0     N        N        N
+4            +3      0     N        N        N
+5            +2      0     N        N        N
+6            +1      0     N        N        N
+7             0       0     N        N        N
+8             0       0     N        N        N
+9             0       0   -10%  -10%   -15%
+10           0       0    -5%   -10%    -5%
+11           0       0     0%     -5%      0%
+12           0       0     0%     0%       0%
+13           0       0     0%     0%       0%
+14           0       0     0%     0%       0%
+15          -1       0     0%     0%       0%
+16          -2     +1    +5%    0%       0%
+17          -3     +2  +10%    0%     +5%
+18          -4     +2  +15%   +5%   +10%
+19          -4     +3  +20%  +10%  +15%
+20          -4     +3  +25%  +15%  +20%
+21          -5     +4  +30%  +20%  +25%
+22          -5     +4  +35%  +25%  +30%
+23          -5     +4  +40%  +30%  +35%
+24          -6     +5  +45%  +35%  +40%
+25          -6     +5  +50%  +40%  +45%
+
+LB: Leise bewegen (im Schatten versteckt bewegen)
+SV: Im Schatten verstecken
+IE: Illusionen entdecken
+FS: Fallen stellen
+N: Nicht möglich
+M: Möglich
+
+Wert      LB       SV      IE      FS
+3            N          N       N       N
+4            N          N       N       N
+5            N          N       N       N
+6            N          N       N       N
+7            N          N       N       N
+8            N          N       N       N
+9          -20%    -10%   M    -10%
+10         -15%     -5%    M    -10%
+11         -10%      0%    M     -5%
+12          -5%       0%    M       0%
+13           0%       0%    M       0%
+14           0%       0%    M       0%
+15           0%       0%    M       0%
+16           0%       0%    M       0%
+17          +5%     +5%   M       0%
+18         +10%    +10%  M    +5%
+19         +15%    +15%  M   +10%
+20         +18%    +18%  M   +15%
+21         +20%    +20%  M   +20%
+22         +23%    +23%  M   +25%
+23         +25%    +25%  M   +30%
+24         +30%    +30%  M   +35%
+25         +35%    +35%  M   +40%~
+
+@10013	= ~KONSTITUTION: Die Konstitution misst Körperbau, Gesundheit und körperliche Widerstandskraft gegen Entbehrungen, Verletzungen und Krankheiten. Diese Eigenschaft ist für den Waldläufer sehr wichtig.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Das Maximum geht bei Zwergen und Halborks bis zu 19!
+
+Der Konstitutionswert hat folgende Auswirkungen:
+
+TP: Trefferpunkte pro Stufe
+In Klammern: Nur Kriegerklassen (Kämpfer, Waldläufer, Paladin und Barbar)
+RE: Trefferpunkte Regeneration
+M: Müdigkeitsmodifikator
+
+Wert      TP               RE            M
+3            -1                 0           -3
+4            -1                 0           -2
+5            -1                 0           -2
+6             0                 0           -1
+7             0                 0           -1
+8             0                 0           0
+9             0                 0           0
+10            0                 0           0
+11            0                 0           0
+12            0                 0           0
+13            0                 0           0
+14            0                 0           0
+15           +1                0          0
+16           +2                0          1
+17         +2(+3)           0           1
+18         +2(+4)           0           2
+19         +2(+5)           0           2
+20         +2(+5)    1TP/60sek     3
+21         +2(+6)    1TP/50sek      3
+22         +2(+6)    1TP/40sek     4
+23         +2(+6)    1TP/30sek     4
+24         +2(+7)    1TP/20sek     5
+25         +2(+7)    1TP/10sek      5~
+
+@10014	= ~INTELLIGENZ: Die Intelligenz misst das Gedächtnis sowie die Kombinations- und Lernfähigkeit eines Charakters. Sie ist die Grundvoraussetzung für einen Magier.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Das Maximum geht bei Gnomen bis zu 19!
+
+Der Inteligenzwert hat folgende Auswirkungen:
+
+ZL: Wahrscheinlichkeit arkane Zauber zu lernen in %
+MZ: Maximal arkan gelernte Zauber pro Stufe (BGIIEE)
+SK: Sagenkunde
+
+Wert       ZL       MZ           SK
+3              0        0(0)       -20
+4              0        0(0)       -20
+5              0        0(0)       -20
+6              0        0(0)       -20
+7              0        0(0)       -10
+8              0        0(0)       -10
+9             35       6(4)       -10
+10           40       7(5)         0
+11           45        7(5)         0
+12           50        7(6)         0
+13           55        9(6)         0
+14           60        9(7)         0
+15           65       11(7)       +3 
+16           70       11(8)       +5
+17           75       14(8)       +7
+18           85       18(9)      +10
+19           95      Alle(9)    +12
+20           96      Alle(9)    +15
+21           97      Alle(9)    +20
+22           98      Alle(9)    +25
+23           99      Alle(9)    +30
+24          100      Alle(9)    +35
+25          100      Alle(9)    +40~
+
+@10015	= ~WEISHEIT: Die Weisheit misst die Aufgeklärtheit, die Urteilsfähigkeit und den Verstand eines Charakters. Sie ist die Grundvoraussetzung für einen Kleriker.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Der Weisheitswert hat folgende Auswirkungen:
+
+BZ: Göttliche Zaubergrade, die einen Bonuszauber erhalten (Jeder höhere Bonus ist mit den darunter liegenden kompletiv)
+SK: Sagenkunde
+
+Wert       BZ      SK
+3              0        -20
+4              0        -20
+5              0        -20
+6              0        -20
+7              0        -10
+8              0        -10
+9              0        -10
+10            0          0
+11            0          0
+12            0          0
+13            1          0
+14            1          0
+15            2         +3 
+16            2         +5
+17            3         +7
+18            4        +10
+19           1&4       +12
+20           2&4       +15
+21           3&5       +20
+22           4&5       +25
+23           2x5       +30
+24           2x6       +35
+25           6&7       +40~
+
+@10016	= ~CHARISMA: Das Charisma misst die Überzeugungskraft, persönliche Ausstrahlung und Führungseigenschaften eines Charakters. Diese Eigenschaft ist für den Druiden, den Barden und den Paladin wichtig.
+
+Minimum: <MINIMUM>
+Maximum: <MAXIMUM>
+
+Der Charismawert hat folgende Auswirkungen:
+
+LP: Ladenpreise
+
+Wert          LP
+3              100%
+4              100%
+5              100%
+6              100%
+7              100%
+8              100%
+9              100%
+10             100%
+11             100%
+12             100%
+13             100%
+14             100%
+15             100%
+16             95%
+17             90%
+18             85%
+19             80%
+20             75%
+21             75%
+22             75%
+23             75%
+24             75%
+25             75%~
+
+@1002	= ~Verbesserte Klassenbeschreibung (Beta)~
+@10020100	= ~KÄMPFER: Der Kämpfer ist ein Streiter, Soldat und Raufbold. Er steht und fällt mit seinem Wissen über Waffen und Kampftaktiken. Kämpfer findet man in den vordersten Reihen jeder Schlacht, wo sie sich mit Monstern und Schurken im Zweikampf messen. Ein guter Kämpfer muss stark und gesund sein, wenn er überleben will.
+
+EIGENSCHAFTEN:
+
+– kann Helme tragen
+– kann jede Rüstung und jeden Schild tragen
+– kann sich in allen Waffen bis zur Großmeisterschaft spezialisieren (5 Punkte)
+– kann sich in allen Kampfstilen spezialisieren (2 Punkte)
+– kann sich im Kampfstil mit zwei Waffen bis zur Meisterschaft spezialisieren (3 Punkte)
+
+- Stufe 1: +4 Waffenfertigkeiten
+- Stufe 1: 1 Angriff pro Runde
+- Stufe 3: +1 Waffenfertigkeit
+- Stufe 6: +1 Waffenfertigkeit
+- Stufe 7: 1½ Angriffe pro Runde
+- Stufe 9: +1 Waffenfertigkeit
+- Stufe 12: +1 Waffenfertigkeit
+- Stufe 13: 2 Angriffe pro Runde
+- Stufe 15: +1 Waffenfertigkeit
+- Stufe 18: +1 Waffenfertigkeit
+- Stufe 21: +1 Waffenfertigkeit
+- Stufe 24: +1 Waffenfertigkeit
+- Stufe 27: +1 Waffenfertigkeit
+- Stufe 30: +1 Waffenfertigkeit
+- Stufe 33: +1 Waffenfertigkeit
+- Stufe 36: +1 Waffenfertigkeit
+- Stufe 39: +1 Waffenfertigkeit
+
+– Trefferwürfel: W10
+
+Hauptattribut bei Klassenkombination: Stärke~
+
+@10021100	= ~MÖNCH: Mönche sind Krieger, die versuchen, Perfektion zu erreichen, indem sie ihre Körperbeherrschung und ihre geistigen Fähigkeiten trainieren. Sie sind vielseitige Kämpfer, die vor allem im Kampf ohne Waffen und Rüstungen geschult sind. Mönche können zwar keine Zauber wirken, verfügen aber über einzigartige magische Fähigkeiten. Sie sind in der Lage, eine subtile Energie namens Ki durch ihren Körper zu kanalisieren, und können auf diesem Weg Außergewöhnliches vollbringen. Die bekannteste Fähigkeit der Mönche besteht darin, einen Gegner durch einen Schlag mit der bloßen Hand zu betäuben.
+
+EIGENSCHAFTEN:
+
+- kann keine Rüstung tragen
+- kann nur die Waffen verwenden, die ein Dieb verwenden kann (außer Zweihandwaffen)
+- kann sich in Waffenfertigkeiten nur üben (1 Punkt)
+- kann sich im Einhänder-Kampfstil nur üben (1 Punkt), in allen anderen Kampfstilen gar nicht
+- kann sich 2 Punkte schneller als andere Klassen bewegen. Die Bewegungsrate erhöht sich alle 5 Stufen um 1
+- kann einen unbewaffneten Angriff pro Runde ausführen. Alle 3 Stufen erhöht sich die Zahl der unbewaffneten Angriffe um 1/2.
+- erhält einen Bonus von -2 auf Rettungswürfe gegen Zauber
+
+- Stufe 1: 1W6 Schaden durch Fäuste
+- Stufe 1: 1x Betäubender Angriff
+
+Betäubender Angriff: Für jeden erfolgreichen Angriff, den der Mönch in der nächsten Runde ausführt, muss dem Opfer ein Rettungswurf gegen Zauber gelingen oder es wird gelähmt. Diese Fähigkeit modifiziert den normalen Angriff eines Mönches automatisch, spezielles Zielen ist nicht nötig.
+
+- Stufe 1: 9 als natürliche Rüstungsklasse
+- Stufe 1: +2 Waffenfertigkeiten
+- Stufe 1: 1 Angriff pro Runde
+- Stufe 2: 8 als natürliche Rüstungsklasse
+- Stufe 3: 1W8 Schaden durch Fäuste
+- Stufe 3: 1½ Angriffe pro Runde
+- Stufe 3: -1 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 4: 7 als natürliche Rüstungsklasse
+- Stufe 4: +1 Waffenfertigkeit
+- Stufe 5: immun gegen alle Krankheiten, Hast und Verlangsamung
+- Stufe 5: 2x Betäubender Angriff
+- Stufe 6: 1W10 Schaden durch Fäuste
+- Stufe 6: 2 Angriffe pro Runde
+- Stufe 6: 6 als natürliche Rüstungsklasse
+- Stufe 6: -2 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 7: kann sich mit der Fähigkeit „Hand auflegen“ um 2 Trefferpunkte pro Stufe heilen
+- Stufe 8: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 8: 5 als natürliche Rüstungsklasse
+- Stufe 8: +1 Waffenfertigkeit
+- Stufe 9: 1W12 Schaden durch Fäuste
+- Stufe 9: Fäuste gelten als +1 Waffe
+- Stufe 9: 2½ Angriffe pro Runde
+- Stufe 9: erhält einen Bonus von -1 auf alle Rettungswürfe und ist immun gegen Bezauberung
+- Stufe 9: 3x Betäubender Angriff
+- Stufe 9: -3 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 10: 4 als natürliche Rüstungsklasse
+- Stufe 11: immun gegen Gift
+- Stufe 12: Fäuste gelten als +2 Waffe
+- Stufe 12: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 12: 3 als natürliche Rüstungsklasse
+- Stufe 12: 3 Angriffe pro Runde
+- Stufe 12: -4 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 12: +1 Waffenfertigkeit
+- Stufe 13: 1x Vibrierende Handfläche
+
+VIBRIERENDE HANDFLÄCHE: Trifft der Mönch mit seinem nächsten Nahkampfangriff, muss dem Opfer ein Rettungswurf gegen Zauber gelingen oder es stirbt. Diese Fähigkeit modifiziert den normalen Angriff eines Mönches automatisch, spezielles Zielen ist nicht nötig.
+
+- Stufe 13: 4x Betäubender Angriff
+- Stufe 14: 2 als natürliche Rüstungsklasse
+- Stufe 14: 42% Magiewiderstand
+- Stufe 15: 1W20 Schaden durch Fäuste
+- Stufe 15: Fäuste gelten als +3 Waffe
+- Stufe 15: 3½ Angriffe pro Runde
+- Stufe 15: -5 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 15: 45% Magiewiderstand
+- Stufe 16: 1 als natürliche Rüstungsklasse
+- Stufe 16: 48% Magiewiderstand
+- Stufe 16: +1 Waffenfertigkeit
+- Stufe 17: 51% Magiewiderstand
+- Stufe 17: 5x Betäubender Angriff
+- Stufe 18: 0 als natürliche Rüstungsklasse
+- Stufe 18: 4 Angriffe pro Runde
+- Stufe 18: -6 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 18: 54% Magiewiderstand
+- Stufe 19: 57% Magiewiderstand
+- Stufe 20: immun gegen normale Waffen
+- Stufe 20: 60% Magiewiderstand
+- Stufe 20: +1 Waffenfertigkeit
+- Stufe 21: 4½ Angriffe pro Runde
+- Stufe 21: -1 als natürliche Rüstungsklasse
+- Stufe 21: -7 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 21: 63% Magiewiderstand
+- Stufe 21: 6x Betäubender Angriff
+- Stufe 22: 66% Magiewiderstand
+- Stufe 23: 69% Magiewiderstand
+- Stufe 24: 5 Angriffe pro Runde
+- Stufe 24: -2 als natürliche Rüstungsklasse
+- Stufe 24: -8 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 24: 72% Magiewiderstand
+- Stufe 24: +1 Waffenfertigkeit
+- Stufe 25: Fäuste gelten als +4 Waffe
+- Stufe 25: 75% Magiewiderstand
+- Stufe 25: 7x Betäubender Angriff
+- Stufe 26: 78% Magiewiderstand
+- Stufe 27: 5½ Angriffe pro Runde
+- Stufe 27: -3 als natürliche Rüstungsklasse
+- Stufe 27: -9 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 27: 81% Magiewiderstand
+- Stufe 28: 84% Magiewiderstand
+- Stufe 28: +1 Waffenfertigkeit
+- Stufe 29: 87% Magiewiderstand
+- Stufe 29: 8x Betäubender Angriff
+- Stufe 30: 6 Angriffe pro Runde
+- Stufe 30: -4 als natürliche Rüstungsklasse
+- Stufe 30: -10 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 30: 90% Magiewiderstand
+- Stufe 31: 93% Magiewiderstand
+- Stufe 32: 96% Magiewiderstand
+- Stufe 33: 6½ Angriffe pro Runde
+- Stufe 33: -12 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 33: 99% Magiewiderstand
+- Stufe 33: 9x Betäubender Angriff
+- Stufe 34: 102% Magiewiderstand
+- Stufe 35: -5 als natürliche Rüstungsklasse
+- Stufe 35: 105% Magiewiderstand
+- Stufe 36: 7 Angriffe pro Runde
+- Stufe 36: -13 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 36: 108% Magiewiderstand
+- Stufe 37: 111% Magiewiderstand
+- Stufe 37: 10x Betäubender Angriff
+- Stufe 38: 114% Magiewiderstand
+- Stufe 39: 7½ Angriffe pro Runde
+- Stufe 39: -14 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 39: 117% Magiewiderstand
+- Stufe 40: -6 als natürliche Rüstungsklasse
+- Stufe 40: 120% Magiewiderstand
+
+- kann nur rechtschaffener Gesinnung sein
+- Trefferwürfel: W8~
+
+@10021101	= ~MÖNCH DES DUNKLEN MONDES: Der Orden des Dunklen Mondes ist ein verschwiegener Mönchsorden, der den Lehren der dunklen Göttin Shar folgt. Mönche des Dunklen Mondes nutzen körperliche Fähigkeiten, schwarze Magie und mannigfaltige Formen der Verschleierung, um ihre Aktivitäten zu verbergen und mit tödlicher Präzision zuzuschlagen.
+
+EIGENSCHAFTEN:
+
+– +10 % auf „Illusion entdecken“
+– kann Fähigkeitspunkte in „Illusion entdecken“ investieren
+- kann keine Rüstung tragen
+- kann nur die Waffen verwenden, die ein Dieb verwenden kann (außer Zweihandwaffen)
+- kann sich in Waffenfertigkeiten nur üben (1 Punkt)
+- kann sich im Einhänder-Kampfstil nur üben (1 Punkt), in allen anderen Kampfstilen gar nicht
+- kann sich 2 Punkte schneller als andere Klassen bewegen. Die Bewegungsrate erhöht sich alle 5 Stufen um 1
+- kann einen unbewaffneten Angriff pro Runde ausführen. Alle 3 Stufen erhöht sich die Zahl der unbewaffneten Angriffe um 1/2. Der Schaden unbewaffneter Angriffe erhöht sich mit zunehmender Stufe wie folgt:
+- erhält einen Bonus von -2 auf Rettungswürfe gegen Zauber
+
+- Stufe 1: 1W6 Schaden durch Fäuste
+- Stufe 1: +2 Waffenfertigkeiten
+- Stufe 1: 1 Angriff pro Runde
+- Stufe 1: 1x Blindheit
+- Stufe 1: 1x Eisige Faust
+
+EISIGE FAUST: Wenn diese Fähigkeit aktiviert ist, werden die Fäuste des Dunkelmondmönchs von einer eisigen Hülle umgeben. Für eine Phase verursachen die waffenlosen Angriffe des Dunkelmondmönchs bei jedem erfolgreichen Treffer 2 zusätzliche Schadenspunkte durch Kälte.
+
+- Stufe 1: 9 als natürliche Rüstungsklasse
+- Stufe 2: 8 als natürliche Rüstungsklasse
+- Stufe 3: 1W8 Schaden durch Fäuste
+- Stufe 3: 1½ Angriffe pro Runde
+- Stufe 3: 1x Verschwimmen
+- Stufe 3: -1 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 4: 7 als natürliche Rüstungsklasse
+- Stufe 4: +1 Waffenfertigkeit
+- Stufe 5: immun gegen alle Krankheiten, Hast und Verlangsamung
+- Stufe 5: 2x Eisige Faust
+- Stufe 6: 1W10 Schaden durch Fäuste
+- Stufe 6: 2 Angriffe pro Runde
+- Stufe 6: 6 als natürliche Rüstungsklasse
+- Stufe 6: -2 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 7: 1x Vampirgriff
+- Stufe 8: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 8: 5 als natürliche Rüstungsklasse
+- Stufe 8: +1 Waffenfertigkeit
+- Stufe 9: 1W12 Schaden durch Fäuste
+- Stufe 9: Fäuste gelten als +1 Waffe
+- Stufe 9: 2½ Angriffe pro Runde
+- Stufe 9: erhält einen Bonus von -1 auf alle Rettungswürfe und ist immun gegen Bezauberung
+- Stufe 9: 3x Eisige Faust
+- Stufe 9: -3 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 10: 4 als natürliche Rüstungsklasse
+- Stufe 11: immun gegen Gift
+- Stufe 11: 1x Spiegelbild
+- Stufe 12: Fäuste gelten als +2 Waffe
+- Stufe 12: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 12: 3 als natürliche Rüstungsklasse
+- Stufe 12: 3 Angriffe pro Runde
+- Stufe 12: -4 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 12: +1 Waffenfertigkeit
+- Stufe 13: 1x Vibrierende Handfläche
+
+VIBRIERENDE HANDFLÄCHE: Trifft der Mönch mit seinem nächsten Nahkampfangriff, muss dem Opfer ein Rettungswurf gegen Zauber gelingen oder es stirbt. Diese Fähigkeit modifiziert den normalen Angriff eines Mönches automatisch, spezielles Zielen ist nicht nötig.
+
+- Stufe 13: 4x Eisige Faust
+- Stufe 14: 2 als natürliche Rüstungsklasse
+- Stufe 14: 42% Magiewiderstand
+- Stufe 15: 1W20 Schaden durch Fäuste
+- Stufe 15: Fäuste gelten als +3 Waffe
+- Stufe 15: 3½ Angriffe pro Runde
+- Stufe 15: -5 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 15: 45% Magiewiderstand
+- Stufe 16: 1 als natürliche Rüstungsklasse
+- Stufe 16: 48% Magiewiderstand
+- Stufe 16: +1 Waffenfertigkeit
+- Stufe 17: 51% Magiewiderstand
+- Stufe 17: 5x Eisige Faust
+- Stufe 18: 0 als natürliche Rüstungsklasse
+- Stufe 18: 4 Angriffe pro Runde
+- Stufe 18: -6 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 18: 54% Magiewiderstand
+- Stufe 19: 57% Magiewiderstand
+- Stufe 20: immun gegen normale Waffen
+- Stufe 20: 60% Magiewiderstand
+- Stufe 20: +1 Waffenfertigkeit
+- Stufe 21: 4½ Angriffe pro Runde
+- Stufe 21: -1 als natürliche Rüstungsklasse
+- Stufe 21: -7 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 21: 63% Magiewiderstand
+- Stufe 21: 6x Eisige Faust
+- Stufe 22: 66% Magiewiderstand
+- Stufe 23: 69% Magiewiderstand
+- Stufe 24: 5 Angriffe pro Runde
+- Stufe 24: -2 als natürliche Rüstungsklasse
+- Stufe 24: -8 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 24: 72% Magiewiderstand
+- Stufe 24: +1 Waffenfertigkeit
+- Stufe 25: Fäuste gelten als +4 Waffe
+- Stufe 25: 75% Magiewiderstand
+- Stufe 25: 7x Eisige Faust
+- Stufe 26: 78% Magiewiderstand
+- Stufe 27: 5½ Angriffe pro Runde
+- Stufe 27: -3 als natürliche Rüstungsklasse
+- Stufe 27: -9 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 27: 81% Magiewiderstand
+- Stufe 28: 84% Magiewiderstand
+- Stufe 28: +1 Waffenfertigkeit
+- Stufe 29: 87% Magiewiderstand
+- Stufe 29: 8x Eisige Faust
+- Stufe 30: 6 Angriffe pro Runde
+- Stufe 30: -4 als natürliche Rüstungsklasse
+- Stufe 30: -10 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 30: 90% Magiewiderstand
+- Stufe 31: 93% Magiewiderstand
+- Stufe 32: 96% Magiewiderstand
+- Stufe 33: 6½ Angriffe pro Runde
+- Stufe 33: -12 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 33: 99% Magiewiderstand
+- Stufe 33: 9x Eisige Faust
+- Stufe 34: 102% Magiewiderstand
+- Stufe 35: -5 als natürliche Rüstungsklasse
+- Stufe 35: 105% Magiewiderstand
+- Stufe 36: 7 Angriffe pro Runde
+- Stufe 36: -13 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 36: 108% Magiewiderstand
+- Stufe 37: 111% Magiewiderstand
+- Stufe 37: 10x Eisige Faust
+- Stufe 38: 114% Magiewiderstand
+- Stufe 39: 7½ Angriffe pro Runde
+- Stufe 39: -14 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 39: 117% Magiewiderstand
+- Stufe 40: -6 als natürliche Rüstungsklasse
+- Stufe 40: 120% Magiewiderstand
+
+– kann nur rechtschaffen böser Gesinnung sein
+- Trefferwürfel: W8~
+
+@10021102	= ~SONNENSEELENMÖNCH: Sonnenseelenmönche waren einst, zu Zeiten von Nesseril, Anhänger Amaunators. Mittlerweile verehren sie Lathander, Selûne oder Sune. Sonnenseelenmönche sind streng rechtschaffen und nutzen ihre Kampfkünste und magischen Fähigkeiten, um Finsternis und Verderbnis zu vertreiben, wo immer sie diese vorfinden.
+
+EIGENSCHAFTEN:
+
+- kann keine Rüstung tragen
+- kann nur die Waffen verwenden, die ein Dieb verwenden kann (außer Zweihandwaffen)
+- kann sich in Waffenfertigkeiten nur üben (1 Punkt)
+- kann sich im Einhänder-Kampfstil nur üben (1 Punkt), in allen anderen Kampfstilen gar nicht
+- kann sich 2 Punkte schneller als andere Klassen bewegen. Die Bewegungsrate erhöht sich alle 5 Stufen um 1
+- kann einen unbewaffneten Angriff pro Runde ausführen. Alle 3 Stufen erhöht sich die Zahl der unbewaffneten Angriffe um 1/2. Der Schaden unbewaffneter Angriffe erhöht sich mit zunehmender Stufe wie folgt:
+- erhält einen Bonus von -2 auf Rettungswürfe gegen Zauber
+
+- Stufe 1: 1W6 Schaden durch Fäuste
+- Stufe 1: +2 Waffenfertigkeiten
+- Stufe 1: 1 Angriff pro Runde
+- Stufe 1: 9 als natürliche Rüstungsklasse
+- Stufe 2: 8 als natürliche Rüstungsklasse
+- Stufe 2: 1x Sonnenseelenschimmer
+
+SONNENSEELENSCHIMMER: Der Sonnenseelenmönch schleudert eine Lichtwelle aus der offenen Handfläche heraus auf ein einzelnes Ziel. Diese verursacht beim Aufprall für je 2 Stufen 1W8 Schadenspunkte durch Feuer (maximal 5W8). Untote Wesen erleiden 6 zusätzliche Schadenspunkte.
+
+- Stufe 3: 1W8 Schaden durch Fäuste
+- Stufe 3: 1½ Angriffe pro Runde
+- Stufe 3: -1 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 4: 7 als natürliche Rüstungsklasse
+- Stufe 4: +1 Waffenfertigkeit
+- Stufe 5: immun gegen alle Krankheiten, Hast und Verlangsamung
+- Stufe 5: 1x Flammende Fäuste
+
+FLAMMENDE FÄUSTE: Der Sonnenseelenmönch leitet sein inneres Licht in seine waffenlosen Angriffe, wodurch seine Fäuste auflodern und in der nächsten Runde pro Treffer zusätzlich 2W6 Schadenspunkte durch Feuer verursachen. Die Dauer erhöht sich auf 2 Runden ab Stufe 9, 3 Runden ab Stufe 12, 4 Runden ab Stufe 15 und 5 Runden ab Stufe 25. Diese Fähigkeit verbessert normale Angriffe automatisch; ein Waffenwechsel ist nicht nötig.
+
+- Stufe 6: 1W10 Schaden durch Fäuste
+- Stufe 6: 2 Angriffe pro Runde
+- Stufe 6: 6 als natürliche Rüstungsklasse
+- Stufe 6: -2 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 6: 2x Sonnenseelenschimmer
+- Stufe 7: kann sich mit der Fähigkeit „Hand auflegen“ um 2 Trefferpunkte pro Stufe heilen
+- Stufe 8: 1x Höhere Sonne
+
+HÖHERE SONNE: Der Sonnenseelenmönch hüllt sich in Flammen, die als Roter Feuerschild wirken, ihm 50 % Feuerwiderstand gewähren und ihn vor Angriffen innerhalb eines 1,5-m-Radius schützen. Ein Gegner, der den Mönch innerhalb des Radius mit einer Waffe oder einem Zauber trifft, erleidet 1W8+2 Schadenspunkte durch Feuer.
+
+- Stufe 8: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 8: 5 als natürliche Rüstungsklasse
+- Stufe 8: +1 Waffenfertigkeit
+- Stufe 9: 1W12 Schaden durch Fäuste
+- Stufe 9: Fäuste gelten als +1 Waffe
+- Stufe 9: 2½ Angriffe pro Runde
+- Stufe 9: erhält einen Bonus von -1 auf alle Rettungswürfe und ist immun gegen Bezauberung
+- Stufe 9: 3x Betäubender Angriff
+- Stufe 9: -3 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 10: 4 als natürliche Rüstungsklasse
+- Stufe 10: 3x Sonnenseelenschimmer
+- Stufe 11: immun gegen Gift
+- Stufe 12: Fäuste gelten als +2 Waffe
+- Stufe 12: erhält einen Bonus von -1 auf Initiativefaktor
+- Stufe 12: 3 als natürliche Rüstungsklasse
+- Stufe 12: 3 Angriffe pro Runde
+- Stufe 12: -4 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 12: +1 Waffenfertigkeit
+- Stufe 13: 1x Sonnenseelenstrahl
+
+SONNENSEELENSTRAHL: Der Sonnenseelenmönch sendet einen blendenden Lichtstoß aus, der alle anderen Wesen im Umkreis von 4,5 Metern trifft. Der Sonnenseelenstrahl verletzt nicht automatisch alle Ziele, sondern führt einen Nahkampfangriff mit dem aktuellen ETW0 des Mönches aus (+3 gegen Untote). Getroffene Wesen erleiden 9W6 Schadenspunkte durch Feuer (9W6+3 bei Untoten). Falls ihnen ein Rettungswurf gegen Zauber gelingt, erleiden sie nur halben Schaden. Zusätzlich müssen alle Wesen mit Ausnahme des Mönches einen Rettungswurf gegen Zauber bestehen oder sie erblinden für 2 Stunden.
+
+- Stufe 13: 4x Betäubender Angriff
+- Stufe 14: 2 als natürliche Rüstungsklasse
+- Stufe 14: 42% Magiewiderstand
+- Stufe 15: 1W20 Schaden durch Fäuste
+- Stufe 15: Fäuste gelten als +3 Waffe
+- Stufe 15: 3½ Angriffe pro Runde
+- Stufe 15: -5 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 15: 45% Magiewiderstand
+- Stufe 16: 1 als natürliche Rüstungsklasse
+- Stufe 16: 48% Magiewiderstand
+- Stufe 16: +1 Waffenfertigkeit
+- Stufe 17: 51% Magiewiderstand
+- Stufe 17: 5x Betäubender Angriff
+- Stufe 18: 0 als natürliche Rüstungsklasse
+- Stufe 18: 4 Angriffe pro Runde
+- Stufe 18: -6 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 18: 54% Magiewiderstand
+- Stufe 19: 57% Magiewiderstand
+- Stufe 20: immun gegen normale Waffen
+- Stufe 20: 60% Magiewiderstand
+- Stufe 20: +1 Waffenfertigkeit
+- Stufe 21: 4½ Angriffe pro Runde
+- Stufe 21: -1 als natürliche Rüstungsklasse
+- Stufe 21: -7 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 21: 63% Magiewiderstand
+- Stufe 21: 6x Betäubender Angriff
+- Stufe 22: 66% Magiewiderstand
+- Stufe 23: 69% Magiewiderstand
+- Stufe 24: 5 Angriffe pro Runde
+- Stufe 24: -2 als natürliche Rüstungsklasse
+- Stufe 24: -8 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 24: 72% Magiewiderstand
+- Stufe 24: +1 Waffenfertigkeit
+- Stufe 25: Fäuste gelten als +4 Waffe
+- Stufe 25: 75% Magiewiderstand
+- Stufe 25: 7x Betäubender Angriff
+- Stufe 26: 78% Magiewiderstand
+- Stufe 27: 5½ Angriffe pro Runde
+- Stufe 27: -3 als natürliche Rüstungsklasse
+- Stufe 27: -9 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 27: 81% Magiewiderstand
+- Stufe 28: 84% Magiewiderstand
+- Stufe 28: +1 Waffenfertigkeit
+- Stufe 29: 87% Magiewiderstand
+- Stufe 29: 8x Betäubender Angriff
+- Stufe 30: 6 Angriffe pro Runde
+- Stufe 30: -4 als natürliche Rüstungsklasse
+- Stufe 30: -10 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 30: 90% Magiewiderstand
+- Stufe 31: 93% Magiewiderstand
+- Stufe 32: 96% Magiewiderstand
+- Stufe 33: 6½ Angriffe pro Runde
+- Stufe 33: -12 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 33: 99% Magiewiderstand
+- Stufe 33: 9x Betäubender Angriff
+- Stufe 34: 102% Magiewiderstand
+- Stufe 35: -5 als natürliche Rüstungsklasse
+- Stufe 35: 105% Magiewiderstand
+- Stufe 36: 7 Angriffe pro Runde
+- Stufe 36: -13 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 36: 108% Magiewiderstand
+- Stufe 37: 111% Magiewiderstand
+- Stufe 37: 10x Betäubender Angriff
+- Stufe 38: 114% Magiewiderstand
+- Stufe 39: 7½ Angriffe pro Runde
+- Stufe 39: -14 auf die Rüstungsklasse gegen Geschosswaffen
+- Stufe 39: 117% Magiewiderstand
+- Stufe 40: -6 als natürliche Rüstungsklasse
+- Stufe 40: 120% Magiewiderstand
+
+- kann nur rechtschaffener Gesinnung sein
+- Trefferwürfel: W8~
+
+@10021300	= ~KÄMPFER/MAGIER/DIEB: Diese Kombination vereint die Fähigkeiten eines Kämpfers, Magiers und Diebes. Bessere Rüstungen als ein beschlagenes Lederwams verhindern, dass die Diebensfähigkeiten eingesetzt werden können. Außerdem verhindert jede Art von Rüstung, dass Zauber gewirkt werden können. In Waffenfertigkeiten kann sich nur spezialisiert werden (2 Punkte).
+
+EIGENSCHAFTEN:
+
+– kann Helme tragen
+– kann jede Rüstung und jeden Schild tragen
+– kann sich in allen Waffen spezialisieren (2 Punkte)
+– kann sich in allen Kampfstilen spezialisieren (2 Punkte)
+– kann sich im Kampfstil mit zwei Waffen bis zur Meisterschaft spezialisieren (3 Punkte)
+
+Stufe Kämpfer/Magier/Dieb
+- Stufe 1/1/1: +4 Waffenfertigkeiten
+- Stufe 1/1/1: 1 Angriff pro Runde
+- Stufe 1/1/1: +1 Zauber auf 1. Stufe
+- Stufe 1/1/1: Hinterhältiger Angriff x2
+- Stufe 2/2/3: +1 Zauber auf 1. Stufe
+- Stufe 3/2/3: +1 Waffenfertigkeit
+- Stufe 3/3/4: +1 Zauber auf 2. Stufe
+- Stufe 4/4/5: Hinterhältiger Angriff x3
+- Stufe 4/4/5: +1 Zauber auf 1. und 2. Stufe
+- Stufe 5/5/6: +1 Zauber auf 1. und 3. Stufe
+- Stufe 6/5/6: +1 Waffenfertigkeit
+- Stufe 6/6/7: +1 Zauber auf 3. Stufe
+- Stufe 6/7/7: +1 Zauber auf 2. und 4. Stufe
+- Stufe 7/7/7: 1½ Angriffe pro Runde
+- Stufe 7/8/8: +1 Zauber auf 4. Stufe
+- Stufe 7/8/9: Hinterhältiger Angriff x4
+- Stufe 8/9/9: +1 Zauber auf 5. Stufe
+- Stufe 9/10/11: +1 Waffenfertigkeit
+- Stufe 9/10/11: +1 Zauber auf 2. und 5. Stufe
+- Stufe 9/11/11: +1 Zauber auf 3., 4. und 5. Stufe
+- Stufe 10/11/13: Hinterhältiger Angriff x5
+- Stufe 11/12/13: +1 Zauber auf 4., 5. und 6. Stufe
+- Stufe 12/12/14: +1 Waffenfertigkeit
+- Stufe 13/13/15: 2 Angriffe pro Runde
+- Stufe 13/13/15: +1 Zauber auf 1., 2., 3. und 6. Stufe
+- Stufe 14/14/16: +1 Zauber auf 7. Stufe
+- Stufe 15/14/17: +1 Waffenfertigkeit
+- Stufe 15/15/18: +1 Zauber auf 4. und 5. Stufe
+- Stufe 17/16/20: +1 Zauber auf 6., 7. und 8. Stufe
+- Stufe 18/16/21: +1 Waffenfertigkeit
+- Stufe 18/17/21: +1 Zauber auf 7. und 8. Stufe~
+
+@1003	= ~Bessere Skripte fuer deine Charaktere~
+@10031	= ~BARDE SINGEND:~
+@10032	= ~Der Barde wird immer singen. (<script>)~
+@10033	= ~DIEB ABENTEURER:~
+@10034	= ~Der Dieb wird immer nach Fallen Ausschau halten. Wenn er jedoch einen Feind sieht, greift er diesen an. (<script>)~
+@1004	= ~Zeke ist jetzt stumm~
+@1005	= ~Valygar nervt nicht mehr, wenn er sich versteckt~
+@1006	= ~Kein Ihr muesst eure Gruppe erst sammeln-Klang mehr~
+@10061	= ~Ihr müsst Eure Gruppe erst sammeln, bevor Ihr das Gebiet verlassen könnt.~ []
+@1007	= ~Ursa greift jetzt den Spieler an~
+@1008	= ~Knott reagiert auf den Kampf vor dem Zelt~
+@1009	= ~Aldeth Jaeger greifen mit in den Kampf ein~
+@1010	= ~Technische Verbesserungen an Questgegenständen~
+@1011	= ~Hexxat traegt automatisch ihren Umhang (Beta)~
+@1012	= ~Vorherige Weisheitserhöhungen werden bei Anomens Prüfung berücksichtigt~
 @20		= ~Erleichterungen/Cheats~
 @2001	= ~Mehr Quests geben XP~
 @2002	= ~Mehr Gegenstände sind stehlbar~
@@ -28,10 +764,16 @@
 @20071	= ~Ohne 300 Gold von Firebead Elfenhaar~
 @20072	= ~Mit 300 Gold von Firebead Elfenhaar~
 @2008	= ~In BG2 neu erstellte Spielercharaktere erhalten die Leitfaeden aus BG1~
+@2009	= ~Schamanen koennen im Tanz normal laufen~
+@2010	= ~Die Raetselstatue wird abgekuerzt (Beta)~
+@2011	= ~Keine geschlechtergebundenen Quests~
+@2012	= ~Waukeens Halsband ist stehlbar~
+@2013	= ~Schamane gilt als Druide~
 @30		= ~Grafik~
 @3001	= ~Zeige den Ulgoths Bart-Screen~
 @3002	= ~Einheitliche Farben für NPCs und Charaktererstellung~
 @3003	= ~Der Schattendrache hat seine alte Grafik~
+@3004	= ~Rechts und Links Pfeile in Priester und Magier Fenstern~
 @40		= ~Gegenstände~
 @4001	= ~Endloser Wurfpfeil~
 @40011	= ~Geschärfter Wurfpfeil~
@@ -63,9 +805,11 @@ Typ: 1-händig
 Mindeststärke: 10
 
 Gewicht: 8~
+@4003	= ~Rasaads Stiefel fuer alle Moenche~
 @50		= ~NPCs~
 @501	= ~Hierfuer wird TdB-Stil NSCs von Tweaks-Anthology benoetigt~
 @502	= ~Hierfuer wird Make Montaron an Assassin von Tweaks-Anthology benoetigt~
 @5001	= ~Bessere Fertigkeiten und Items für NPCs~
 @5002	= ~Bessere Diebesfähigkeiten für NPCs~
 @5003	= ~Bessere Zauber für NPCs~
+@5004	= ~Bessere Attribute für NPCs~

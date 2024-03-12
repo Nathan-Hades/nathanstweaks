@@ -4,7 +4,7 @@ Komponenten:
 
 1. Verbesserungen
 
-1.1. Bessere Skripte für deine Charaktere (BG1EE, BG2EE, IWD1EE)
+1.1. Bessere Skripte für deine Charaktere (Beta) (BG1EE, BG2EE, IWD1EE)
 	- Das Advanced AI-Skript führt nun dazu, dass deine Charaktere nicht nur eine Runde angreifen, sondern bei einem Gegner bleiben
 	- Diebe, Schamanen und Mönche suchen automatisch nach Fallen und Illusionen
 	- Schamanen führen automatisch den Schamanentanz im Kampf aus
@@ -68,7 +68,6 @@ Komponenten:
 	- Der Magierring von Ribald (BG2EE)
 	- Ring +1 von Meronia, Berinvar und Cor Delryn (BG2EE)
 	- Goldriemen von Urnst von Reyna (Beta) (BG2EE)
-	- Siebenmeilenstiefel von Renal Blutskalp (BG2EE)
 
 2.3. Interaktive Punkte in der Umgebung sind doppelt so weit erreichbar (BG1EE, BG2EE, IWD1EE)
 	- Hier sind Punkte in der Umgebung gemeint, bei denen der Kursor sich in die beiden Pfeile als Kreis ändert
@@ -89,15 +88,6 @@ Komponenten:
 		- Zauber
 	- Dabei wird darauf geachtet, welche Fähigkeiten dein Charakter hat.
 	- Alternativ erhälst du auch die 300 Gold von Firebead Elfenhaar
-
-2.7. In BG2 neu erstellte Spielercharaktere erhalten die Leitfäden aus BG1 (BG2EE)
-	- Hat dein Charakter zu Beginn von BG2EE genau 89000 EP (was hoffentlich nur nicht importierte Charaktere haben), erhälst du:
-		- +1 Stärke
-		- +1 Geschicklichkeit
-		- +1 Konstitution
-		- +1 Intelligenz
-		- +3 Weisheit
-		- +1 Charisma
 
 3. Grafik
 
@@ -166,7 +156,7 @@ Komponenten:
 		- 95% Schlösser öffnen
 		- 100% Fallen finden
 
-5.2 Bessere Zauber für NPCs (BG1EE)
+5.2 Bessere Zauber für NPCs (Beta) (BG1EE)
 	Hierfür wird TdB-Stil NSCs von Tweaks-Anthology benötigt
 	- Branwen:
 		- 3x Leichte Wunden heilen
@@ -183,14 +173,14 @@ Komponenten:
 	- Tiax:
 		- 2x Leichte Wunden heilen
 	- Viconia:
-		- 3x Leichte Wunden heilen
 		- 1x Befehl
+		- 3x Leichte Wunden heilen
 	- Xan:
 		- 1x Identifizieren
 		- 2x Schlaf
 	- Yeslick:
-		- 3x Leichte Wunden heilen
 		- 1x Furcht bannen
-		- 2x Gift verlangsamen
+		- 1x Gift verlangsamen
 		- 1x Stille
+		- 3x Leichte Wunden heilen
 	
